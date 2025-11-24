@@ -1,7 +1,7 @@
 from flask import Flask, render_template_string
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 app = Flask(__name__)
 
@@ -11,7 +11,6 @@ def load_news_data():
         if os.path.exists('myanmar_news_top10.json'):
             with open('myanmar_news_top10.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                # リスト形式のデータをそのまま返す
                 if isinstance(data, list):
                     return data
                 else:
@@ -146,19 +145,6 @@ HTML_TEMPLATE = """
             font-size: 0.9em;
         }
         
-        .news-link {
-            display: inline-block;
-            margin-top: 15px;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .news-link:hover {
-            color: #764ba2;
-        }
-        
         footer {
             text-align: center;
             color: white;
@@ -227,11 +213,12 @@ HTML_TEMPLATE = """
 def index():
     news_list = load_news_data()
     
-    # 統計情報を計算
+    # 日本時間で統計情報を計算
+    jst = timezone(timedelta(hours=9))
     news_count = len(news_list)
     sources = list(set([news.get('source', 'Unknown') for news in news_list]))
     sources_count = len(sources)
-    update_date = datetime.now().strftime('%Y-%m-%d')
+    update_date = datetime.now(jst).strftime('%Y-%m-%d %H:%M JST')
     
     return render_template_string(
         HTML_TEMPLATE,
