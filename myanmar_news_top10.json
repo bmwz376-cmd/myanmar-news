@@ -1,1 +1,30 @@
-[]
+{
+  "last_updated": "2025-11-24 18:28:35",
+  "total_news": 3,
+  "news": [
+    {
+      "title": "ガザで戦争残存者が子どもたちを負傷、イスラエルに殺害された4人の葬儀",
+      "description": "",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/liveblog/2025/11/24/hezbollah-considering-response-israeli-attacks-on-gaza-continue",
+      "country": "国際",
+      "date": "2025-11-24"
+    },
+    {
+      "title": "ウクライナ同盟国、「修正された」和平枠組みを慎重に歓迎",
+      "description": "",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2025/11/24/ukraine-allies-give-cautious-welcome-to-modified-peace-framework",
+      "country": "国際",
+      "date": "2025-11-24"
+    },
+    {
+      "title": "イスラエルによって殺害されたヒズボラ高官、ヘイサム・アリ・タバタバイとは誰ですか?",
+      "description": "",
+      "source": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2025/11/24/who-was-haytham-ali-tabatabai-hezbollah-official-killed-by-israel",
+      "country": "国際",
+      "date": "2025-11-24"
+    }
+  ]
+}
