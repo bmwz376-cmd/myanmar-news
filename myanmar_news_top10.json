@@ -1,30 +1,37 @@
-{
-  "last_updated": "2025-11-24 18:28:35",
-  "total_news": 3,
-  "news": [
-    {
-      "title": "ガザで戦争残存者が子どもたちを負傷、イスラエルに殺害された4人の葬儀",
-      "description": "",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/liveblog/2025/11/24/hezbollah-considering-response-israeli-attacks-on-gaza-continue",
-      "country": "国際",
-      "date": "2025-11-24"
-    },
-    {
-      "title": "ウクライナ同盟国、「修正された」和平枠組みを慎重に歓迎",
-      "description": "",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2025/11/24/ukraine-allies-give-cautious-welcome-to-modified-peace-framework",
-      "country": "国際",
-      "date": "2025-11-24"
-    },
-    {
-      "title": "イスラエルによって殺害されたヒズボラ高官、ヘイサム・アリ・タバタバイとは誰ですか?",
-      "description": "",
-      "source": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2025/11/24/who-was-haytham-ali-tabatabai-hezbollah-official-killed-by-israel",
-      "country": "国際",
-      "date": "2025-11-24"
-    }
-  ]
-}
+[
+  {
+    "title": "Morgan Geyser, 'Slender Man' stabber, captured after fleeing group home",
+    "title_ja": "「スレンダーマン」刺客モーガン・ガイザー、グループホームから逃走後に逮捕",
+    "url": "",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "Invasive Obama flatworm found in Alderney",
+    "title_ja": "外来種のオバマ扁形虫がオルダニーで発見",
+    "url": "",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "Pentagon reviewing 'misconduct' allegations against Senator Mark Kelly",
+    "title_ja": "国防総省、マーク・ケリー上院議員に対する「不正行為」疑惑を検討",
+    "url": "",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "Man charged after homeless man's tent set on fire",
+    "title_ja": "ホームレス男性のテント放火で男を起訴",
+    "url": "",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "First 'Woman of Steel' campaigner dies aged 103",
+    "title_ja": "最初の「ウーマン・オブ・スティール」活動家が103歳で死去",
+    "url": "",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  }
+]
