@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "title": "Myanmar military junta extends state of emergency",
+    "title_ja": "ミャンマー軍事政権、非常事態宣言を延長",
+    "url": "https://www.bbc.com/news/world-asia",
+    "source": "BBC News",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "Rohingya refugees face uncertain future",
+    "title_ja": "ロヒンギャ難民、不確実な未来に直面",
+    "url": "https://www.reuters.com/world/asia-pacific/myanmar",
+    "source": "Reuters",
+    "date": "2025-11-24"
+  },
+  {
+    "title": "Myanmar opposition groups form united front",
+    "title_ja": "ミャンマー野党グループ、統一戦線を形成",
+    "url": "https://www.rfa.org/english/news/myanmar",
+    "source": "Radio Free Asia",
+    "date": "2025-11-24"
+  }
+]
