@@ -21,6 +21,17 @@ def load_news_data():
         print(f"Error loading news data: {e}")
         return []
 
+def get_country_stats(news_list):
+    """国別統計を計算"""
+    country_counts = {}
+    for news in news_list:
+        tag = news.get('country_tag', '不明')
+        country_counts[tag] = country_counts.get(tag, 0) + 1
+    
+    # カウント順にソート
+    sorted_countries = sorted(country_counts.items(), key=lambda x: x[1], reverse=True)
+    return sorted_countries
+
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="ja">
@@ -93,6 +104,42 @@ HTML_TEMPLATE = """
             opacity: 0.9;
         }
         
+        .country-stats {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        .country-stats h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .country-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .country-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .country-item strong {
+            font-size: 1.5em;
+            display: block;
+            margin-top: 5px;
+        }
+        
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -118,9 +165,9 @@ HTML_TEMPLATE = """
             display: inline-block;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 5px 15px;
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 0.85em;
+            font-size: 0.9em;
             margin-bottom: 15px;
             font-weight: 600;
         }
@@ -129,15 +176,15 @@ HTML_TEMPLATE = """
             font-size: 1.3em;
             font-weight: 700;
             color: #2d3748;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             line-height: 1.4;
         }
         
-        .news-title-en {
+        .news-summary {
             font-size: 0.95em;
-            color: #718096;
+            color: #4a5568;
             margin-bottom: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .news-date {
@@ -164,6 +211,10 @@ HTML_TEMPLATE = """
             .stats {
                 grid-template-columns: 1fr;
             }
+            
+            .country-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -171,7 +222,7 @@ HTML_TEMPLATE = """
     <div class="container">
         <header>
             <h1>🇲🇲 ミャンマーニュース</h1>
-            <p>Myanmar News - 最新ニュースを日本語でお届け</p>
+            <p>Myanmar News - 世界中から最新情報を日本語でお届け</p>
         </header>
         
         <div class="stats">
@@ -189,20 +240,35 @@ HTML_TEMPLATE = """
             </div>
         </div>
         
+        {% if country_stats %}
+        <div class="country-stats">
+            <h2>📊 国・地域別ニュース統計</h2>
+            <div class="country-list">
+                {% for country, count in country_stats %}
+                <div class="country-item">
+                    {{ country }}
+                    <strong>{{ count }}件</strong>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
         <div class="news-grid">
             {% for news in news_list %}
             <div class="news-card" onclick="window.open('{{ news.url }}', '_blank')">
                 <span class="news-source">{{ news.source }}</span>
-                <h2 class="news-title">{{ news.title_ja }}</h2>
-                <p class="news-title-en">{{ news.title }}</p>
-                <p class="news-date">📅 {{ news.date }}</p>
+                <h2 class="news-title">{{ news.title }}</h2>
+                <p class="news-summary">{{ news.summary }}</p>
+                <p class="news-date">📅 {{ news.published_date }}</p>
             </div>
             {% endfor %}
         </div>
         
         <footer>
+            <p>🌍 世界中のミャンマーニュースを統合収集</p>
             <p>毎朝8時（日本時間）に自動更新</p>
-            <p>Powered by バイブコーディング × AI</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Powered by バイブコーディング × NewsAPI × AI</p>
         </footer>
     </div>
 </body>
@@ -220,12 +286,16 @@ def index():
     sources_count = len(sources)
     update_date = datetime.now(jst).strftime('%Y-%m-%d %H:%M JST')
     
+    # 国別統計を取得
+    country_stats = get_country_stats(news_list)
+    
     return render_template_string(
         HTML_TEMPLATE,
         news_list=news_list,
         news_count=news_count,
         sources_count=sources_count,
-        update_date=update_date
+        update_date=update_date,
+        country_stats=country_stats
     )
 
 if __name__ == '__main__':
