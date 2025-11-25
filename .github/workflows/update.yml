@@ -22,11 +22,13 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 deep-translator
+          pip install --quiet --no-input requests beautifulsoup4 deep-translator
       
-      - name: Run news collector
+      - name: Run news collector (Hybrid)
+        env:
+          NEWSAPI_KEY: ${{ secrets.NEWSAPI_KEY }}
         run: |
-          python news_collector_pro.py
+          python news_collector_hybrid.py
       
       - name: Commit and push changes
         run: |
@@ -34,4 +36,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git diff --staged --quiet || git commit -m "Auto update news - $(date +'%Y-%m-%d %H:%M')"
-          git push
+          git push origin main --force
