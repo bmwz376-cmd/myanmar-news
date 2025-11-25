@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string
+Copyfrom flask import Flask, render_template_string
 import json
 import os
 from datetime import datetime, timezone, timedelta
@@ -239,7 +239,11 @@ def index():
         with open('myanmar_news_top10.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
         
-        articles = data.get('articles', [])
+        # データがリスト形式の場合とdict形式の場合の両方に対応
+        if isinstance(data, list):
+            articles = data
+        else:
+            articles = data.get('articles', [])
         
         # 国別統計を計算
         country_stats = {}
