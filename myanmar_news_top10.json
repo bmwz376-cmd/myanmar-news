@@ -5,7 +5,7 @@
     "summary": "80歳のノーベル賞受賞者は2021年から投獄されており、心臓疾患のため緊急の治療が必要と言われている。",
     "url": "https://www.rfa.org/english/myanmar/2025/09/05/aung-san-suu-kyi-health-custody/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-03-23",
+    "published_date": "2026-03-24",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -14,7 +14,7 @@
     "summary": "批評家らは、この投票が国軍の権力維持を目的とした見せかけであると予想している。",
     "url": "https://www.rfa.org/english/myanmar/2025/08/18/myanmar-election-december-28/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-03-23",
+    "published_date": "2026-03-24",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -23,7 +23,7 @@
     "summary": "国の一部に戒厳令が発令される中、軍指導者ミン・アウン・フライン氏が権力を維持。",
     "url": "https://www.rfa.org/english/myanmar/2025/07/31/myanmar-state-of-emergency-elections/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-03-23",
+    "published_date": "2026-03-24",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -32,7 +32,7 @@
     "summary": "国連は、バングラデシュのキャンプからロヒンギャを乗せたボート２隻が今月ミャンマー沖で沈没し、生き残ったのはわずか８７人だったと発表した。",
     "url": "https://www.rfa.org/english/myanmar/2025/05/29/myanmar-rohingya-boats-deaths/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-03-23",
+    "published_date": "2026-03-24",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -41,8 +41,44 @@
     "summary": "ミャンマーの選挙結果は1月末に予想されると当局者が語る",
     "url": "https://www.rfa.org/english/myanmar/2025/09/11/myanmar-election-results-january/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-03-23",
+    "published_date": "2026-03-24",
     "country_tag": "🇺🇸アメリカ"
+  },
+  {
+    "title": "ロシア、ウクライナのインドの活動は地域の不安定化を目的としていると主張",
+    "title_en": "Russia says Ukraine’s India activities aimed at destabilising region",
+    "summary": "インドでウクライナ国民６人がテロ容疑で逮捕された。ロシアは、ウクライナがこうした活動を隠蔽しようとしていると主張している。ロシアはまた、NATOとEUがウクライナに送った兵器の追跡は不十分だと述べた。これらの武器は闇市場に流通し、犯罪につながる可能性があります。",
+    "url": "https://economictimes.indiatimes.com/news/india/russia-says-ukraines-india-activities-aimed-at-destabilising-region/articleshow/129737339.cms",
+    "source": "🌍国際 The Times of India",
+    "published_date": "2026-03-22",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "インドU17サッカーチーム: タイ、インドネシア、韓国との親善試合",
+    "title_en": "Indian U17 Football Team: Friendlies Against Thailand, Indonesia, Korea Republic",
+    "summary": "インドのU17男子サッカーチームは、AFC U17アジアカップサウジアラビア2026への準備の一環として、タイでタイ、インドネシア、韓国と親善試合を行う予定だ。",
+    "url": "https://www.rediff.com/sports/report/india-u17-to-play-friendlies-in-thailand/20260322.htm",
+    "source": "🌍国際 Rediff.com",
+    "published_date": "2026-03-22",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "ガザ教義",
+    "title_en": "The Gaza Doctrine",
+    "summary": "「ロアリング・ライオン作戦」のレバノン戦線開始からほぼ2週間が経った3月13日金曜日、イスラエル軍はレバノン南部の村ブルジュ・カラウィヤを爆撃した。このストライキにより医療センターが破壊され、12人の医師、救急隊員、看護師、患者が死亡した。",
+    "url": "http://www.nybooks.com/online/2026/03/22/the-gaza-doctrine-iran-lebanon/",
+    "source": "🌍国際 The New York Review of Books",
+    "published_date": "2026-03-22",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "ミャンマーの選挙とインドのアクトイースト戦略の将来",
+    "title_en": "Myanmar’s Elections and the Future of India’s Act East Strategy",
+    "summary": "ミャンマーでは、2021年2月の軍事クーデター以来初となる全国選挙が2026年1月25日に行われた。紛争が続いており、国民統一政府（NUG）とその同盟武装勢力が主導するボイコット運動にも関わらず、投票は開票数265の選挙で実施された。",
+    "url": "https://www.fairobserver.com/election-news/myanmars-elections-and-the-future-of-indias-act-east-strategy/",
+    "source": "🌍国際 Fair Observer",
+    "published_date": "2026-03-22",
+    "country_tag": "🌍国際"
   },
   {
     "title": "pytest-translate が PyPI に追加されました",
@@ -50,42 +86,6 @@
     "summary": "あなたの言語での pytest ターミナル出力 - 134 言語をサポート",
     "url": "https://pypi.org/project/pytest-translate/",
     "source": "🌍国際 Pypi.org",
-    "published_date": "2026-03-21",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "ブーン、ヴィレッジ ロックスターズ 2 は劇場での大ヒットにもかかわらず輝きを放つ",
-    "title_en": "Boong, Village Rockstars 2 shine despite blockbuster dominance in theatres",
-    "summary": "インド北東部の 2 本の映画が劇場での期待を裏切っています。ラクシュミプリヤ・デヴィ監督のマニプリ映画『ブーン』とリマ・ダス監督のアッサム映画『ヴィレッジ・ロックスターズ２』は３週目に入っている。 「ブーン」は最近、インドの作品としては初となる英国アカデミー賞を受賞した。た…",
-    "url": "https://economictimes.indiatimes.com/opinion/et-commentary/boong-village-rockstars-2-shine-despite-blockbuster-dominance-in-theatres/articleshow/129723136.cms",
-    "source": "🌍国際 The Times of India",
-    "published_date": "2026-03-21",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "インド国家捜査局がテロ活動に関与した容疑でウクライナ人と米国人を拘束したことについて外務省報道官マリア・ザハロワ氏がコメント",
-    "title_en": "Comment by Foreign Ministry Spokeswoman Maria Zakharova on India's National Investigation Agency detaining Ukrainian and US citizens on charges of being implicated in terrorist activities",
-    "summary": "「インドのメディアは、3月13日にインド国家捜査局によって6人のウクライナ国民と1人の米国人がニューデリー、ラクナウ、コルカタの国際空港で拘束され拘留されたと報じた。」",
-    "url": "https://www.globalsecurity.org/intell/library/news/2026/intell-260320-russia-mfa01.htm",
-    "source": "🌍国際 Globalsecurity.org",
-    "published_date": "2026-03-21",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "ヒンドゥークシュ・ヒマラヤの急速な氷河融解が緊急の気候変動対策を示唆",
-    "title_en": "Rapid glacier melt in Hindu Kush Himalaya signals urgent climate action",
-    "summary": "カトマンズ: 地球気温の上昇により、ヒンドゥークシュ・ヒマラヤ (HKH) 氷河の融解が加速しており、最近の研究では、氷の消失速度が 2000 年以来 2 倍になっていることが示されています。国際統合統合センターの最新報告書では…",
-    "url": "https://english.khabarhub.com/2026/21/540284/",
-    "source": "🌍国際 Khabarhub.com",
-    "published_date": "2026-03-21",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "香港フィルマート 2026: アジアの話題の映画およびエンターテイメント コンテンツ市場から得た 6 つのポイント",
-    "title_en": "Hong Kong FilMart 2026: Six Takeaways From Asia’s Buzzy Film and Entertainment Content Marketplace",
-    "summary": "30 年が経った今でも、FilMart は部屋を埋める方法を知っています。香港コンベンション＆エキシビションセンターは、近年見られたものよりもパンデミック前の市場のピークのように感じられると出席者が言うほどの密度で賑わっていました。",
-    "url": "https://variety.com/2026/film/markets-festivals/hong-kong-filmart-2026-takeaways-1236695795/",
-    "source": "🌍国際 Variety",
     "published_date": "2026-03-21",
     "country_tag": "🌍国際"
   }
