@@ -5,7 +5,7 @@
     "summary": "詳細は、当局者らが反対派と争ったり、選挙批判者を訴追したりする中で明らかになる。",
     "url": "https://www.rfa.org/english/myanmar/2025/09/11/myanmar-election-results-january/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-04-26",
+    "published_date": "2026-04-27",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -14,7 +14,7 @@
     "summary": "80歳のノーベル賞受賞者は2021年から投獄されており、心臓疾患のため緊急の治療が必要と言われている。",
     "url": "https://www.rfa.org/english/myanmar/2025/09/05/aung-san-suu-kyi-health-custody/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-04-26",
+    "published_date": "2026-04-27",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -23,7 +23,7 @@
     "summary": "批評家らは、この投票が国軍の権力維持を目的とした見せかけであると予想している。",
     "url": "https://www.rfa.org/english/myanmar/2025/08/18/myanmar-election-december-28/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-04-26",
+    "published_date": "2026-04-27",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -32,7 +32,7 @@
     "summary": "国の一部に戒厳令が発令される中、軍指導者ミン・アウン・フライン氏が権力を維持。",
     "url": "https://www.rfa.org/english/myanmar/2025/07/31/myanmar-state-of-emergency-elections/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-04-26",
+    "published_date": "2026-04-27",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -41,16 +41,43 @@
     "summary": "ミャンマーで祭りの抗議活動でストライキ、少なくとも20人死亡 住民発表",
     "url": "https://www.rfa.org/english/myanmar/2025/10/08/paramotor-festival-protest-strike/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-04-26",
+    "published_date": "2026-04-27",
     "country_tag": "🇺🇸アメリカ"
   },
   {
-    "title": "インドネシア、ホルムズから距離を置きマラッカ海峡有料通話を停止",
-    "title_en": "Indonesia Shuts Down Malacca Strait Toll Talk, Distancing From Hormuz",
-    "summary": "インドネシアは、財務大臣の発言が世界の海運ネットワーク全体に警戒を呼び起こしたことを受け、国際法に基づく自由な海上航行の約束を再確認した。",
-    "url": "http://wwd.com/sourcing-journal/logistics/strait-of-malacca-indonesia-free-passage-tolls-iran-hormuz-pay-to-pass-malaysia-singapore-container-shipping-1238929412/",
-    "source": "🌍国際 WWD",
-    "published_date": "2026-04-24",
+    "title": "中国のトップ外交官が地域歴訪で軍事支援を受けるミャンマー政府指導者と会談",
+    "title_en": "China’s top diplomat meets leader of Myanmar's military-backed government on regional tour",
+    "summary": "中国政府が地域連携を深める中、中国のトップ外交官がミャンマーの首都を訪問し、軍事支援を受けた政府指導者と会談した",
+    "url": "https://abcnews.com/International/wireStory/chinas-top-diplomat-meets-leader-myanmars-military-backed-132380544",
+    "source": "🌍国際 Abcnews.com",
+    "published_date": "2026-04-25",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "偽の CAPTCHA 詐欺が認証クリックを悪用して高額な国際テキストを送信",
+    "title_en": "Fake CAPTCHA Scam Abuses Verification Clicks to Send Costly International Texts",
+    "summary": "Infoblox の調査により、偽の CAPTCHA と戻るボタンのハイジャックを使用して被害者を騙し、高額な国際テキストを送信させる大規模な Click2SMS 詐欺スキームが明らかになりました。",
+    "url": "https://hackread.com/fake-captcha-pages-exploit-clicks-send-texts/",
+    "source": "🌍国際 HackRead",
+    "published_date": "2026-04-25",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "Discord Sleuths が Anthropic の神話への不正アクセスを取得",
+    "title_en": "Discord Sleuths Gained Unauthorized Access to Anthropic’s Mythos",
+    "summary": "さらに: スパイ会社が世界的な通信の弱点を突いてターゲットを追跡し、50 万件の英国の健康記録がアリババで売りに出され、Apple が明らかな通知バグにパッチを当てます。",
+    "url": "https://www.wired.com/story/security-news-this-week-discord-sleuths-gained-unauthorized-access-to-anthropics-mythos/",
+    "source": "🌍国際 Wired",
+    "published_date": "2026-04-25",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "私たちの問題種はナルシシズムですか?",
+    "title_en": "Is Our Problem Species Narcissism?",
+    "summary": "人間は依然として大量虐殺を行う唯一の生き物である。\n私たちの問題はナルシシズムですか?最初に登場したのはThe American Conservativeです。",
+    "url": "https://www.theamericanconservative.com/is-our-problem-species-narcissism/",
+    "source": "🌍国際 The American Conservative",
+    "published_date": "2026-04-25",
     "country_tag": "🌍国際"
   },
   {
@@ -58,34 +85,7 @@
     "title_en": "U.S. launches sweeping crackdown on Southeast Asia cyberscams and sanctions Cambodian senator",
     "summary": "米国当局は、ジャニーン・ピロ連邦検事が金曜日、トランプ政権が中国の多国籍組織に対して開始した「新たな戦域」と特徴づけたものの一環として、東南アジアのサイバー詐欺活動に対する徹底的な取り締まりを発表した。",
     "url": "https://www.pbs.org/newshour/world/u-s-launches-sweeping-crackdown-on-southeast-asia-cyberscams-and-sanctions-cambodian-senator",
-    "source": "🌍国際 PBS",
-    "published_date": "2026-04-24",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "ジョーダン・ライトの友人たちがタイの排水溝で遺体となって発見されたTOWIEスターの埋葬に別れを告げる",
-    "title_en": "Friends of Jordan Wright say farewell as TOWIE star is laid to rest after he was found dead in Thailand drainage ditch",
-    "summary": "元TOWIEスターのジョーダン・ライトの友人らは、3月14日にプーケットのタラン地区の排水溝で遺体で発見されてから数週間後に安置された彼を「決して忘れることはないだろう」と語った。",
-    "url": "https://www.dailymail.com/news/article-15762739/Friends-Jordan-Wright-farewell-TOWIE-dead-Thailand-ditch.html",
-    "source": "🌍国際 Dailymail.com",
-    "published_date": "2026-04-24",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "ソマリア沖で海賊が石油タンカーをハイジャック",
-    "title_en": "Pirates hijack oil tanker off the coast of Somalia",
-    "summary": "インド洋のこの地域ではかつては悪名高い海賊行為が近年復活しています。",
-    "url": "https://www.bbc.com/news/articles/c78l26yn981o?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D",
-    "source": "🌍国際 BBC News",
-    "published_date": "2026-04-24",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "世界の飢餓の3分の2が紛争に見舞われた10カ国に集中",
-    "title_en": "Two-thirds of global hunger concentrated in 10 conflict-hit countries",
-    "summary": "世界の飢餓のシェアが一部の紛争国に集中しており、深刻な食料不安に直面している国民の3分の2がわずか10カ国に集中していると、国連機関が支援する主要な国際報告書が警告している。全文を読む…",
-    "url": "https://news.un.org/en/story/2026/04/1167374",
-    "source": "🇲🇲ミャンマー UN News",
+    "source": "🇲🇲ミャンマー PBS",
     "published_date": "2026-04-24",
     "country_tag": "🇲🇲ミャンマー"
   }
