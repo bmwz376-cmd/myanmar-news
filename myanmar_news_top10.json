@@ -5,7 +5,7 @@
     "summary": "目撃者によると、電動パラグライダーが群衆に爆弾２発を投下したという。",
     "url": "https://www.rfa.org/english/myanmar/2025/10/08/paramotor-festival-protest-strike/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-05-25",
+    "published_date": "2026-05-26",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -14,7 +14,7 @@
     "summary": "詳細は、当局者らが反対派と争ったり、選挙批判者を訴追したりする中で明らかになる。",
     "url": "https://www.rfa.org/english/myanmar/2025/09/11/myanmar-election-results-january/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-05-25",
+    "published_date": "2026-05-26",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -23,7 +23,7 @@
     "summary": "80歳のノーベル賞受賞者は2021年から投獄されており、心臓疾患のため緊急の治療が必要と言われている。",
     "url": "https://www.rfa.org/english/myanmar/2025/09/05/aung-san-suu-kyi-health-custody/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-05-25",
+    "published_date": "2026-05-26",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -32,7 +32,7 @@
     "summary": "批評家らは、この投票が国軍の権力維持を目的とした見せかけであると予想している。",
     "url": "https://www.rfa.org/english/myanmar/2025/08/18/myanmar-election-december-28/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-05-25",
+    "published_date": "2026-05-26",
     "country_tag": "🇺🇸アメリカ"
   },
   {
@@ -41,8 +41,44 @@
     "summary": "ミャンマー軍事政権、国全体で選挙を実施できないことを認める",
     "url": "https://www.rfa.org/english/myanmar/2025/10/16/myanmar-elections-european-union-observers/",
     "source": "🇺🇸アメリカ Radio Free Asia",
-    "published_date": "2026-05-25",
+    "published_date": "2026-05-26",
     "country_tag": "🇺🇸アメリカ"
+  },
+  {
+    "title": "ロシアのインターネット弾圧が裏目に出ているさらなる兆候",
+    "title_en": "More Signs Russia’s Internet Crackdown Is Backfiring",
+    "summary": "ロシアはインターネットを遮断し、プーチン大統領の側近に亀裂が生じ、国民の不満が高まっている。ロシアがキエフを強打したこともまた気を散らすことになる。",
+    "url": "https://www.forbes.com/sites/natashalindstaedt/2026/05/24/more-signs-russias-internet-crackdown-is-backfiring/",
+    "source": "🌍国際 Forbes",
+    "published_date": "2026-05-24",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "バングラデシュ、外国企業に有利な条件で新たな海洋石油・ガス入札を開始",
+    "title_en": "Bangladesh launches fresh offshore oil, gas tender with sweeter terms for foreign firms",
+    "summary": "バングラデシュは海洋石油・ガス探査への海外投資を求めている。同国は国内ガス供給を増やし、高価なLNG輸入への依存を減らすことを目指している。新しい生産分与契約は、国際的な競争相手にとってより魅力的な条件を提供します。",
+    "url": "https://economictimes.indiatimes.com/industry/energy/oil-gas/bangladesh-launches-fresh-offshore-oil-gas-tender-with-sweeter-terms-for-foreign-firms/articleshow/131292506.cms",
+    "source": "🌍国際 The Times of India",
+    "published_date": "2026-05-24",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "PyPI に Ricelang が追加されました",
+    "title_en": "ricelang added to PyPI",
+    "summary": "東南アジア言語 (ビルマ語、カレン語、チン語、東カヤー語、シャン語など) の言語識別とトークン化 - 「ricelang」CLI も公開します",
+    "url": "https://pypi.org/project/ricelang/",
+    "source": "🌍国際 Pypi.org",
+    "published_date": "2026-05-24",
+    "country_tag": "🌍国際"
+  },
+  {
+    "title": "カタールのメディアは10月7日以降、世界的な反ユダヤ主義を煽った - 世界は注目すべきである [米国におけるカタールの外国ロビー活動の一人当たり支出は781ドルを超えた]",
+    "title_en": "Qatari media fueled global antisemitism after Oct. 7 - the world must take notice [Qatari foreign lobby spending in the US per capita was over $781]",
+    "summary": "私たちはポリティカル・コレクトネスを脇に置いて、西側世界に広がっている反ユダヤ主義の新たな波が「輸入されたもの」であり、カタールのメディアが重要な役割を果たしているということを認める必要がある。私は反ユダヤ主義の学者ではありませんが、12 年以上を費やしたジャーナリストです。",
+    "url": "https://freerepublic.com/focus/f-news/4380693/posts",
+    "source": "🌍国際 Freerepublic.com",
+    "published_date": "2026-05-24",
+    "country_tag": "🌍国際"
   },
   {
     "title": "マニプールで和平会議後に待ち伏せされ、バプテスト派牧師３人が死亡",
@@ -52,41 +88,5 @@
     "source": "🌍国際 Christiandaily.com",
     "published_date": "2026-05-23",
     "country_tag": "🌍国際"
-  },
-  {
-    "title": "AIがロシアの戦死した兵士に別れを告げる",
-    "title_en": "AI farewells for Russia’s dead soldiers",
-    "summary": "「バーチャルお別れ」がロシアのソーシャルメディアでトレンドになっている。戦争で死亡し、家族から費用を支払われた兵士を描いた AI 生成ビデオが、AI アーティストによって制作されています。彼らは兵士たちが彼のところに昇っていく幻想的なシーンを示しています…",
-    "url": "https://www.bbc.co.uk/programmes/p0nmy299",
-    "source": "🌍国際 BBC News",
-    "published_date": "2026-05-23",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "西アジア危機に端を発した世界的な燃料高騰のなか、インドは燃料価格の上昇は最小限にとどまるとみている",
-    "title_en": "India sees minimal fuel price hike amid global surge triggered by West Asia crisis",
-    "summary": "この上昇は、国際原油市場の変動にも関わらず、国内燃料価格がほぼ76日間ほぼ安定していた後に生じた。",
-    "url": "https://www.thehindubusinessline.com/markets/commodities/india-sees-minimal-fuel-price-hike-amid-global-surge-triggered-by-west-asia-crisis/article71014317.ece",
-    "source": "🌍国際 BusinessLine",
-    "published_date": "2026-05-23",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "北朝鮮女子選手が韓国でアジアクラブチャンピオンに輝いた",
-    "title_en": "North Korean women crowned Asian club champions in South",
-    "summary": "韓国、水原：8年ぶりに韓国を訪問した北朝鮮のスポーツチームは、土曜日（5月23日）のアジア女子チャンピオンズリーグで優勝した後、世界と戦う準備ができていると述べた。ネゴヒャン女子FCは日本の東京ヴェルディベレーザを1-0で破った…",
-    "url": "https://www.channelnewsasia.com/east-asia/north-korea-women-football-asia-club-champion-6137866",
-    "source": "🌍国際 CNA",
-    "published_date": "2026-05-23",
-    "country_tag": "🌍国際"
-  },
-  {
-    "title": "緊急事態: H&M がバングラデシュの注文を削減すると報じられている",
-    "title_en": "On the Line: H&M Reportedly Cuts Bangladesh Orders",
-    "summary": "またこの版では、サプライヤーが冷房を止めたためバングラデシュの縫製労働者は暑苦しくなり、国際司法裁判所は労働者のストライキの権利を保護する判決を下し、ケリングの抗議活動は「大成功」とみなされた。",
-    "url": "http://wwd.com/sourcing-journal/sustainability/on-the-line-h-and-m-bangladesh-orders-kering-strike-1238979555/",
-    "source": "🇲🇲ミャンマー WWD",
-    "published_date": "2026-05-22",
-    "country_tag": "🇲🇲ミャンマー"
   }
 ]
