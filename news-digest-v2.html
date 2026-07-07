@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NL-DG ミャンマーニュース | 2026年7月7日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#f0f4f9;color:#222;line-height:1.8;}
+a{color:inherit;text-decoration:none;}
+
+.site-header{background:#0D2B5E;padding:16px 0;}
+.site-header .inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.site-logo{color:#fff;font-size:20px;font-weight:900;letter-spacing:2px;}
+.site-logo span{color:#C9A84C;}
+.site-tagline{color:rgba(255,255,255,0.55);font-size:13px;}
+
+.page-title-bar{background:linear-gradient(135deg,#0D2B5E,#1a4a8a);padding:52px 0 44px;}
+.page-title-bar .inner{max-width:1100px;margin:0 auto;padding:0 24px;}
+.edition{color:#C9A84C;font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+.page-title-bar h1{color:#fff;font-size:30px;font-weight:900;line-height:1.45;margin-bottom:14px;}
+.page-title-bar .subtitle{color:rgba(255,255,255,0.6);font-size:14px;}
+
+.main-wrap{background:#f0f4f9;padding:44px 0 60px;}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+.editorial{background:#fff;border-left:5px solid #C9A84C;border-radius:0 12px 12px 0;padding:26px 30px;margin-bottom:36px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.editorial .label{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.editorial p{font-size:15px;line-height:1.95;color:#444;}
+.editorial .sig{margin-top:14px;font-size:13px;color:#999;}
+.editorial .sig strong{color:#0D2B5E;}
+
+.section-label{font-size:12px;font-weight:700;color:#0D2B5E;letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;padding-bottom:10px;border-bottom:2px solid #C9A84C;}
+
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;margin-bottom:0;}
+
+.news-card{background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.07);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,0.12);}
+
+.card-thumb{width:100%;height:170px;display:flex;align-items:center;justify-content:center;font-size:56px;flex-shrink:0;}
+.thumb-politics{background:linear-gradient(135deg,#162d58,#2a4fa8);}
+.thumb-society{background:linear-gradient(135deg,#1b4332,#40916c);}
+.thumb-economy{background:linear-gradient(135deg,#6b3a0f,#b07d2e);}
+.thumb-labor{background:linear-gradient(135deg,#3b1542,#7b2f84);}
+.thumb-construction{background:linear-gradient(135deg,#0f3547,#1a7aad);}
+
+.card-body{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column;}
+.card-meta{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;align-items:center;}
+.tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;}
+.t-politics{background:#162d58;color:#fff;}
+.t-society{background:#1b4332;color:#fff;}
+.t-economy{background:#6b3a0f;color:#fff;}
+.t-labor{background:#3b1542;color:#fff;}
+.t-construction{background:#0f3547;color:#fff;}
+.t-source{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;font-weight:500;}
+.card-date{font-size:12px;color:#aaa;margin-left:auto;}
+
+.card-title{font-size:16px;font-weight:700;line-height:1.55;margin-bottom:10px;color:#111;}
+.card-summary{font-size:14px;color:#555;line-height:1.85;flex:1;}
+
+.japan-box{margin-top:16px;background:#f5f8ff;border-left:3px solid #0D2B5E;padding:13px 15px;border-radius:0 6px 6px 0;}
+.japan-box .jlabel{font-size:10px;font-weight:700;color:#0D2B5E;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:5px;}
+.japan-box p{font-size:13px;color:#444;line-height:1.8;}
+
+.card-link{margin-top:14px;font-size:13px;color:#0D2B5E;font-weight:700;display:inline-flex;align-items:center;gap:4px;}
+.card-link:hover{color:#C9A84C;}
+
+.site-footer{background:#0D2B5E;color:rgba(255,255,255,0.55);text-align:center;padding:32px 24px;font-size:13px;margin-top:0;}
+.site-footer strong{color:#C9A84C;}
+
+@media(max-width:640px){
+  .page-title-bar h1{font-size:22px;}
+  .news-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <div class="site-logo">NL-<span>DG</span>　ミャンマーニュース</div>
+    <div class="site-tagline">毎朝8時更新　|　建設・人材業界向け</div>
+  </div>
+</header>
+
+<div class="page-title-bar">
+  <div class="inner">
+    <div class="edition">2026年7月7日（月）　第1号</div>
+    <h1>ミャンマー最新ニュース<br>日本の建設・人材業界が知っておくべき10の動き</h1>
+    <div class="subtitle">情報源：MizzimaTV / DVB / BBC Myanmar　｜　編集：生川 友之（株式会社 NL-DG）</div>
+  </div>
+</div>
+
+<div class="main-wrap">
+<div class="container">
+
+  <div class="editorial">
+    <div class="label">編集長より</div>
+    <p>
+      今週のミャンマー情勢は、人材送り出し・建設業界の両面で注目すべき動きが相次ぎました。政治情勢だけでなく、労働移民の動向・自然災害・教育問題など、日本の受け入れ現場に直結するニュースを10本厳選しました。数字と背景を中心に、日本側の文脈でわかりやすくお伝えします。
+    </p>
+    <div class="sig"><strong>生川 友之</strong>　株式会社 NL-DG 代表</div>
+  </div>
+
+  <div class="section-label">本日のトップニュース 10選</div>
+
+  <div class="news-grid">
+
+    <!-- 1 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-politics">🏛️</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-politics">政治</span>
+          <span class="tag t-source">MizzimaTV</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">アウンサン将軍の銅像9体、軍が2年間で組織的に破壊・撤去</div>
+        <div class="card-summary">
+          ミャンマー独立の父・アウンサン将軍（1947年暗殺）の銅像が全国9か所で撤去された。殉難者記念日（7月19日）を意識した時期の撤去で、国民の反発が急拡大している。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            アウンサン将軍は日本の支援を受けて独立運動を展開した歴史があり、日緬関係の象徴的人物です。銅像撤去への国民の怒りは反軍感情をさらに高め、政情不安の長期化を示す指標として注目されています。
+          </p>
+        </div>
+        <a class="card-link" href="https://www.youtube.com/watch?v=6xYV1nFCqnE" target="_blank">▶ MizzimaTV で見る</a>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-labor">✈️</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-labor">労働移民</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">2026年に約70万人がタイへ流入　労働移民が過去最多ペース</div>
+        <div class="card-summary">
+          2026年上半期だけで約70万人のミャンマー国民がタイへ入国。その大半が建設・農業・製造業への就労目的で、過去最多ペースとなっている。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            日本の特定技能・技能実習で受け入れ可能なミャンマー人材は、タイとも競合関係にあります。タイはビザ不要・渡航費も安く、敷居が低い。日本が採用競争で優位に立つには、給与水準・キャリアパスの明確化が不可欠な状況です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-society">🌪️</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-society">災害</span>
+          <span class="tag t-source">DVB / MizzimaTV</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">強風・竜巻がミャンマー8地域を直撃　広範囲で建物・農地被害</div>
+        <div class="card-summary">
+          モンスーン期に入り、中部・南部8地域で強風と竜巻が相次いで発生。住宅倒壊・農地冠水が多数報告されており、気象当局は警戒継続を呼びかけている。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            毎年6〜10月のモンスーン期は、地方出身の技能実習候補者の家族が自然災害の被害を受けやすい時期です。家族への仕送りニーズが高まり、来日を急ぐ候補者が増加する傾向があります。採用・入国スケジュールの確認は早めに行うことが現実的です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-labor">📡</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-labor">通信・IT</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">ミャンマー国内でStarlink遮断　サイバー詐欺拠点への規制と関連か</div>
+        <div class="card-summary">
+          軍によるサイバー詐欺拠点の取り締まりに関連し、Starlinkを含む衛星インターネットが国内で遮断された模様。通信制限が再び拡大している。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            ミャンマーのサイバー詐欺問題は、日本人被害者も多数出ており日本でも報道されています。インターネット遮断が広がると、現地での日本語オンライン研修や書類手続きのデジタル化が滞り、入国準備の遅延につながるリスクがあります。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-society">🚣</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-society">人道危機</span>
+          <span class="tag t-source">MizzimaTV</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">カニ地域で住民約1万人が再び避難　軍の攻撃が継続</div>
+        <div class="card-summary">
+          ミャンマー中部カニ地域で軍艦艇による攻撃が続き、住民約1万人が再度の避難を強いられた。人道支援団体は現地へのアクセスが遮断されていると報告。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            国内避難民（IDP）の累計は200万人超とされ、都市部への人口流入が続いています。ヤンゴン周辺の労働市場に流入した若年層が、日本向け人材の候補層を形成しています。ただし、出身地によって戸籍・書類の取得が困難なケースがあります。
+          </p>
+        </div>
+        <a class="card-link" href="https://www.youtube.com/watch?v=6xYV1nFCqnE" target="_blank">▶ MizzimaTV で見る</a>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-labor">🧑‍🎓</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-labor">教育・人材</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月3日</span>
+        </div>
+        <div class="card-title">ミャンマー大学入試の合格率が52%に低下　数百万人が受験を断念</div>
+        <div class="card-summary">
+          軍事クーデター後の教育混乱により大学入試合格率が52%まで低下。学校閉鎖・教師不足・安全上の懸念から、数百万人の若者が高等教育を断念している。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            高等教育が機能しない状況は、技能・職業訓練への関心を高めています。特定技能・技能実習制度を通じた日本での就労は、学歴に代わるキャリア形成の選択肢として若年層に広がっています。日本語・技術研修の入口が広がっている局面です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-construction">🏗️</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-construction">建設・司法</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月6日</span>
+        </div>
+        <div class="card-title">マンダレー地震のマンション施工業者に懲役5年　「軽すぎる」と遺族が怒り</div>
+        <div class="card-summary">
+          2025年のマンダレー大地震で崩壊したマンションの施工業者に対し、懲役5年の判決が下された。建物の欠陥施工が原因とされるが、被害者・遺族から量刑への強い批判が上がっている。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            ミャンマーの建設品質基準は日本と大きく異なります。日本の現場では、安全管理・施工精度・法令遵守が徹底されており、ミャンマー人技能者が日本で働くことで、これらの国際水準を習得・持ち帰る効果があります。技術移転の観点でも意義のある人材交流です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-politics">🤝</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-politics">外交</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月3日</span>
+        </div>
+        <div class="card-title">ベラルーシとミャンマーが関係強化　クーデター後2回目の首脳訪問</div>
+        <div class="card-summary">
+          ベラルーシのルカシェンコ大統領がミャンマーを訪問し、軍事政権との連携を強化。ロシア・中国・北朝鮮に続く権威主義国家との外交拡大が鮮明になっている。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            日本・欧米はミャンマー軍政に制裁を課しており、今後の追加制裁や二国間協定の見直しの可能性があります。ODAを活用したインフラ事業や、人材送り出しスキームの協定に影響が及ぶ場合は、外務省・厚労省の動向を注視する必要があります。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-politics">☠️</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-politics">人権</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月3日</span>
+        </div>
+        <div class="card-title">クーデター以降の死者が累計10万人超　国連が警告</div>
+        <div class="card-summary">
+          2021年2月のクーデター以降、ミャンマー国内での死者数が累計10万人を超えたと国連・人権団体が報告。内戦の深刻化が続いている。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            日本国内には約6万人のミャンマー人が在留しており、多くが家族・故郷への深刻な不安を抱えながら働いています。この背景を理解することは、受け入れ企業が職場環境や精神的サポートを整える上で重要な視点です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="news-card">
+      <div class="card-thumb thumb-society">🕌</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="tag t-society">国際</span>
+          <span class="tag t-source">DVB</span>
+          <span class="card-date">7月7日</span>
+        </div>
+        <div class="card-title">軍政代表がイランのアヤトラ葬儀に出席　国際的孤立の中で独自外交</div>
+        <div class="card-summary">
+          ミャンマー軍政の代表がイランの最高指導者ハメネイ師の葬儀に出席。欧米・日本との関係が冷え込む中、反欧米圏との独自外交を展開している。
+        </div>
+        <div class="japan-box">
+          <div class="jlabel">🇯🇵 日本との関係</div>
+          <p>
+            軍政が反欧米圏との外交を深めるほど、民主化支援・制裁に関する日本の外交的立場との乖離が広がります。人材送り出しに関わる政府間協定・認定送り出し機関制度の枠組みが今後どう変化するか、引き続き注視が必要です。
+          </p>
+        </div>
+        <a class="card-link" href="https://english.dvb.no/" target="_blank">▶ DVB で見る</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026　<strong>株式会社 NL-DG</strong>　ミャンマーニュース　|　建設・人材業界向け情報</p>
+  <p style="margin-top:8px;">情報源：MizzimaTV / DVB / BBC Myanmar　|　編集責任者：生川 友之</p>
+</footer>
+
+</body>
+</html>
