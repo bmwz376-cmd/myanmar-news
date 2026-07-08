@@ -1,0 +1,15 @@
+﻿# 使用済みニュース記録（重複防止）
+# フォーマット: YYYY-MM-DD|ニュースタイトル（英語キーワード）
+
+2026-07-07|Aung San statues destroyed by military junta
+2026-07-07|700000 Myanmar nationals enter Thailand 2026
+2026-07-07|Mandalay condo developer sentenced 5 years earthquake
+2026-07-07|Starlink disruptions Myanmar cyber scam hubs Tokyo Japan meeting
+2026-07-07|Min Aung Hlaing ASEAN Laos visit Mekong hydropower 2790MW
+2026-07-07|Tornadoes strong winds destruction Myanmar monsoon 2026
+2026-07-08|Myanmar regime blocks 1000 migrant workers exit clearance OWIC overseas jobs
+2026-07-08|Myanmar UN envoy R2P Kyaw Moe Tun 8100 killed 1147 airstrikes ICC arrest warrant
+2026-07-08|7 July Student Uprising 64th anniversary ABFSU Chiang Mai Thailand 1962
+2026-07-08|Draft charter Myanmar federal transition union peace CPP Naypyidaw democracy
+2026-07-08|Chiang Mai Chinese Consulate protest Myanmar mining Mekong River pollution
+2026-07-08|Myanmar regime labour restrictions overseas workers Japan Thailand Malaysia

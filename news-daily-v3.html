@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NL-DG ミャンマーニュース | 2026年7月7日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
+a{text-decoration:none;color:inherit;}
+
+/* HEADER */
+.header{background:#0D2B5E;padding:14px 0;}
+.header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
+.logo em{color:#C9A84C;font-style:normal;}
+.header-right{color:rgba(255,255,255,0.5);font-size:12px;}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#0D2B5E 0%,#163d80 100%);padding:52px 0 44px;}
+.hero-inner{max-width:900px;margin:0 auto;padding:0 24px;}
+.hero-no{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
+.hero h1{color:#fff;font-size:28px;font-weight:900;line-height:1.5;margin-bottom:10px;}
+.hero-meta{color:rgba(255,255,255,0.5);font-size:13px;}
+
+/* BODY */
+.body-wrap{max-width:900px;margin:0 auto;padding:44px 24px 64px;}
+
+/* EDITOR NOTE */
+.editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.editor-note .en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}
+.editor-note p{font-size:14px;color:#444;line-height:1.95;}
+.editor-note .en-sig{margin-top:12px;font-size:12px;color:#999;}
+.editor-note .en-sig b{color:#0D2B5E;}
+
+/* NEWS ARTICLE */
+.news-article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}
+
+.na-header{padding:28px 32px 0;}
+.na-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
+.tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.tp{background:#1a3a6b;color:#fff;}
+.ts{background:#1b4332;color:#fff;}
+.te{background:#6b3a0f;color:#fff;}
+.tl{background:#3b1542;color:#fff;}
+.tc{background:#0f3547;color:#fff;}
+.tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}
+.na-date{font-size:12px;color:#bbb;margin-left:auto;}
+
+.na-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:10px;}
+.na-source-note{font-size:12px;color:#aaa;margin-bottom:0;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}
+
+.na-body{padding:24px 32px;}
+.na-summary{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;}
+
+/* IMPACT BLOCKS */
+.impact-blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+@media(max-width:600px){.impact-blocks{grid-template-columns:1fr;}}
+
+.impact-block{border-radius:10px;padding:18px 20px;}
+.ib-hr{background:#f0f4ff;border:1px solid #d0ddf5;}
+.ib-const{background:#f0f9f4;border:1px solid #c3e6d0;}
+
+.ib-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.ib-hr .ib-label{color:#1a3a6b;}
+.ib-const .ib-label{color:#1b4332;}
+
+.ib-title{font-size:13px;font-weight:700;margin-bottom:8px;}
+.ib-hr .ib-title{color:#1a3a6b;}
+.ib-const .ib-title{color:#1b4332;}
+
+.impact-block p{font-size:13px;color:#444;line-height:1.8;}
+
+.na-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:10px 0 24px 32px;}
+.na-link:hover{color:#C9A84C;}
+
+/* NEXT NOTE */
+.next-note{background:#0D2B5E;border-radius:12px;padding:24px 28px;color:#fff;margin-top:8px;}
+.next-note h3{font-size:14px;font-weight:700;color:#C9A84C;margin-bottom:8px;}
+.next-note p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.8;}
+
+/* FOOTER */
+.footer{background:#0a1f42;padding:28px 24px;text-align:center;}
+.footer p{font-size:12px;color:rgba(255,255,255,0.4);}
+.footer b{color:#C9A84C;}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">NL-<em>DG</em>　ミャンマーニュース</div>
+    <div class="header-right">毎朝8時更新　|　建設・人材業界向け</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-no">Vol.001　|　2026年7月7日（月）</div>
+    <h1>今週のミャンマー注目ニュース3選<br>人材送り出し・建設業界への影響解説</h1>
+    <div class="hero-meta">情報源：MizzimaTV / DVB　|　編集：生川 友之（株式会社 NL-DG）</div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="editor-note">
+    <div class="en-label">今週の選定基準</div>
+    <p>今週は「人材の流出競争」「通信遮断の実務影響」「建設安全基準のギャップ」という3つのテーマで構成しました。どれも日本の受け入れ企業が今すぐ把握しておくべき内容です。来週は別のニュースで更新します。</p>
+    <div class="en-sig"><b>生川 友之</b>　株式会社 NL-DG 代表</div>
+  </div>
+
+  <!-- ===== NEWS 1 ===== -->
+  <div class="news-article">
+    <div class="na-header">
+      <div class="na-meta">
+        <span class="tag tl">労働・移民</span>
+        <span class="tag tsrc">DVB</span>
+        <span class="na-date">2026年7月6日</span>
+      </div>
+      <div class="na-title">2026年に約70万人のミャンマー人がタイへ流入<br>日本との「人材獲得競争」が激化</div>
+      <div class="na-source-note">出典：DVB（Democratic Voice of Burma）2026年7月6日付</div>
+    </div>
+    <div class="na-body">
+      <div class="na-summary">
+        2026年上半期だけで約70万人のミャンマー国民がタイへ入国した。その大半は建設・製造・農業分野への就労が目的で、過去最多ペースとなっている。背景には軍事クーデター後の国内経済悪化と、タイへのビザ不要・低コストでのアクセスがある。
+      </div>
+      <div class="impact-blocks">
+        <div class="impact-block ib-hr">
+          <div class="ib-label">👷 人材送り出しへの影響</div>
+          <div class="ib-title">日本はタイと同じ人材プールを争っている</div>
+          <p>特定技能・技能実習でミャンマー人を採用している日本企業は、タイと同じ人材プールを争っています。タイはビザ不要・渡航費も格安で、敷居が低い。日本が選ばれるためには、月給・住環境・キャリアアップの見通しを具体的に示すことが採用競争力に直結します。</p>
+        </div>
+        <div class="impact-block ib-const">
+          <div class="ib-label">🏗️ 建設業界への影響</div>
+          <div class="ib-title">技能人材の「早い者勝ち」局面に入った</div>
+          <p>ミャンマーの建設技能者はタイの建設現場でも需要が急増しています。日本の建設会社が優秀な人材を確保するには、来日前研修段階での囲い込みが重要です。採用決定から入国まで6〜12か月かかる現行制度では、早期の採用計画が必要です。</p>
+        </div>
+      </div>
+    </div>
+    <a class="na-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+  </div>
+
+  <!-- ===== NEWS 2 ===== -->
+  <div class="news-article">
+    <div class="na-header">
+      <div class="na-meta">
+        <span class="tag tl">通信・IT</span>
+        <span class="tag tsrc">DVB</span>
+        <span class="na-date">2026年7月6日</span>
+      </div>
+      <div class="na-title">ミャンマーでStarlink遮断が拡大<br>日本語オンライン研修・書類手続きに支障</div>
+      <div class="na-source-note">出典：DVB（Democratic Voice of Burma）2026年7月6日付</div>
+    </div>
+    <div class="na-body">
+      <div class="na-summary">
+        軍によるサイバー詐欺拠点への取り締まりを名目に、ミャンマー国内でStarlinkを含む衛星インターネットが遮断された。固定回線・モバイル通信の制限も断続的に続いており、都市部でも通信が不安定な状況が報告されている。なお、ミャンマー発のサイバー詐欺は日本人被害者も多数出ており、日本でも社会問題として報道されている。
+      </div>
+      <div class="impact-blocks">
+        <div class="impact-block ib-hr">
+          <div class="ib-label">👷 人材送り出しへの影響</div>
+          <div class="ib-title">来日前の日本語・BIM研修が滞るリスク</div>
+          <p>来日前研修の多くはオンラインで実施されています。インターネット遮断が続くと、日本語能力試験の準備・入国書類のデジタル提出・面接（Zoom等）が遅延します。遮断が長期化する場合、タイ・チェンマイ等での対面研修への切り替えを検討する送り出し機関も出ています。</p>
+        </div>
+        <div class="impact-block ib-const">
+          <div class="ib-label">🏗️ 建設業界への影響</div>
+          <div class="ib-title">BIMデータ共有・現地確認作業に遅延</div>
+          <p>日本の建設会社がミャンマー現地事務所やパートナー企業とBIMデータ・施工図面をやり取りする場合、通信遮断は直接的な業務遅延につながります。重要データの送受信はVPN経由またはタイ経由のルートを確保しておくことが現実的な対応策です。</p>
+        </div>
+      </div>
+    </div>
+    <a class="na-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+  </div>
+
+  <!-- ===== NEWS 3 ===== -->
+  <div class="news-article">
+    <div class="na-header">
+      <div class="na-meta">
+        <span class="tag tc">建設・司法</span>
+        <span class="tag tsrc">DVB</span>
+        <span class="na-date">2026年7月6日</span>
+      </div>
+      <div class="na-title">マンダレー地震の欠陥マンション施工業者に懲役5年<br>日本との建設安全基準の差が浮き彫りに</div>
+      <div class="na-source-note">出典：DVB（Democratic Voice of Burma）2026年7月6日付</div>
+    </div>
+    <div class="na-body">
+      <div class="na-summary">
+        2025年のマンダレー大地震で崩壊したマンションの施工業者に懲役5年の判決が下された。建物は耐震基準を満たさず、手抜き施工が原因とされているが、多数の死者を出した事件に対して量刑が軽すぎるとの批判が遺族・被害者から上がっている。ミャンマーでは建設に関する法的規制・施工監理体制が日本と大きく異なる。
+      </div>
+      <div class="impact-blocks">
+        <div class="impact-block ib-hr">
+          <div class="ib-label">👷 人材送り出しへの影響</div>
+          <div class="ib-title">「日本の現場で学ぶ」ことの価値が高まっている</div>
+          <p>ミャンマーの建設現場では安全教育・施工管理の概念が十分に定着していません。日本の現場で働くことで、KY活動・足場安全・品質管理などの国際水準を身につけたミャンマー人技能者は、帰国後に現地建設業界でも高く評価されます。技術移転の観点でも日本での就労に意義があります。</p>
+        </div>
+        <div class="impact-block ib-const">
+          <div class="ib-label">🏗️ 建設業界への影響</div>
+          <div class="ib-title">受け入れ時の安全教育コストを事前に見込む</div>
+          <p>ミャンマー出身の技能者を受け入れる際、日本の安全基準・法令（労働安全衛生法等）に関する教育を入念に行う必要があります。現地での安全意識と日本のそれには大きなギャップがあるため、入国直後の現場投入前に安全教育期間を設けることが、事故防止と定着率向上の両面で有効です。</p>
+        </div>
+      </div>
+    </div>
+    <a class="na-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+  </div>
+
+  <div class="next-note">
+    <h3>📅 次回更新：2026年7月8日（火）朝8時</h3>
+    <p>本日取り上げた3本は翌日以降は繰り返しません。明日は別のミャンマーニュース3本を厳選し、同じく「人材送り出し」「建設業界」への影響を解説してお届けします。</p>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>&copy; 2026　<b>株式会社 NL-DG</b>　ミャンマーニュース　|　建設・人材業界向け　|　編集責任者：生川 友之</p>
+</footer>
+
+</body>
+</html>
