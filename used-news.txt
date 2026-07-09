@@ -1,24 +1,16 @@
-﻿# 使用済みニュース記録（重複防止）
-# フォーマット: YYYY-MM-DD|ニュースタイトル（英語キーワード）
+﻿# 菴ｿ逕ｨ貂医∩繝九Η繝ｼ繧ｹ險倬鹸・磯㍾隍・亟豁｢・・# 繝輔か繝ｼ繝槭ャ繝・ YYYY-MM-DD|繝九Η繝ｼ繧ｹ縺ｮ譬ｸ蠢・・螳ｹ・域律譛ｬ隱槭〒蜈ｷ菴鍋噪縺ｫ險倩ｼ会ｼ・# 驥崎ｦ・ 繧ｭ繝ｼ繝ｯ繝ｼ繝峨□縺代〒縺ｪ縺上御ｽ輔↓縺､縺・※蝣ｱ縺倥◆縺九阪ｒ譌･譛ｬ隱槭〒險倬鹸縺吶ｋ縺薙→
+# 蜷後§蜃ｺ譚･莠九・莠ｺ迚ｩ繝ｻ蝣ｴ謇繝ｻ謾ｿ遲悶ｒ謇ｱ縺｣縺溘ル繝･繝ｼ繧ｹ縺ｯ蜀・ｮｹ縺碁＆縺｣縺ｦ繧ゆｽｿ逕ｨ荳榊庄
 
-2026-07-07|Aung San statues destroyed by military junta
-2026-07-07|700000 Myanmar nationals enter Thailand 2026
-2026-07-07|Mandalay condo developer sentenced 5 years earthquake
-2026-07-07|Starlink disruptions Myanmar cyber scam hubs Tokyo Japan meeting
-2026-07-07|Min Aung Hlaing ASEAN Laos visit Mekong hydropower 2790MW
-2026-07-07|Tornadoes strong winds destruction Myanmar monsoon 2026
-2026-07-08|Myanmar regime blocks 1000 migrant workers exit clearance OWIC overseas jobs
-2026-07-08|Myanmar UN envoy R2P Kyaw Moe Tun 8100 killed 1147 airstrikes ICC arrest warrant
-2026-07-08|7 July Student Uprising 64th anniversary ABFSU Chiang Mai Thailand 1962
-2026-07-08|Draft charter Myanmar federal transition union peace CPP Naypyidaw democracy
-2026-07-08|Chiang Mai Chinese Consulate protest Myanmar mining Mekong River pollution
-2026-07-08|Myanmar regime labour restrictions overseas workers Japan Thailand Malaysia
-2026-07-09|Myanmar pro-democracy activist US award international recognition human rights
-2026-07-09|Myanmar regime envoy Iran Ayatollah funeral diplomatic relations China Russia
-2026-07-09|Myanmar junta losing military defeat federal transition democracy peace
-2026-07-09|NLD condemns Aung San statue removal Martyrs Day July 19 nationwide
-2026-07-09|Rohingya landslide Cox Bazar Bangladesh 8 killed monsoon
-2026-07-09|NUG NUCC federal transition charter R2P Kyaw Moe Tun UN General Assembly
-2026-07-09|Bangkok Chinese Embassy protest escalation Myanmar mining runoff Mekong arsenic cadmium NGO-COD
-2026-07-09|Myanmar matriculation exam 2026 pass rate 52 percent students 255000 down from 1 million civil war education
-2026-07-09|PDF 12 members killed Sagaing Indaw Ayardaw military counteroffensive regime retakes towns 2026
+2026-07-07|繧｢繧ｦ繝ｳ繧ｵ繝ｳ蟆・ｻ阪・驫・ワ繧定ｻ肴帆縺悟・蝗ｽ蜷・慍縺ｧ遐ｴ螢翫・謦､蜴ｻ
+2026-07-07|2026蟷ｴ縺ｫ繧ｿ繧､縺ｸ遘ｻ菴上＠縺溘Α繝｣繝ｳ繝槭・莠ｺ縺・0荳・ｺｺ縺ｫ驕斐＠縺・2026-07-07|繝槭Φ繝繝ｬ繝ｼ縺ｮ繝槭Φ繧ｷ繝ｧ繝ｳ髢狗匱讌ｭ閠・′蝨ｰ髴・｢ｫ螳ｳ縺ｧ諛ｲ蠖ｹ5蟷ｴ蛻､豎ｺ
+2026-07-07|繝溘Ε繝ｳ繝槭・縺ｧStarlink縺悟､ｧ隕乗ｨ｡蛛懈ｭ｢繝ｻ繧ｵ繧､繝舌・隧先ｬｺ諡轤ｹ縺ｸ縺ｮ萓帷ｵｦ驕ｮ譁ｭ繝ｻ譚ｱ莠ｬ縺ｧ縺ｮ邀ｳ邱ｬ莨壼粋
+2026-07-07|繝溘Φ繝ｻ繧｢繧ｦ繝ｳ繝ｻ繝輔Λ繧､繝ｳ縺後Λ繧ｪ繧ｹ繧定ｨｪ蝠上・繝｡繧ｳ繝ｳ蟾晄ｰｴ蜉帷匱髮ｻ2790MW縺ｧ蜈ｱ蜷瑚ｪｿ譟ｻ鄂ｲ蜷・2026-07-07|繝溘Ε繝ｳ繝槭・蜈ｨ蝨溘〒遶懷ｷｻ繝ｻ蠑ｷ鬚ｨ縺悟､夂匱繝ｻ繝｢繝ｳ繧ｹ繝ｼ繝ｳ譛溘・隍・粋陲ｫ螳ｳ
+2026-07-08|霆肴帆縺薫WIC蛻ｶ蠎ｦ繧呈が逕ｨ縺励※豬ｷ螟門・遞ｼ縺主感蜒崎・,000莠ｺ雜・・蜃ｺ蝗ｽ繧帝仆豁｢繝ｻ雉・ｳりｦ∵ｱよｨｪ陦・2026-07-08|蝗ｽ騾｣繝溘Ε繝ｳ繝槭・螟ｧ菴ｿKyaw Moe Tun縺悟ｮ我ｿ晉炊縺ｧR2P逋ｺ蜍輔ｒ隕∵ｱゅ・豁ｻ閠・100莠ｺ雜・・遨ｺ辷・147蝗・2026-07-08|7譛・譌･蟄ｦ逕溯怩襍ｷ64蜻ｨ蟷ｴ繝ｻ蜈ｨ繝薙Ν繝槫ｭｦ逕滄｣蜷医′繧ｿ繧､繝ｻ繝√ぉ繝ｳ繝槭う縺ｧ霑ｽ謔ｼ髮・ｼ・2026-07-08|豌台ｸｻ豢ｾ騾｣蜷茨ｼ・UG/NUCC・峨′繝溘Ε繝ｳ繝槭・騾｣驍ｦ遘ｻ陦後・證ｫ螳壽・豕戊拷譯医ｒ逋ｺ陦ｨ
+2026-07-08|繧ｿ繧､蛹鈴Κ繝√ぉ繝ｳ繝槭う縺ｮ荳ｭ蝗ｽ鬆倅ｺ矩､ｨ蜑阪〒繝溘Ε繝ｳ繝槭・驩ｱ螻ｱ豎壽沒縺ｸ縺ｮ謚苓ｭｰ縺梧ｷｷ荵ｱ
+2026-07-08|霆肴帆縺後ち繧､繝ｻ繝槭Ξ繝ｼ繧ｷ繧｢繝ｻ譌･譛ｬ蜷代￠蜉ｴ蜒崎・ｴｾ驕｣繧貞宛髯舌・螟冶ｲｨ邨ｱ蛻ｶ蠑ｷ蛹・2026-07-09|繝溘Ε繝ｳ繝槭・豌台ｸｻ蛹匁ｴｻ蜍募ｮｶ縺檎ｱｳ蝗ｽ謾ｿ蠎懊・莠ｺ讓ｩ雉槭ｒ蜿苓ｳ・2026-07-09|繝溘Ε繝ｳ繝槭・霆肴帆迚ｹ菴ｿ縺後う繝ｩ繝ｳ譛鬮俶欠蟆手・・蝗ｽ闡ｬ縺ｫ蜿ょ・繝ｻ荳ｭ髴ｲ繧､繝ｩ繝ｳ騾｣謳ｺ蠑ｷ蛹・2026-07-09|蝗ｽ髫帙い繝翫Μ繧ｹ繝医′縲後Α繝｣繝ｳ繝槭・霆肴帆縺ｯ謨怜圏縺励▽縺､縺ゅｋ縲阪→蛻・梵繝ｻ豌第酪豁ｦ陬・兇蜉帙・荳蛾㍾蛹・峇
+2026-07-09|NLD縺瑚ｻ肴帆縺ｫ繧医ｋ繧｢繧ｦ繝ｳ繧ｵ繝ｳ蟆・ｻ榊ワ謦､蜴ｻ繧偵梧ｰ第酪繧｢繧､繝・Φ繝・ぅ繝・ぅ縺ｮ遐ｴ螢翫阪→髱樣屮繝ｻ7譛・9譌･谿蛾屮閠・・譌･蜑・2026-07-09|繝舌Φ繧ｰ繝ｩ繝・す繝･繝ｻ繧ｳ繝・け繧ｹ繝舌じ繝ｼ繝ｫ縺ｮ繝ｭ繝偵Φ繧ｮ繝｣髮｣豌代く繝｣繝ｳ繝励〒蝨溽ょｴｩ繧後・蟄蝉ｾ帛性繧8莠ｺ豁ｻ莠｡
+2026-07-09|NUG繝ｻNUCC縺碁｣驍ｦ遘ｻ陦梧・豕戊拷譯医ｒ逋ｺ陦ｨ繝ｻKyaw Moe Tun縺悟嵜騾｣邱丈ｼ壹〒R2P逋ｺ蜍輔ｒ隕∵ｱ・2026-07-09|繝舌Φ繧ｳ繧ｯ縺ｮ荳ｭ蝗ｽ螟ｧ菴ｿ鬢ｨ蜑阪〒繝溘Ε繝ｳ繝槭・驩ｱ螻ｱ豎壽沒謚苓ｭｰ縺梧ｿ蛹悶・繝｡繧ｳ繝ｳ蟾晄ｵ∝沺2荳・ｸ門ｸｯ縺檎堤ｴ繝ｻ驩帶ｱ壽沒
+2026-07-09|繝溘Ε繝ｳ繝槭・螟ｧ蟄ｦ蜈･隧ｦ2026蟷ｴ縺ｮ蜷域ｼ閠・焚縺悟・謌ｦ縺ｧ74%貂帙・100荳・ｺｺ縺九ｉ25荳・ｺｺ縺ｫ豼貂・2026-07-09|繧ｵ繧ｬ繧､繝ｳ邂｡蛹ｺ縺ｧPDF謌ｦ髣伜藤12莠ｺ豁ｻ莠｡繝ｻ霆阪・蜿肴判菴懈姶縺ｧ繧､繝ｳ繝峨・繝ｻ繧｢繝､繝峨・螂ｪ驍・
+2026-07-09|チン州トンザン郡区で1,700人超の住民が1ヶ月以上避難継続・食糧・医薬品枯渇・国際支援未到達
+2026-07-09|シャン州カロー・バウシェン村で中国系鉱業参入急増・農地が採掘地に転換・土地価格2.4倍・水源枯渇危機
+2026-07-09|サガイン管区ティジャイン-カタ道路をバックホーで意図的破壊・マンダレー-ミャンマー北部幹線物流遮断
