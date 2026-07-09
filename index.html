@@ -3,26 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ミャンマーニュース | 2026年7月8日 Vol.13</title>
+<title>NL-DG ミャンマーニュース | 2026年7月9日 Vol.14</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
 a{text-decoration:none;color:inherit;}
+
 .header{background:#0D2B5E;padding:14px 0;}
 .header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
 .logo em{color:#C9A84C;font-style:normal;}
 .header-right{color:rgba(255,255,255,0.45);font-size:12px;}
+
 .hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:52px 0 44px;}
 .hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}
 .vol{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
 .hero h1{color:#fff;font-size:27px;font-weight:900;line-height:1.5;margin-bottom:10px;}
+.hero-meta{color:rgba(255,255,255,0.45);font-size:13px;}
+
 .wrap{max-width:860px;margin:0 auto;padding:44px 24px 64px;}
+
 .editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
 .en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}
 .editor-note p{font-size:14px;color:#444;line-height:1.95;}
+
 .article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}
+
 .art-head{padding:30px 32px 0;}
 .art-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
 .tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
@@ -32,26 +39,25 @@ a{text-decoration:none;color:inherit;}
 .tl{background:#3b1542;color:#fff;}
 .tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}
 .art-date{font-size:12px;color:#bbb;margin-left:auto;}
+
 .art-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:8px;}
 .art-src{font-size:12px;color:#bbb;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}
+
 .art-body{padding:26px 32px 8px;}
 .art-news{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;}
-.kaisetsu{background:#f7f9ff;border:1px solid #d4e0f5;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
-.k-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#1a3a6b;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
-.k-label span{background:#1a3a6b;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;}
-.k-point{margin-bottom:18px;}
-.k-point:last-child{margin-bottom:0;}
-.k-point-title{font-size:14px;font-weight:700;color:#0D2B5E;margin-bottom:6px;display:flex;align-items:flex-start;gap:6px;}
-.k-point-title::before{content:'▍';color:#C9A84C;flex-shrink:0;}
-.k-point p{font-size:14px;color:#444;line-height:1.85;padding-left:14px;}
-.art-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:12px 0 26px 32px;}
-.art-link:hover{color:#C9A84C;}
-.footer{background:#0a1f42;padding:28px 24px;text-align:center;}
-.footer p{font-size:12px;color:rgba(255,255,255,0.4);}
+
+.insight-box{background:#f9fbfd;border-left:4px solid #0D2B5E;padding:18px 22px;margin-top:18px;border-radius:0 6px 6px 0;}
+.insight-title{font-size:13px;font-weight:700;color:#0D2B5E;margin-bottom:12px;letter-spacing:0.8px;}
+.insight-item{font-size:13px;color:#555;margin-bottom:10px;padding-left:16px;position:relative;}
+.insight-item:before{content:"●";position:absolute;left:0;color:#C9A84C;}
+
+.footer{background:#f9fbfd;padding:32px 24px;border-top:1px solid #eee;text-align:center;color:#999;font-size:12px;}
+.footer a{color:#0D2B5E;text-decoration:underline;}
+
 @media(max-width:600px){
-  .hero h1{font-size:21px;}
+  .hero h1{font-size:20px;}
   .art-title{font-size:18px;}
-  .art-head,.art-body,.art-link{padding-left:20px;padding-right:20px;}
+  .art-body{padding:20px;}
 }
 </style>
 </head>
@@ -59,131 +65,98 @@ a{text-decoration:none;color:inherit;}
 
 <header class="header">
   <div class="header-inner">
-    <div class="logo">ミャンマーニュース</div>
-    <div class="header-right">毎朝8時更新　|　ミャンマーと日本をつなぐ</div>
+    <div class="logo">NL-DG <em>MYANMAR</em> NEWS</div>
+    <div class="header-right">自動生成 | 2026/07/09</div>
   </div>
 </header>
 
-<div class="hero">
+<section class="hero">
   <div class="hero-inner">
-    <div class="vol">Vol.013　|　2026年7月8日（水）</div>
-    <h1>ミャンマー最新ニュース 3選<br>日本人が知っておきたい背景</h1>
+    <div class="vol">Vol. 14</div>
+    <h1>ミャンマー情勢レポート</h1>
+    <div class="hero-meta">2026年7月9日 朝刊 | 日本企業向けニュースダイジェスト</div>
   </div>
-</div>
+</section>
 
 <div class="wrap">
 
-  <div class="editor-note">
-    <div class="en-label">編集にあたって</div>
-    <p>本日は「ミャンマー連邦制憲章草案の発表」「チェンマイ中国領事館前の鉱業汚染抗議」「軍政による労働者1,000名以上の出国制限」を取り上げます。いずれも日本のメディアではほぼ報道されていませんが、日本の建設業・労働市場と深く関わるニュースです。</p>
-  </div>
-
-  <!-- 記事1 -->
-  <div class="article">
+  <article class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag tp">政治</span>
+        <span class="tag tp">民主化</span>
         <span class="tag tsrc">DVB</span>
-        <span class="art-date">2026年7月8日</span>
+        <span class="art-date">2026/7/9</span>
       </div>
-      <div class="art-title">ミャンマー連邦制憲章が草案段階で発表<br>民主勢力が新たな統治枠組みを提示</div>
-      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月8日</div>
+      <h2 class="art-title">ミャンマー民主活動家、米国賞受賞へ</h2>
+      <div class="art-src">出典：Democratic Voice of Burma</div>
     </div>
     <div class="art-body">
-      <div class="art-news">
-        ミャンマー民主勢力は、軍事クーデター後の民主的な権力構造を目指した連邦制憲章の草案を公開しました。この草案では、少数民族地域の自治権拡大と中央政府との権力分散が核となっています。民族武装勢力（EAO）との和平交渉の進展を背景に、包括的な政治体制の再構築が進み始めています。
-      </div>
-      <div class="kaisetsu">
-        <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
-        <div class="k-point">
-          <div class="k-point-title">民主化と日本のビジネスリスクの関係</div>
-          <p>ミャンマーの民主化進展は、ASEAN域内の安定化と経済協力の拡大に直結します。日本はASEANの重要なパートナーとして、この民主的改革を支援する機会が増えています。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">連邦制が少数民族地域のビジネスに与える影響</div>
-          <p>連邦制の導入は、少数民族地域における日本のビジネス展開リスクを低減させる可能性があります。特に鉱業・インフラ事業では、地域ガバナンスの透明性向上が重要です。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">日本のODA・技術協力の展開機会</div>
-          <p>日本政府が支援する民主化プロセスは、将来のODA・技術協力の基盤となり得ます。ミャンマーの制度設計段階での関与は長期的な戦略的利益を生み出します。</p>
-        </div>
+      <p class="art-news">
+        ミャンマーの著名な民主化活動家が米国から人権賞を受賞することが決定した。クーデター後の弾圧と闘い続ける市民活動家の国際的な認知が高まっている。この受賞は米国によるミャンマー民主化支援の姿勢を示す象徴的な行動である。
+      </p>
+      
+      <div class="insight-box">
+        <div class="insight-title">日本人が知っておきたいこと</div>
+        <div class="insight-item">米国が民主化活動家を支援することで、国際的な民主主義陣営の結集が進む。日本もこの流れの中にあり、ASEAN内での民主化支援の方向性を示唆している。</div>
+        <div class="insight-item">市民活動家の国際的認知向上は、将来のミャンマー民主化後のリーダーシップを形成する。日本企業が長期的なビジネス関係構築を検討する際、こうした人物ネットワークが重要になる。</div>
+        <div class="insight-item">国際的な人権賞受賞は、ミャンマー軍政への国際的プレッシャー強化を意味する。日本政府のミャンマー政策にも、さらなる厳格化を求める声が国際社会から高まるだろう。</div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
-  </div>
+  </article>
 
-  <!-- 記事2 -->
-  <div class="article">
+  <article class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag ti">環境・外交</span>
+        <span class="tag ts">外交</span>
         <span class="tag tsrc">DVB</span>
-        <span class="art-date">2026年7月6日</span>
+        <span class="art-date">2026/7/7</span>
       </div>
-      <div class="art-title">タイ・チェンマイ：中国領事館前で鉱業汚染抗議活動が混乱<br>メコン川流域への影響が焦点に</div>
-      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月6日</div>
+      <h2 class="art-title">ミャンマー軍政特使、イラン指導者葬儀に参列</h2>
+      <div class="art-src">出典：Democratic Voice of Burma</div>
     </div>
     <div class="art-body">
-      <div class="art-news">
-        タイ北部チェンマイの中国領事館前で、ミャンマー北部の鉱業活動による環境汚染に抗議する集会が混乱に陥りました。参加者はメコン川の汚染とその下流地域への被害を指摘。中国資本のダム開発・採掘事業がミャンマーから流域全体に環境負荷をもたらしているとして、規制強化を求めています。
-      </div>
-      <div class="kaisetsu">
-        <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
-        <div class="k-point">
-          <div class="k-point-title">メコン川汚染と日本企業の水事業</div>
-          <p>メコン川流域はASEAN5国にまたがる重要な水資源。ミャンマー北部の無管理な採掘は、タイ・ラオス・カンボジア・ベトナムの農業用水と飲料水に直結した課題です。日本企業の水関連事業にも影響を及ぼします。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">中国資本開発 vs 日本型環境配慮開発</div>
-          <p>中国資本による大規模開発と地域社会との緊張が顕在化しています。日本が環境・社会配慮型の開発パートナーとして位置付けられる絶好のタイミングです。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">日本の水処理技術・ダム管理への需要</div>
-          <p>タイ政府は流域保全に関心が高く、日本の水処理技術やダム管理のノウハウへの需要が高まっています。ODA・民間投資の両面で機会が拡大しています。</p>
-        </div>
+      <p class="art-news">
+        ミャンマー軍政の特使がイランの宗教指導者ハメネイ師の国葬に参列した。中国・ロシア・イランとの関係強化を示す動きである。ミャンマー軍政は西側制裁下で、非民主主義諸国との関係深化を加速させている。
+      </p>
+      
+      <div class="insight-box">
+        <div class="insight-title">日本人が知っておきたいこと</div>
+        <div class="insight-item">ミャンマー軍政がイラン・中国・ロシアとの外交を強化することは、アジア太平洋地域での地政学的緊張を高める。日本のASEAN外交戦略にも直接影響を及ぼす。</div>
+        <div class="insight-item">イラン関係の深化は、軍政がテロ対策金融行動委員会（FATF）の「グレーリスト」入りを回避しようとする動きかもしれない。日本は金融規制の面でも注視する必要がある。</div>
+        <div class="insight-item">非民主主義国家連合の形成は、ミャンマーの民主化をさらに困難にする。日本の長期的な人道支援戦略にも影響を与える重要な指標である。</div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
-  </div>
+  </article>
 
-  <!-- 記事3 -->
-  <div class="article">
+  <article class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag tl">人権・労働</span>
+        <span class="tag ti">政治分析</span>
         <span class="tag tsrc">DVB</span>
-        <span class="art-date">2026年7月8日</span>
+        <span class="art-date">2026/7/4</span>
       </div>
-      <div class="art-title">ミャンマー軍政が労働者1,000名以上の出国を制限<br>日本の特定技能・技能実習制度にも影響</div>
-      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月8日</div>
+      <h2 class="art-title">「ミャンマー軍政は敗北しつつある」</h2>
+      <div class="art-src">出典：Democratic Voice of Burma Opinion</div>
     </div>
     <div class="art-body">
-      <div class="art-news">
-        ミャンマー軍事政権が海外就職予定の労働者1,000名以上に対し、出国許可を発行しないという措置を取っています。官報では「国防（対外労働力流出防止）」を名目としていますが、実際には外貨獲得源の確保と国内労働力の統制が目的と分析されています。タイ・マレーシア・日本を含むASEAN諸国への労働者派遣に支障が出ています。
-      </div>
-      <div class="kaisetsu">
-        <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
-        <div class="k-point">
-          <div class="k-point-title">日本の建設・製造業への直接影響</div>
-          <p>日本の技能実習制度・特定技能制度の受け入れ対象者がミャンマー側の制限で減少。建設・製造・農業分野での労働力不足がさらに深刻化する可能性があります。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">代替国へのシフトと採用チャネルの多様化</div>
-          <p>ミャンマー労働者の出国制限は、ラオス・カンボジアからの受け入れシフトを加速させる要因になります。政府・民間企業は代替国への採用チャネル多様化が急務です。</p>
-        </div>
-        <div class="k-point">
-          <div class="k-point-title">在日ミャンマー人の送金・帰国にも影響</div>
-          <p>軍政の外貨統制強化により、ミャンマー駐在の日本企業スタッフの給与送金も制限される可能性。企業のコンプライアンス体制強化が必要です。</p>
-        </div>
+      <p class="art-news">
+        国際的な分析者が、ミャンマー軍政の軍事的・政治的敗北が迫っていると指摘する。民族武装勢力（EAO）の連携強化、国内民主勢力の統一、国際的プレッシャーの三重構造により、軍政の支配基盤が侵食されている。
+      </p>
+      
+      <div class="insight-box">
+        <div class="insight-title">日本人が知っておきたいこと</div>
+        <div class="insight-item">軍政の敗北シナリオが現実性を持つことで、ミャンマー民主化後の国家再建機会が見えている。日本企業のビジネス計画は「戦後シナリオ」の準備段階に入る必要がある。</div>
+        <div class="insight-item">民族地域での武装勢力の力が増すことで、ミャンマー全土の安定化までには数年の調整期が必要になる。日本のODA戦略も、この過渡期に対応した長期計画を求められる。</div>
+        <div class="insight-item">軍政敗北後の権力構造は連邦制になる可能性が高く、少数民族地域の自治権拡大が予想される。日本の地域別ビジネス戦略の見直しが急務である。</div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
-  </div>
+  </article>
 
 </div>
 
 <footer class="footer">
-  <p>&copy; 2026　ミャンマーニュース　|　ミャンマーと日本をつなぐ情報誌　|　毎朝8時自動更新</p>
+  <p>このニュースレターはNL-DG Company が日本企業・団体向けに毎日自動生成しています。</p>
+  <p>最新情報は <a href="https://nl-dg.co.jp">NL-DG公式ウェブサイト</a> をご確認ください。</p>
 </footer>
 
 </body>
