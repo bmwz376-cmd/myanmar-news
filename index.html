@@ -1,37 +1,31 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NL-DG ミャンマーニュース | 2026年7月9日 Vol.14</title>
+<title>NL-DG ミャンマーニュース | 2026年7月9日</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
 a{text-decoration:none;color:inherit;}
-
 .header{background:#0D2B5E;padding:14px 0;}
 .header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
 .logo em{color:#C9A84C;font-style:normal;}
 .header-right{color:rgba(255,255,255,0.45);font-size:12px;}
-
 .hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:52px 0 44px;}
 .hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}
 .vol{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
 .hero h1{color:#fff;font-size:27px;font-weight:900;line-height:1.5;margin-bottom:10px;}
 .hero-meta{color:rgba(255,255,255,0.45);font-size:13px;}
-
 .wrap{max-width:860px;margin:0 auto;padding:44px 24px 64px;}
-
 .editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
 .en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}
 .editor-note p{font-size:14px;color:#444;line-height:1.95;}
 .en-sig{margin-top:12px;font-size:12px;color:#999;}
 .en-sig b{color:#0D2B5E;}
-
 .article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}
-
 .art-head{padding:30px 32px 0;}
 .art-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
 .tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
@@ -41,34 +35,25 @@ a{text-decoration:none;color:inherit;}
 .tc{background:#0f3547;color:#fff;}
 .tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}
 .art-date{font-size:12px;color:#bbb;margin-left:auto;}
-
 .art-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:8px;}
 .art-src{font-size:12px;color:#bbb;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}
-
 .art-body{padding:26px 32px 8px;}
 .art-news{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;}
-
 .kaisetsu{background:#f7f9ff;border:1px solid #d4e0f5;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
 .k-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#1a3a6b;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
 .k-label span{background:#1a3a6b;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;}
-
 .k-point{margin-bottom:18px;}
 .k-point:last-child{margin-bottom:0;}
 .k-point-title{font-size:14px;font-weight:700;color:#0D2B5E;margin-bottom:6px;display:flex;align-items:flex-start;gap:6px;}
-.k-point-title::before{content:'▍';color:#C9A84C;flex-shrink:0;}
 .k-point p{font-size:14px;color:#444;line-height:1.85;padding-left:14px;}
-
 .art-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:12px 0 26px 32px;}
 .art-link:hover{color:#C9A84C;}
-
 .next-note{background:#0D2B5E;border-radius:12px;padding:22px 26px;color:#fff;margin-top:8px;}
 .next-note h3{font-size:14px;font-weight:700;color:#C9A84C;margin-bottom:6px;}
 .next-note p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8;}
-
 .footer{background:#0a1f42;padding:28px 24px;text-align:center;}
 .footer p{font-size:12px;color:rgba(255,255,255,0.4);}
 .footer b{color:#C9A84C;}
-
 @media(max-width:600px){
   .hero h1{font-size:21px;}
   .art-title{font-size:18px;}
@@ -96,116 +81,116 @@ a{text-decoration:none;color:inherit;}
 <div class="wrap">
 
   <div class="editor-note">
-    <div class="en-label">編集にあたって</div>
-    <p>ミャンマーのニュースは日本のメディアではほとんど報道されません。しかし約6万人のミャンマー人が日本で暮らし、日本はミャンマーへの最大級の援助国でもあります。このニュースレターでは、現地メディアの情報をもとに「日本人として知っておきたい背景と文脈」を毎日3本お届けします。</p>
-    <div class="en-sig"><b>生川 友之</b>　株式会社 NL-DG 代表　|　ミャンマー人材業界 10年</div>
+    <div class="en-label">編集メモ</div>
+    <p>ミャンマーのニュースは日本のメディアではほとんど報道されません。それでも6万人のミャンマー人が日本で暮らし、日本はミャンマーへの最大の援助国のひとつでもあります。このニュースレターでは、現地メディアの情報をもとに「日本人として知っておきたい背景と文脈」を毎日3本お届けしています。</p>
+    <div class="en-sig"><b>生川 友之</b>　株式会社 NL-DG 代表　|　ミャンマー人材・建設業 10年</div>
   </div>
 
-  <!-- ===== 記事1 ===== -->
+  <!-- 記事1 -->
   <div class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag tp">民主化・国際</span>
+        <span class="tag tp">政治・歴史</span>
         <span class="tag tsrc">DVB</span>
         <span class="art-date">2026年7月9日</span>
       </div>
-      <div class="art-title">ミャンマー民主化活動家、米国の人権賞を受賞へ<br>クーデター後も闘い続ける市民の声が国際社会に届いた</div>
-      <div class="art-src">出典：Democratic Voice of Burma（2026年7月9日）</div>
+      <div class="art-title">軍政がアウンサン将軍の像を全国で撤去<br>NLDは「民族のアイデンティティの破壊」と強く非難</div>
+      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月9日</div>
     </div>
     <div class="art-body">
       <div class="art-news">
-        ミャンマーの著名な民主化活動家が米国政府から人権賞を受賞することが決定した。2021年2月のクーデター以降、軍の弾圧が続く中で活動を続けてきた市民社会の代表者への国際的な評価として注目されている。受賞者は国内での活動継続が困難なため、現在は国外を拠点としている。
+        ミャンマーの独立の父・アウンサン将軍の像が軍政によって全国で組織的に撤去されています。NLDは2026年7月9日、「国民のアイデンティティと歴史を破壊する意図的な行為だ」と強く非難する声明を発表しました。2021年のクーデター以降、少なくとも16体の像が撤去されており、7月だけでマグウェイ地方で5体が撤去されています。7月19日の殉難者記念日（烈士の日）を前にした動きで、軍政はこの日までにNLD政権下で設置された全像を撤去する方針とされています。アウンサン将軍の娘・スーチー氏の息子キム・アリス氏は、母親の「生存証明」を求める国際キャンペーンを続けています。
       </div>
       <div class="kaisetsu">
         <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
         <div class="k-point">
-          <div class="k-point-title">米国のこの動きが持つ外交的な意味</div>
-          <p>米国が公式に民主化活動家を表彰することは、ミャンマー軍政を「承認しない」という外交的メッセージを伴います。日本もG7の一員としてこの立場に沿った対応を求められており、ODA政策・外交声明に影響を与えます。</p>
+          <div class="k-point-title">▶ アウンサン将軍と日本の深い関係</div>
+          <p>アウンサン将軍は1940年代、日本陸軍の支援を受けてイギリス・インド支配からの独立運動を展開しました。「南機関」と呼ばれた日本の特務機関が協力し、ミャンマー独立に大きな役割を果たしています。ミャンマーと日本の歴史的つながりの原点ともいえる存在です。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">将来の民主化後を見据えた人脈形成</div>
-          <p>国際的な賞を受ける活動家は、ミャンマーに民主政府が戻った際のリーダー候補でもあります。日本企業がミャンマーで長期的なビジネスを展開するには、こうした人物ネットワークを今から理解しておくことが有効です。</p>
+          <div class="k-point-title">▶ なぜ烈士記念日の直前に撤去を急ぐのか</div>
+          <p>7月19日の烈士記念日はアウンサン将軍暗殺（1947年）を追悼する国民的祝日です。軍政がこの日を前に像の撤去を急ぐのは、民主派の象徴を消し去り、追悼集会や抵抗運動の求心力を弱める政治的な意図があるとみられています。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">日本在留のミャンマー人にとっての意味</div>
-          <p>日本で働くミャンマー人の多くは、民主化運動を遠くから見守りながら働いています。自国の活動家が国際的に認められることは、在日ミャンマー人コミュニティにとって大きな精神的支えになります。</p>
+          <div class="k-point-title">▶ 日本在住のミャンマー人にとっての意味</div>
+          <p>日本在住のミャンマー人6万人にとって、アウンサン将軍は「祖国の魂」そのものです。日本の職場でも、このニュースで深く傷ついている方がいることを理解しておくことは、互いに尊重し合う職場環境づくりにとって大切な視点です。</p>
         </div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+    <a class="art-link" href="https://english.dvb.no/nld-condemns-regimes-nationwide-campaign-to-erase-general-aung-sans-legacy-in-myanmar/" target="_blank">→ DVB 原文を読む</a>
   </div>
 
-  <!-- ===== 記事2 ===== -->
+  <!-- 記事2 -->
   <div class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag tc">外交・国際関係</span>
-        <span class="tag tsrc">DVB</span>
+        <span class="tag tl">人道・難民</span>
+        <span class="tag tsrc">DVB / Reuters</span>
         <span class="art-date">2026年7月7日</span>
       </div>
-      <div class="art-title">ミャンマー軍政特使、イラン最高指導者の国葬に参列<br>中国・ロシアに続く「非民主主義ネットワーク」の拡大</div>
-      <div class="art-src">出典：Democratic Voice of Burma（2026年7月7日）</div>
+      <div class="art-title">バングラデシュのロヒンギャ難民キャンプで土砂崩れ<br>子供を含む8人が死亡、モンスーン被害が深刻化</div>
+      <div class="art-src">出典：DVB（Democratic Voice of Burma）/ Reuters 2026年7月7日</div>
     </div>
     <div class="art-body">
       <div class="art-news">
-        ミャンマー軍事評議会の外交代表がイランの最高指導者ハメネイ師の国葬に参列した。クーデター後、西側諸国から経済制裁を受けている軍政は、中国・ロシア・イランとの関係強化を外交の柱に据えており、今回の参列もその流れに沿った動きである。
+        バングラデシュ南東部コックスバザールのロヒンギャ難民キャンプで、モンスーンによる豪雨が土砂崩れを引き起こし、子供を含む少なくとも8人が死亡しました。120万人以上のロヒンギャ難民が竹と青いシートの仮設住宅が密集する急斜面に暮らしており、毎年モンスーン季節に被害を受けています。2017年のミャンマー軍による「掃討作戦」で国を追われた人々で、ミャンマー・ラカイン州での戦闘激化により新たな難民流入も懸念されています。
       </div>
       <div class="kaisetsu">
         <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
         <div class="k-point">
-          <div class="k-point-title">ミャンマー軍政の「孤立戦略」とは何か</div>
-          <p>西側制裁下で軍政は中国・ロシア・イランという「制裁を気にしない」国々との連携を深めています。武器調達・資源輸出・金融取引をこれらの国を通じて維持する仕組みで、制裁の実効性を下げる効果があります。日本がミャンマー制裁を議論する際にも、この構造が障壁になっています。</p>
+          <div class="k-point-title">▶ ロヒンギャ問題と日本政府の立場</div>
+          <p>日本政府は2017年のロヒンギャ危機に対し、バングラデシュやミャンマーへのODA・人道支援を通じて関与してきました。JICAはコックスバザールでの難民支援事業にも携わっており、日本は傍観者ではなく当事者のひとりです。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">FATF（金融活動作業部会）との関係</div>
-          <p>ミャンマーはすでにFATFの「グレーリスト」に掲載されており、マネーロンダリング対策が不十分とされています。イランとの関係強化はさらなる国際金融上のリスクを生みます。日本企業がミャンマー関連の取引を行う際には、コンプライアンス上の注意が必要です。</p>
+          <div class="k-point-title">▶ なぜ毎年土砂崩れが起きるのか</div>
+          <p>コックスバザールのキャンプはもともと森林地帯でしたが、難民の急増で樹木が伐採され、斜面が剥き出しになりました。120万人超が世界最大の難民キャンプに密集しており、抜本的な解決なしに毎年同じ被害が繰り返される構造的問題があります。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">日本のASEAN外交への影響</div>
-          <p>ミャンマーが「権威主義国家連携」に踏み込むほど、ASEAN内での民主主義・人権に関する合意形成が難しくなります。日本はASEANを通じたミャンマー問題解決を重視しているため、この動きは日本の外交戦略にも直接影響します。</p>
+          <div class="k-point-title">▶ ミャンマー情勢との連動</div>
+          <p>ラカイン州ではアラカン軍と軍政の戦闘が続いており、新たな難民がバングラデシュへ逃れる動きも報告されています。ミャンマーの国内問題が国境を越えて隣国を直撃するこの構図は、建設業などでミャンマー人材を受け入れている日本企業としても理解しておきたい背景です。</p>
         </div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+    <a class="art-link" href="https://english.dvb.no/eight-killed-in-landslides-at-rohingya-refugee-camps-in-bangladesh/" target="_blank">→ DVB 原文を読む</a>
   </div>
 
-  <!-- ===== 記事3 ===== -->
+  <!-- 記事3 -->
   <div class="article">
     <div class="art-head">
       <div class="art-meta">
-        <span class="tag ts">政治分析</span>
+        <span class="tag tc">政治・外交</span>
         <span class="tag tsrc">DVB</span>
-        <span class="art-date">2026年7月4日</span>
+        <span class="art-date">2026年7月8日</span>
       </div>
-      <div class="art-title">「ミャンマー軍政は敗北しつつある」<br>民族武装勢力・民主勢力・国際圧力の三重包囲</div>
-      <div class="art-src">出典：Democratic Voice of Burma Opinion（2026年7月4日）</div>
+      <div class="art-title">民主派連合がミャンマー連邦移行の「暫定憲法草案」を発表<br>国連大使は「保護する責任（R2P）」の発動を要求</div>
+      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月8日</div>
     </div>
     <div class="art-body">
       <div class="art-news">
-        国際的な政治アナリストが寄稿し、ミャンマー軍政の軍事的・政治的敗北が現実味を帯びてきたと分析した。2023年末から民族武装勢力（EAO）の協調攻勢により軍が多くの拠点を失い、国内の軍政支持基盤も侵食されている。「和平交渉による免責」を与えてはならないと警告している。
+        ミャンマー民主派の国民統一協議会（NUCC）と国民統一政府（NUG）が、タイのメーソットで「連邦移行協定草案」を発表しました。草案は民主派が連邦民主制国家の建設に向け一致していることを示すものです。一方、国連ミャンマー大使キョーモートゥン氏は国連総会で、クーデター以降8,100人以上が殺害、国内避難民370万人超、わずか70日間で1,147回の空爆と20件の虐殺が行われたと報告し、「保護する責任（R2P）」の発動を国際社会に強く訴えました。
       </div>
       <div class="kaisetsu">
         <div class="k-label"><span>解説</span>日本人が知っておきたいこと</div>
         <div class="k-point">
-          <div class="k-point-title">「軍政の敗北」が意味するビジネス環境の変化</div>
-          <p>軍政が弱体化し連邦民主制への移行が近づけば、日本企業にとってミャンマー再参入のチャンスが生まれます。ただし権力移行期は不安定な時期でもあり、2〜3年のリスク管理を前提とした中長期計画が必要になります。</p>
+          <div class="k-point-title">▶ 「連邦移行草案」が意味すること</div>
+          <p>NUGはミャンマー軍政に対抗する民主派の暫定政府です。今回の草案発表は、民主派が「軍政打倒後の国家像」を具体的に示した重要な一歩です。日本政府や企業がミャンマーとの将来的な関係を構築するにあたり、NUGの動向を注視することが求められます。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">少数民族地域の自治権拡大という現実</div>
-          <p>民族武装勢力が実効支配する地域では、すでに独自の行政・税制・インフラが形成されています。将来の連邦制ミャンマーでは、ヤンゴン中心の従来型ビジネス展開だけでなく、カチン・シャン・カレン各州との個別交渉が必要になる可能性があります。</p>
+          <div class="k-point-title">▶ 「R2P（保護する責任）」とは何か</div>
+          <p>R2Pとは、国家が自国民を守れない、または積極的に危害を加えている場合に国際社会が介入できるという国連原則です（2005年採択）。70日間で1,147回の空爆という数字は通常の内戦規模をはるかに超えており、国際社会への介入要求に具体的な根拠を与えています。</p>
         </div>
         <div class="k-point">
-          <div class="k-point-title">「免責なき和平」論と日本の立場</div>
-          <p>筆者はASEANが「和平の名目で軍政に免責を与えるな」と訴えています。日本はこれまで「対話重視」路線をとってきましたが、国際社会からは「軍政に甘い」との批判もあります。日本の対ミャンマー外交の転換点になりうる議論です。</p>
+          <div class="k-point-title">▶ 日本の外交的立場との関係</div>
+          <p>日本政府はASEANとの協調を重視しつつ、ミャンマー軍政への直接制裁は避けてきました。しかし国連でのR2P発動論議が加速すると、日本の立場表明も求められる局面が近づく可能性があります。ミャンマー人材・ビジネスに関わる企業としても情勢を継続的に注視することが大切です。</p>
         </div>
       </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/" target="_blank">▶ DVB 原文を読む</a>
+    <a class="art-link" href="https://english.dvb.no/draft-charter-for-myanmars-federal-transition-unveiled-un-ambassador-urges-decisive-action-on-r2p/" target="_blank">→ DVB 原文を読む</a>
   </div>
 
   <div class="next-note">
-    <h3>📅 次回更新：2026年7月10日（金）朝8時</h3>
-    <p>本日の3本は翌日以降繰り返しません。明日は別のニュース3本を、同じく「ミャンマーに興味がある日本人向け」の背景解説とともにお届けします。</p>
+    <h3>🗓 次回更新：2026年7月10日（金）朝8時</h3>
+    <p>本日の3本は翌日以降繰り返しません。明日は別のニュース3本を、引き続き「ミャンマーに関わる日本人のために」の背景解説とともにお届けします。</p>
   </div>
 
 </div>
