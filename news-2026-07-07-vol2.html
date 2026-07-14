@@ -74,7 +74,16 @@ a{text-decoration:none;color:inherit;}
   .art-title{font-size:18px;}
   .art-head,.art-body,.art-link{padding-left:20px;padding-right:20px;}
 }
-</style>
+
+/* === ナビゲーションバー === */
+.nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:46px;}
+.nav-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;}
+.nav-btn-latest{background:#C9A84C;color:#0D2B5E;}
+.nav-btn-latest:hover{background:#e8c070;color:#0D2B5E;}
+.nav-btn-archive{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);}
+.nav-btn-archive:hover{background:rgba(255,255,255,0.22);color:#fff;}
+.nav-btn.active-page{opacity:0.55;pointer-events:none;cursor:default;}</style>
 </head>
 <body>
 
@@ -84,6 +93,12 @@ a{text-decoration:none;color:inherit;}
     <div class="header-right">毎朝8時更新　|　ミャンマーと日本をつなぐ</div>
   </div>
 </header>
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-btn nav-btn-latest">▶ 最新号</a>
+    <a href="archive.html" class="nav-btn nav-btn-archive">📚 バックナンバー一覧</a>
+  </div>
+</nav>
 
 <div class="hero">
   <div class="hero-inner">
