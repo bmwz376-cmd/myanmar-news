@@ -76,7 +76,7 @@ a{text-decoration:none;color:inherit;}
 }
 
 /* === ナビゲーションバー === */
-.nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;}
+.nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;position:sticky;top:0;z-index:999;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:46px;}
 .nav-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;}
 .nav-btn-latest{background:#C9A84C;color:#0D2B5E;}
@@ -238,7 +238,12 @@ a{text-decoration:none;color:inherit;}
 
 </div>
 
-<footer class="footer">
+
+<div style="background:#f2f5fa;padding:32px 24px;text-align:center;">
+  <a href="archive.html" style="display:inline-flex;align-items:center;gap:8px;background:#0D2B5E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">
+    📚 バックナンバー一覧へ戻る
+  </a>
+</div><footer class="footer">
   <p>© 2026 <b>株式会社 NL-DG</b>　|　ミャンマー人材・建設BIM事業部　|　毎朝8時自動更新</p>
 </footer>
 
