@@ -2,6 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ミャンマーニュース | 2026年7月16日（木） Vol.009</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -9,49 +12,65 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
 a{text-decoration:none;color:inherit;}
-.header{background:#0D2B5E;color:#fff;padding:24px 20px;text-align:center;}
-.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-size:24px;font-weight:900;letter-spacing:1px;}
-.header-right{font-size:12px;opacity:0.8;}
+.header{background:#0D2B5E;padding:14px 0;}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
+.header-right{color:rgba(255,255,255,0.45);font-size:12px;}
+.hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:52px 0 44px;}
+.hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+.vol{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
+.hero h1{color:#fff;font-size:27px;font-weight:900;line-height:1.5;margin-bottom:10px;}
+.wrap{max-width:860px;margin:0 auto;padding:44px 24px 64px;}
+.editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}
+.editor-note p{font-size:14px;color:#444;line-height:1.95;}
+.article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}
+.art-head{padding:30px 32px 0;}
+.art-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
+.tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.tp{background:#1a3a6b;color:#fff;}
+.ts{background:#1b4332;color:#fff;}
+.ti{background:#5c3317;color:#fff;}
+.tc{background:#4a1942;color:#fff;}
+.tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}
+.art-date{font-size:12px;color:#bbb;margin-left:auto;}
+.art-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:8px;}
+.art-src{font-size:12px;color:#bbb;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}
+.art-body{padding:26px 32px 8px;}
+.art-news{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;}
+.kaisetsu{background:#f7f9ff;border:1px solid #d4e0f5;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
+.k-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#1a3a6b;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.k-label span{background:#1a3a6b;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;}
+.k-point{margin-bottom:18px;}
+.k-point:last-child{margin-bottom:0;}
+.k-point-title{font-size:14px;font-weight:700;color:#0D2B5E;margin-bottom:6px;display:flex;align-items:flex-start;gap:6px;}
+.k-point-title::before{content:'▶';color:#C9A84C;flex-shrink:0;}
+.k-point p{font-size:14px;color:#444;line-height:1.85;padding-left:14px;}
+.art-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:12px 0 26px 32px;}
+.art-link:hover{color:#C9A84C;}
+.footer{background:#0a1f42;padding:28px 24px;text-align:center;}
+.footer p{font-size:12px;color:rgba(255,255,255,0.4);}
+@media(max-width:600px){
+  .hero h1{font-size:21px;}
+  .art-title{font-size:18px;}
+  .art-head,.art-body,.art-link{padding-left:20px;padding-right:20px;}
+}
 .nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;position:sticky;top:0;z-index:999;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:46px;}
 .nav-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;}
 .nav-btn-latest{background:#C9A84C;color:#0D2B5E;}
-.nav-btn-latest:hover{background:#e8c070;}
+.nav-btn-latest:hover{background:#e8c070;color:#0D2B5E;}
 .nav-btn-archive{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);}
-.nav-btn-archive:hover{background:rgba(255,255,255,0.22);}
+.nav-btn-archive:hover{background:rgba(255,255,255,0.22);color:#fff;}
 .nav-btn.active-page{opacity:0.55;pointer-events:none;cursor:default;}
-.hero{background:#132d5e;color:#fff;padding:48px 20px;text-align:center;}
-.hero-inner{max-width:900px;margin:0 auto;}
-.hero-date{font-size:14px;opacity:0.9;margin-bottom:8px;}
-.hero-title{font-size:48px;font-weight:900;margin-bottom:12px;letter-spacing:1px;}
-.hero-subtitle{font-size:14px;opacity:0.85;}
-.main{max-width:900px;margin:40px auto;padding:0 20px;}
-.editor-note{background:#fff;border-left:4px solid #C9A84C;padding:24px 28px;margin-bottom:40px;border-radius:0 8px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
-.editor-note p{font-size:14px;line-height:1.9;color:#333;}
-.article{background:#fff;padding:40px;margin-bottom:40px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-.art-date{font-size:12px;color:#999;margin-bottom:8px;text-transform:uppercase;}
-.art-title{font-size:26px;font-weight:900;margin-bottom:16px;color:#0D2B5E;line-height:1.4;}
-.art-news{font-size:15px;line-height:1.9;color:#333;margin-bottom:20px;}
-.kaisetsu{background:#f0f4f9;border-left:3px solid #0D2B5E;padding:20px 24px;margin:24px 0;border-radius:0 6px 6px 0;}
-.k-label{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:1px;margin-bottom:6px;text-transform:uppercase;}
-.k-point-title{font-size:15px;font-weight:700;color:#0D2B5E;margin-bottom:8px;}
-.k-point p{font-size:14px;line-height:1.8;color:#444;}
-.art-link{display:inline-block;margin-top:16px;font-size:12px;color:#0D2B5E;border-bottom:1px solid #C9A84C;padding-bottom:2px;}
-.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
-.art-tag{display:inline-block;background:#e8eef5;color:#132d5e;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;}
-.back-btn-container{background:#f2f5fa;padding:32px 24px;text-align:center;}
-.back-btn{display:inline-flex;align-items:center;gap:8px;background:#0D2B5E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;}
-.back-btn:hover{background:#1a3f7f;}
-.footer{background:#132d5e;color:#fff;text-align:center;padding:24px 20px;margin-top:40px;}
-.footer p{font-size:12px;opacity:0.8;}
 </style>
 </head>
 <body>
+
 <header class="header">
   <div class="header-inner">
     <div class="logo">ミャンマーニュース</div>
-    <div class="header-right">毎朝8時更新 | ミャンマーと日本をつなぐ</div>
+    <div class="header-right">毎朝8時更新　|　ミャンマーと日本をつなぐ</div>
   </div>
 </header>
 <nav class="nav-bar">
@@ -60,85 +79,134 @@ a{text-decoration:none;color:inherit;}
     <a href="archive.html" class="nav-btn nav-btn-archive">📚 バックナンバー一覧</a>
   </div>
 </nav>
-<section class="hero">
+
+<div class="hero">
   <div class="hero-inner">
-    <div class="hero-date">2026年7月16日（木）</div>
-    <div class="hero-title">Vol.009</div>
-    <div class="hero-subtitle">軍撤退・国境再開・映画祭</div>
+    <div class="vol">Vol.009　|　2026年7月16日（木）</div>
+    <h1>ミャンマー最新ニュース 3選<br>日本人が知っておきたい背景</h1>
   </div>
-</section>
-<main class="main">
+</div>
+
+<div class="wrap">
+
   <div class="editor-note">
-    <p>本日は「ラカイン州チョープー沖でアラカン軍との激戦により軍が撤退した」こと、「インド・ミャンマー国境のパンサウ・ナンポン関門が5年ぶりに7月20日再開予定」であること、そして「ミャンマー人映画監督がカルロヴィ・ヴァリ国際映画祭で最高賞を受賞した」ことをお伝えします。</p>
+    <div class="en-label">本日のまとめ</div>
+    <p>本日は「ラカイン州チョープー沖でアラカン軍との激戦により軍部隊が撤退した」こと、「インド・ミャンマー国境のパンサウ関門が5年ぶりに7月20日再開予定」であること、そして「ミャンマー人映画監督アウン・ピョウ氏がカルロヴィ・ヴァリ映画祭でミャンマー初の最高賞を受賞した」ことをお伝えします。</p>
   </div>
 
   <!-- 記事1 -->
-  <article class="article">
-    <div class="art-date">2026年7月15日 Burma News International</div>
-    <div class="art-title">ラカイン州チョープー沖：アラカン軍と激戦で軍が撤退、武器・遺体を残して逃走</div>
-    <div class="art-news">
-      ラカイン州チョープー郡区のアワタウン村付近で7月11〜12日、アラカン軍（AA）とミャンマー軍の間で激しい戦闘が発生しました。モンスーンの豪雨と闇夜に乗じた奇襲を試みた軍部隊は、AAの事前察知により撃退され、兵士の遺体・武器・弾薬を残したまま撤退しました。戦略的要衝であるタウンマウ海軍基地周辺での戦闘であり、軍は撤退後すぐに増援を送り込んで戦闘を再開しています。軍事アナリストは「徴兵されたばかりの新兵はモンスーン下の機動戦に対応できない」と指摘しており、沿岸部での攻勢は依然として膠着状態が続いています。
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag tp">内戦・軍事</span>
+        <span class="tag tsrc">BNI</span>
+        <span class="art-date">2026年7月15日</span>
+      </div>
+      <div class="art-title">ラカイン州チョープー沖：アラカン軍との激戦で軍が撤退<br>兵士の遺体・武器・弾薬を残して逃走</div>
+      <div class="art-src">出典：Burma News International（BNI）2026年7月15日</div>
     </div>
-    <div class="kaisetsu">
-      <div class="k-label">解説 ― 日本人が知っておきたい背景</div>
-      <div class="k-point-title">チョープーはなぜ重要な拠点か</div>
-      <div class="k-point"><p>チョープーはラカイン州西岸に位置する深水港開発地点であり、中国の「一帯一路」戦略上の要衝です。中国はここにミャオーマ深水港と経済特区（SEZ）の建設を進めており、投資総額は数十億ドル規模にのぼります。この地点の支配権をめぐる軍とAAの争いは、中国・インドを含む地政学的な綱引きに直結しています。日本の建設・インフラ企業がミャンマーへの進出を検討する際にも、この地域の情勢安定度は重要な判断材料となります。</p></div>
+    <div class="art-body">
+      <div class="art-news">
+        ラカイン州チョープー郡区のアワタウン村付近で7月11〜12日、アラカン軍（AA）とミャンマー軍の間で激しい戦闘が発生しました。モンスーンの豪雨と闇夜に乗じた奇襲を試みた軍部隊は、AAの事前察知により撃退され、兵士の遺体・武器・弾薬を残したまま撤退しました。戦略的要衝であるタウンマウ海軍基地周辺での戦闘であり、軍は撤退後すぐに増援を送り込んで戦闘を再開しています。軍事アナリストは「新兵はモンスーン下の機動戦に対応できない」と指摘しており、沿岸部での攻勢は依然として膠着状態が続いています。
+      </div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">チョープーはなぜ重要な拠点か</div>
+          <p>チョープーはラカイン州西岸の深水港開発地点であり、中国の「一帯一路」戦略の要衝です。中国はここにミャオーマ深水港と経済特区（SEZ）の建設を進めており、投資総額は数十億ドル規模にのぼります。この地点の支配権をめぐる軍とAAの争いは、中国・インドを含む地政学的な綱引きに直結しています。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">徴兵兵士の練度不足という構造問題</div>
+          <p>2023年施行の徴兵制により入隊した新兵は、十分な訓練を受けないまま前線に送られているケースが多く、ゲリラ戦に慣れたAAとの戦闘で大きな損害を出しています。軍の弱体化は長期的に内戦の長期化を意味し、日本企業のミャンマー進出リスク評価にも影響します。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">日本への影響</div>
+          <p>日本企業の中にはラカイン州沿岸部での資源・エネルギー関連プロジェクトに関心を持つ企業があります。チョープー周辺の治安悪化は、これらの事業展開を困難にします。また在日ミャンマー人のうちラカイン出身者にとっては故郷への直接的な脅威となります。</p>
+        </div>
+      </div>
     </div>
-    <a class="art-link" href="https://www.bnionline.net/en/news/myanmar-junta-forces-retreat-near-kyaukphyu-naval-station-after-heavy-clashes-arakan-army" target="_blank">出典：Burma News International（2026年7月15日）</a>
-    <div class="art-tags">
-      <span class="art-tag">内戦・軍事</span>
-      <span class="art-tag">ラカイン州</span>
-      <span class="art-tag">アラカン軍</span>
-    </div>
-  </article>
+    <a class="art-link" href="https://www.bnionline.net/en/news/myanmar-junta-forces-retreat-near-kyaukphyu-naval-station-after-heavy-clashes-arakan-army" target="_blank">→ BNI 原記事を読む</a>
+  </div>
 
   <!-- 記事2 -->
-  <article class="article">
-    <div class="art-date">2026年7月15日 Burma News International / Mizzima</div>
-    <div class="art-title">インド・ミャンマー国境のパンサウ関門が5年ぶり再開へ ― 7月20日から月3回の制限貿易</div>
-    <div class="art-news">
-      インドのアルナーチャル・プラデーシュ州とミャンマーのサガイン管区を結ぶパンサウ・ナンポン国境貿易関門が、新型コロナによる閉鎖から5年以上を経て7月20日に再開される見通しです。7月9日に行われた両国の国境貿易委員会の協議で合意が成立しました。再開後は月10日・20日・30日のみ、国境から10km以内の住民に限って取引が許可される厳しい制限つきです。地元の専門家はインドの薬品・建設資材・農産物の往来再開への期待を語る一方、インド政府が進める国境フェンス建設や自由往来制度（FMR）の停止が密輸増加のリスクを生むと警告しています。この関門は第二次世界大戦時代のレド街道沿いの歴史的交易路でもあります。
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag ts">経済・貿易</span>
+        <span class="tag tsrc">BNI / Mizzima</span>
+        <span class="art-date">2026年7月15日</span>
+      </div>
+      <div class="art-title">インド・ミャンマー国境のパンサウ関門が5年ぶり再開へ<br>7月20日から月3回・10km圏内住民限定の制限貿易</div>
+      <div class="art-src">出典：Burma News International（BNI）/ Mizzima 2026年7月15日</div>
     </div>
-    <div class="kaisetsu">
-      <div class="k-label">解説 ― 日本人が知っておきたい背景</div>
-      <div class="k-point-title">インド・ミャンマー・タイ三国幹線道路とのつながり</div>
-      <div class="k-point"><p>パンサウ関門はインド・ミャンマー・タイを結ぶ「三国幹線道路（IMT Highway）」の起点に位置します。この道路はかつてJICA（国際協力機構）も整備支援に関与した日本とも無縁でない重要インフラです。ミャンマー側の道路維持はPDF（民衆防衛隊）の活動により機能が低下しており、今回の関門再開がどこまで実態経済に反映されるかは不透明です。在日ミャンマー人の出身地にもサガイン管区出身者が多く、故郷への物資ルートの動向として注目されます。</p></div>
+    <div class="art-body">
+      <div class="art-news">
+        インドのアルナーチャル・プラデーシュ州とミャンマーのサガイン管区を結ぶパンサウ・ナンポン国境貿易関門が、新型コロナによる閉鎖から5年以上を経て7月20日に再開される見通しです。7月9日に行われた両国の国境貿易委員会の協議で合意が成立しました。再開後は月10日・20日・30日のみ、国境から10km以内の住民に限って取引が許可される厳しい制限つきです。地元専門家はインドの薬品・建設資材・農産物の往来再開への期待を語る一方、インド政府が進める国境フェンス建設と自由往来制度（FMR）の停止が密輸増加のリスクを生むと警告しています。
+      </div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">インド・ミャンマー・タイ三国幹線道路との関係</div>
+          <p>パンサウ関門はインド・ミャンマー・タイを結ぶ「三国幹線道路（IMT Highway）」の起点に位置します。この道路はかつてJICA（国際協力機構）も整備支援に関与した日本とも縁のある重要インフラです。ミャンマー側の道路維持はPDF（民衆防衛隊）の活動により機能が低下しており、今回の関門再開がどこまで実態経済に反映されるかは不透明です。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">サガイン管区出身の在日ミャンマー人への意味</div>
+          <p>在日ミャンマー人の中にはサガイン管区出身者が多く含まれています。国境貿易の再開は、故郷への物資や送金ルートの安定につながる可能性があります。ただしインドの厳格化政策と現地の武力衝突が続く限り、実質的な恩恵は限定的と見られています。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">日本企業のインド北東部・ミャンマー進出への示唆</div>
+          <p>インド北東部はモディ政権の「Act East Policy」の重点地域であり、日本企業の投資先としても注目されています。パンサウ関門の再開は、将来的なミャンマー経由のASEAN接続ルート整備の一歩とも読め、物流・インフラ分野の動向として引き続き注視が必要です。</p>
+        </div>
+      </div>
     </div>
-    <a class="art-link" href="https://www.bnionline.net/en/news/key-india-myanmar-border-gate-reopen-after-five-year-closure-sparking-economic-hopes-amid" target="_blank">出典：Burma News International（2026年7月15日）</a>
-    <div class="art-tags">
-      <span class="art-tag">経済・貿易</span>
-      <span class="art-tag">インド国境</span>
-      <span class="art-tag">サガイン管区</span>
-    </div>
-  </article>
+    <a class="art-link" href="https://www.bnionline.net/en/news/key-india-myanmar-border-gate-reopen-after-five-year-closure-sparking-economic-hopes-amid" target="_blank">→ BNI 原記事を読む</a>
+  </div>
 
   <!-- 記事3 -->
-  <article class="article">
-    <div class="art-date">2026年7月14日 DVB</div>
-    <div class="art-title">ミャンマー人映画監督がカルロヴィ・ヴァリ映画祭で最高賞 ― ミャンマー初の快挙</div>
-    <div class="art-news">
-      ミャンマー人映画監督アウン・ピョウ氏が、チェコで開催された第60回カルロヴィ・ヴァリ国際映画祭（7月3〜11日）にて最高賞「クリスタル・グローブ賞（グランプリ）」を受賞しました。作品は長編デビュー作『Fruit Gathering（テッティー・クー）』で、ヤンゴンの工業地帯を舞台にした女性縫製工場労働者2人の同性愛を描いた97分のドラマです。ミャンマー映画がこの歴史あるヨーロッパの映画祭の最高部門に出品・受賞したのは初めてのことで、賞金2万5,000ドルは監督とプロデューサーで折半されます。ミャンマー・チェコ・フランスの共同制作作品で、プロデューサーにはヤンゴン拠点のThird Floor Productionsの Thu Thu Shein氏らが名を連ねています。
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag tc">文化・映画</span>
+        <span class="tag tsrc">DVB</span>
+        <span class="art-date">2026年7月14日</span>
+      </div>
+      <div class="art-title">ミャンマー人映画監督がカルロヴィ・ヴァリ映画祭で最高賞<br>ミャンマー映画史上初の快挙</div>
+      <div class="art-src">出典：DVB（Democratic Voice of Burma）2026年7月14日</div>
     </div>
-    <div class="kaisetsu">
-      <div class="k-label">解説 ― 日本人が知っておきたい背景</div>
-      <div class="k-point-title">軍政下でも続くミャンマーの文化的発信</div>
-      <div class="k-point"><p>カルロヴィ・ヴァリ映画祭は1946年創設の世界最古級の映画祭のひとつで、「東欧のカンヌ」とも呼ばれます。軍政下のミャンマーでは映画・音楽・芸術の表現活動が厳しく制限されていますが、ミャンマー人クリエイターたちは国外での活動や共同制作を通じて作品を発表し続けています。在日ミャンマー人コミュニティにとっても、故郷の文化が国際舞台で評価されることは大きな誇りとなります。また、LGBTQをテーマにした本作が軍政下の実情を世界に伝える側面も持っています。</p></div>
+    <div class="art-body">
+      <div class="art-news">
+        ミャンマー人映画監督アウン・ピョウ氏が、チェコで開催された第60回カルロヴィ・ヴァリ国際映画祭（7月3〜11日）にて最高賞「クリスタル・グローブ賞（グランプリ）」を受賞しました。作品は長編デビュー作『Fruit Gathering（テッティー・クー）』で、ヤンゴンの工業地帯を舞台にした女性縫製工場労働者2人の同性愛を描いた97分のドラマです。ミャンマー映画がこの歴史あるヨーロッパ映画祭の最高部門で受賞したのは初めてのことで、賞金2万5,000ドルは監督とプロデューサーで折半されます。ミャンマー・チェコ・フランスの共同制作作品です。
+      </div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">カルロヴィ・ヴァリ映画祭とは</div>
+          <p>カルロヴィ・ヴァリ映画祭は1946年創設の世界最古級の映画祭のひとつで、「東欧のカンヌ」とも呼ばれます。受賞はアジアの小国映画にとっては極めて稀な快挙であり、ミャンマーという国名が世界の文化シーンに刻まれる出来事です。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">軍政下でも続くミャンマーの文化的発信</div>
+          <p>軍政下のミャンマーでは映画・音楽・芸術の表現活動が厳しく制限されていますが、ミャンマー人クリエイターたちは国外での活動や共同制作を通じて作品を発表し続けています。LGBTQをテーマにした本作が軍政下の実情を世界に伝える側面も持っています。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">在日ミャンマー人コミュニティへの意味</div>
+          <p>在日ミャンマー人は2024年時点で約6万8千人に達しており、故郷の文化が国際舞台で評価されることは大きな誇りとなります。日本国内でも上映機会があれば、在日ミャンマー人コミュニティとの交流や理解促進につながる可能性があります。</p>
+        </div>
+      </div>
     </div>
-    <a class="art-link" href="https://english.dvb.no/myanmar-filmmaker-aung-phyoe-wins-top-prize-at-60th-karlovy-vary-film-festival-for-fruit-gathering/" target="_blank">出典：DVB（2026年7月14日）</a>
-    <div class="art-tags">
-      <span class="art-tag">文化・映画</span>
-      <span class="art-tag">国際</span>
-      <span class="art-tag">ミャンマー社会</span>
-    </div>
-  </article>
-</main>
+    <a class="art-link" href="https://english.dvb.no/myanmar-filmmaker-aung-phyoe-wins-top-prize-at-60th-karlovy-vary-film-festival-for-fruit-gathering/" target="_blank">→ DVB 原記事を読む</a>
+  </div>
 
-<div class="back-btn-container">
-  <a href="archive.html" class="back-btn">📚 バックナンバー一覧へ戻る</a>
+</div>
+
+<div style="background:#f2f5fa;padding:32px 24px;text-align:center;">
+  <a href="archive.html" style="display:inline-flex;align-items:center;gap:8px;background:#0D2B5E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">
+    📚 バックナンバー一覧へ戻る
+  </a>
 </div>
 
 <footer class="footer">
-  <p>&copy; 2026 ミャンマーニュース | ミャンマーと日本をつなぐ情報誌</p>
+  <p>&copy; 2026　ミャンマーニュース　|　ミャンマーと日本をつなぐ情報誌</p>
 </footer>
+
 </body>
 </html>
