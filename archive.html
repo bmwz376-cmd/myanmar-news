@@ -12,44 +12,30 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
 a{text-decoration:none;color:inherit;}
-
-/* ヘッダー */
 .header{background:#0D2B5E;padding:14px 0;}
 .header-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
 .header-right{color:rgba(255,255,255,0.45);font-size:12px;}
-
-/* ヒーロー */
 .hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:48px 0 40px;}
 .hero-inner{max-width:900px;margin:0 auto;padding:0 24px;}
 .hero-label{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
 .hero h1{color:#fff;font-size:26px;font-weight:900;line-height:1.5;margin-bottom:8px;}
 .hero-sub{color:rgba(255,255,255,0.6);font-size:13px;}
-
-/* ナビ */
 .nav-bar{background:#fff;border-bottom:1px solid #e8edf5;position:sticky;top:0;z-index:100;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;gap:4px;overflow-x:auto;}
 .nav-inner a{padding:12px 16px;font-size:13px;font-weight:700;color:#666;white-space:nowrap;border-bottom:3px solid transparent;transition:all .2s;}
 .nav-inner a:hover,.nav-inner a.active{color:#0D2B5E;border-bottom-color:#C9A84C;}
-
-/* メイン */
 .wrap{max-width:900px;margin:0 auto;padding:44px 24px 80px;}
-
-/* セクションヘッド */
 .section-head{display:flex;align-items:center;gap:12px;margin-bottom:28px;padding-bottom:14px;border-bottom:2px solid #e0e8f5;}
 .section-head h2{font-size:15px;font-weight:900;color:#0D2B5E;}
 .count-badge{background:#C9A84C;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
-
-/* グリッド */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:56px;}
-
-/* カード */
 .card{background:#fff;border-radius:14px;box-shadow:0 3px 16px rgba(0,0,0,0.07);overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,0.12);}
 .card-top{background:linear-gradient(135deg,#0D2B5E,#1a4a8a);padding:18px 20px 14px;}
 .card-vol{font-size:10px;font-weight:700;color:#C9A84C;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
 .card-date{font-size:12px;color:rgba(255,255,255,0.7);}
-.card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:0;}
+.card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column;}
 .card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
 .card-tag{font-size:10px;font-weight:700;padding:3px 9px;border-radius:12px;background:#eef2f8;color:#1a3a6b;border:1px solid #d0dcee;}
 .card-titles{list-style:none;flex:1;}
@@ -59,19 +45,14 @@ a{text-decoration:none;color:inherit;}
 .card-footer{padding:12px 20px;border-top:1px solid #f0f0f0;}
 .card-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#0D2B5E;}
 .card-link:hover{color:#C9A84C;}
-
-/* 最新号バナー */
 .latest-banner{background:linear-gradient(135deg,#C9A84C,#e8c070);border-radius:14px;padding:22px 28px;margin-bottom:44px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .latest-banner .lb-label{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(0,0,0,0.5);text-transform:uppercase;margin-bottom:4px;}
 .latest-banner .lb-title{font-size:17px;font-weight:900;color:#0D2B5E;}
 .latest-banner .lb-sub{font-size:12px;color:rgba(0,0,0,0.5);margin-top:4px;}
 .latest-banner .lb-btn{background:#0D2B5E;color:#fff;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;white-space:nowrap;}
 .latest-banner .lb-btn:hover{background:#163d80;}
-
-/* フッター */
 .footer{background:#0a1f42;padding:28px 24px;text-align:center;}
 .footer p{font-size:12px;color:rgba(255,255,255,0.4);}
-
 @media(max-width:600px){
   .hero h1{font-size:21px;}
   .grid{grid-template-columns:1fr;}
@@ -80,7 +61,6 @@ a{text-decoration:none;color:inherit;}
 </style>
 </head>
 <body>
-
 <header class="header">
   <div class="header-inner">
     <div class="logo">ミャンマーニュース</div>
@@ -89,11 +69,10 @@ a{text-decoration:none;color:inherit;}
 </header>
 <nav class="nav-bar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-btn nav-btn-latest">▶ 最新号</a>
-    <span class="nav-btn nav-btn-archive active-page">📚 バックナンバー一覧</span>
+    <a href="index.html">▶ 最新号</a>
+    <a href="archive.html" class="active">📚 バックナンバー一覧</a>
   </div>
 </nav>
-
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-label">BACK NUMBER</div>
@@ -101,30 +80,24 @@ a{text-decoration:none;color:inherit;}
     <div class="hero-sub">Vol.01（2026年7月7日）から最新号まで、全号を掲載しています。</div>
   </div>
 </div>
-
 <div class="wrap">
-
-  <!-- 最新号バナー -->
   <div class="latest-banner">
     <div>
       <div class="lb-label">最新号</div>
-      <div class="lb-title">Vol.019 | 2026年7月16日（木）</div>
+      <div class="lb-title">Vol.021 | 2026年7月16日（木）</div>
       <div class="lb-sub">チョープー軍撤退 ／ インド国境5年ぶり再開 ／ 映画祭最高賞</div>
     </div>
     <a href="index.html" class="lb-btn">今日の記事を読む →</a>
   </div>
-
-  <!-- 全号一覧 -->
   <div class="section-head">
     <h2>全バックナンバー</h2>
-    <span class="count-badge">8号</span>
+    <span class="count-badge">9号</span>
   </div>
-
   <div class="grid">
-    <!-- Vol.019 -->
+    <!-- Vol.021 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.019</div>
+        <div class="card-vol">Vol.021</div>
         <div class="card-date">2026年7月16日（木）</div>
       </div>
       <div class="card-body">
@@ -143,41 +116,39 @@ a{text-decoration:none;color:inherit;}
         <a href="news-2026-07-16.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.18 -->
+    <!-- Vol.020 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.18</div>
-        <div class="card-date">2026年7月15日(火)</div>
+        <div class="card-vol">Vol.020</div>
+        <div class="card-date">2026年7月15日(水)</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
-          <span class="card-tag">外交</span>
-          <span class="card-tag">内戦</span>
-          <span class="card-tag">歴史</span>
+          <span class="card-tag">内戦・軍事</span>
+          <span class="card-tag">人道危機</span>
+          <span class="card-tag">人権・徴兵</span>
         </div>
         <ul class="card-titles">
-          <li>ミャンマー軍事評議会、8月中旬にタイを訪問予定</li>
-          <li>サガイン州の戦略的幹線道路、軍政プロパガンダの可能性</li>
-          <li>7月19日はミャンマー独立烈士記念日 - アウン・サン将軍暗殺から73年</li>
+          <li>軍政、チン州南部へ約1,000名の増援部隊を投入</li>
+          <li>カレンニー州で豪雨による食料・医薬品の深刻な不足</li>
+          <li>コーカン武装勢力、住民台帳を利用した強制徴兵を実施</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-15.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.08 -->
+    <!-- Vol.019 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.08</div>
-        <div class="card-date">2026年7月14日（火）</div>
+        <div class="card-vol">Vol.019</div>
+        <div class="card-date">2026年7月14日（月）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
           <span class="card-tag">外交・ASEAN</span>
-          <span class="card-tag">人権・政治</span>
-          <span class="card-tag">犯罪・治安</span>
+          <span class="card-tag">人権・情報統制</span>
+          <span class="card-tag">犯罪・麻薬</span>
         </div>
         <ul class="card-titles">
           <li>ミン・アウン・フラインが8月初旬にタイを訪問予定 ／ ASEAN外相会合後、二国間外交が動き出す</li>
@@ -189,12 +160,11 @@ a{text-decoration:none;color:inherit;}
         <a href="news-2026-07-14.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.07 -->
+    <!-- Vol.015 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.07</div>
-        <div class="card-date">2026年7月12日（日）</div>
+        <div class="card-vol">Vol.015</div>
+        <div class="card-date">2026年7月12日（土）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -212,12 +182,11 @@ a{text-decoration:none;color:inherit;}
         <a href="news-2026-07-12.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.06 -->
+    <!-- Vol.014 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.06</div>
-        <div class="card-date">2026年7月11日（土）</div>
+        <div class="card-vol">Vol.014</div>
+        <div class="card-date">2026年7月11日（金）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -226,21 +195,20 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">外交</span>
         </div>
         <ul class="card-titles">
-          <li>タイ・チェンマイでミャンマー人労働者210人以上が突然逮捕 ／ 失踪者続出・依拠460バーツの賠償</li>
-          <li>トランプ政権がミャンマー人向け7か月のTPS廃止 ／ 猶予期間は1週間、在住ミャンマー人4万人に影響</li>
-          <li>ワシントンD.C.でミャンマー支援の集会 ／「国連大使・ミン・アウン・フラインの逮捕要求を」</li>
+          <li>タイ・チェンマイでミャンマー人労働者210人以上が突然逮捕</li>
+          <li>トランプ政権がミャンマー人向けTPSを廃止 ／ 在住ミャンマー人4万人に影響</li>
+          <li>ワシントンD.C.でミャンマー支援の集会</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-11.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.05 -->
+    <!-- Vol.013 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.05</div>
-        <div class="card-date">2026年7月10日（金）</div>
+        <div class="card-vol">Vol.013</div>
+        <div class="card-date">2026年7月10日（木）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -249,21 +217,20 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">社会</span>
         </div>
         <ul class="card-titles">
-          <li>ASEAN外相が7月12日にバンコクで軍政代理と会合 ／ 5年越しの膠着に「圧力」をかけるのか</li>
-          <li>フランス首相がスー・チー釈放を要求 ／ 軍政、7月19日までに滞在者に出国命令</li>
-          <li>ラカイン州で洪水が深刻化 ／ 農地1エーカー以上が水没、住民80%が依存する稲作に打撃</li>
+          <li>ASEAN外相が7月12日にバンコクで軍政代理と会合</li>
+          <li>フランス首相がスー・チー釈放を要求</li>
+          <li>ラカイン州で洪水が深刻化 ／ 農地1エーカー以上が水没</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-10.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.04 -->
+    <!-- Vol.012 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.04</div>
-        <div class="card-date">2026年7月9日（木）</div>
+        <div class="card-vol">Vol.012</div>
+        <div class="card-date">2026年7月9日（水）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -272,21 +239,20 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">外交</span>
         </div>
         <ul class="card-titles">
-          <li>チットトゥザ近郊の1,700人が1か月以上孤立 ／ 食料・医薬品は枯渇、支援届かず</li>
-          <li>シャン州カロー近郊で地滑りと洪水 ／ 農地への転落・土地価格2.4倍、耕地は瀬戸際</li>
-          <li>サガイン管区でマンダレー〜ミャンマー北部の鉄道が脱線 ／ 数日間の運休と安全懸念</li>
+          <li>チットトゥザ近郊の1,700人が1か月以上孤立</li>
+          <li>シャン州カロー近郊で地滑りと洪水</li>
+          <li>サガイン管区でマンダレー〜北部の鉄道が脱線</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-09.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.03 -->
+    <!-- Vol.011 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.03</div>
-        <div class="card-date">2026年7月8日（水）</div>
+        <div class="card-vol">Vol.011</div>
+        <div class="card-date">2026年7月8日（火）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -295,21 +261,20 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">歴史</span>
         </div>
         <ul class="card-titles">
-          <li>軍政が1,000人超の出稼ぎ労働者の出国を阻止 ／ 送金・外貨管理で深まる経済的支配</li>
-          <li>国連でR2P発動を緊急要求 ／ クーデター後の死者8,100人超、70日間に1,147件の空爆</li>
-          <li>7月7日学生蜂起64周年 ／ タイで追悼式典、「1962年から続く軍の精神」を確認</li>
+          <li>軍政が1,000人超の出稼ぎ労働者の出国を阻止</li>
+          <li>国連でR2P発動を緊急要求</li>
+          <li>7月7日学生蜂起64周年 ／ タイで追悼式典</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-08.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.02 -->
+    <!-- Vol.002 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.02</div>
-        <div class="card-date">2026年7月7日（火）</div>
+        <div class="card-vol">Vol.002</div>
+        <div class="card-date">2026年7月7日（月）</div>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -318,20 +283,19 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">社会</span>
         </div>
         <ul class="card-titles">
-          <li>Starlinkがミャンマーで大規模停止 ／ サイバー詐欺拠点ダウンの余波と国際的批判</li>
-          <li>ミン・アウン・フラインがラオス訪問 ／ メコン川の水力発電2,790MWで共同調査署名</li>
-          <li>ミャンマー全土で竜巻・強風が多発 ／ モンスーン期の被害と現地状況</li>
+          <li>Starlinkがミャンマーで大規模停止</li>
+          <li>ミン・アウン・フラインがラオス訪問 ／ メコン川水力発電で署名</li>
+          <li>ミャンマー全土で竜巻・強風が多発</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-07-vol2.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-    <!-- Vol.01 -->
+    <!-- Vol.001 -->
     <div class="card">
       <div class="card-top">
-        <div class="card-vol">Vol.01</div>
+        <div class="card-vol">Vol.001</div>
         <div class="card-date">2026年7月7日（月）</div>
       </div>
       <div class="card-body">
@@ -341,23 +305,19 @@ a{text-decoration:none;color:inherit;}
           <span class="card-tag">外交・国際</span>
         </div>
         <ul class="card-titles">
-          <li>チェンマイの追悼式典で軍政批判 ／ ミャンマーの航空機封鎖が国際問題に</li>
-          <li>国連、ミャンマーを巡るR2P発動を要求 ／「保護する責任」とは何か</li>
-          <li>バングラデシュのロヒンギャキャンプで土砂崩れ ／ 少なくとも8人が死亡</li>
+          <li>チェンマイの追悼式典で軍政批判</li>
+          <li>国連、ミャンマーを巡るR2P発動を要求</li>
+          <li>バングラデシュのロヒンギャキャンプで土砂崩れ</li>
         </ul>
       </div>
       <div class="card-footer">
         <a href="news-2026-07-07.html" class="card-link">▶ この号を読む</a>
       </div>
     </div>
-
-  </div><!-- /grid -->
-
-</div><!-- /wrap -->
-
+  </div>
+</div>
 <footer class="footer">
   <p>&copy; 2026 ミャンマーニュース | ミャンマーと日本をつなぐ情報誌</p>
 </footer>
-
 </body>
 </html>

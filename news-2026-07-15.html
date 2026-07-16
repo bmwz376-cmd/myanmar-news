@@ -1,54 +1,75 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ミャンマーニュース | 2026年7月15日 Vol.18</title>
+<title>ミャンマーニュース | 2026年7月15日 Vol.020</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}
 a{text-decoration:none;color:inherit;}
-.header{background:#0D2B5E;color:#fff;padding:24px 20px;text-align:center;}
-.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-size:24px;font-weight:900;letter-spacing:1px;}
-.header-right{font-size:12px;opacity:0.8;}
-/* === ナビゲーションバー === */
+.header{background:#0D2B5E;padding:14px 0;}
+.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}
+.header-right{color:rgba(255,255,255,0.45);font-size:12px;}
+.hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:52px 0 44px;}
+.hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}
+.vol{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}
+.hero h1{color:#fff;font-size:27px;font-weight:900;line-height:1.5;margin-bottom:10px;}
+.wrap{max-width:860px;margin:0 auto;padding:44px 24px 64px;}
+.editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}
+.editor-note p{font-size:14px;color:#444;line-height:1.95;}
+.article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}
+.art-head{padding:30px 32px 0;}
+.art-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}
+.tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}
+.tp{background:#1a3a6b;color:#fff;}
+.ts{background:#1b4332;color:#fff;}
+.ti{background:#5c3317;color:#fff;}
+.tk{background:#4a1a6b;color:#fff;}
+.tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}
+.art-date{font-size:12px;color:#bbb;margin-left:auto;}
+.art-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:8px;}
+.art-src{font-size:12px;color:#bbb;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}
+.art-body{padding:26px 32px 8px;}
+.art-news{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;}
+.kaisetsu{background:#f7f9ff;border:1px solid #d4e0f5;border-radius:10px;padding:22px 24px;margin-bottom:20px;}
+.k-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#1a3a6b;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
+.k-label span{background:#1a3a6b;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;}
+.k-point{margin-bottom:18px;}
+.k-point:last-child{margin-bottom:0;}
+.k-point-title{font-size:14px;font-weight:700;color:#0D2B5E;margin-bottom:6px;display:flex;align-items:flex-start;gap:6px;}
+.k-point-title::before{content:"▶";color:#C9A84C;flex-shrink:0;}
+.k-point p{font-size:14px;color:#444;line-height:1.85;padding-left:14px;}
+.art-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:12px 0 26px 32px;}
+.art-link:hover{color:#C9A84C;}
+.footer{background:#0a1f42;padding:28px 24px;text-align:center;}
+.footer p{font-size:12px;color:rgba(255,255,255,0.4);}
+@media(max-width:600px){
+  .hero h1{font-size:21px;}
+  .art-title{font-size:18px;}
+  .art-head,.art-body,.art-link{padding-left:20px;padding-right:20px;}
+}
 .nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;position:sticky;top:0;z-index:999;}
 .nav-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:46px;}
 .nav-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;}
 .nav-btn-latest{background:#C9A84C;color:#0D2B5E;}
-.nav-btn-latest:hover{background:#e8c070;}
+.nav-btn-latest:hover{background:#e8c070;color:#0D2B5E;}
 .nav-btn-archive{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);}
-.nav-btn-archive:hover{background:rgba(255,255,255,0.22);}
+.nav-btn-archive:hover{background:rgba(255,255,255,0.22);color:#fff;}
 .nav-btn.active-page{opacity:0.55;pointer-events:none;cursor:default;}
-/* === ヒーロー === */
-.hero{background:#132d5e;color:#fff;padding:48px 20px;text-align:center;}
-.hero-inner{max-width:900px;margin:0 auto;}
-.hero-date{font-size:14px;opacity:0.9;margin-bottom:8px;}
-.hero-title{font-size:48px;font-weight:900;margin-bottom:12px;letter-spacing:1px;}
-.hero-subtitle{font-size:14px;opacity:0.85;}
-/* === メインコンテンツ === */
-.main{max-width:900px;margin:40px auto;padding:0 20px;}
-.article{background:#fff;padding:40px;margin-bottom:40px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-.art-date{font-size:12px;color:#999;margin-bottom:8px;text-transform:uppercase;}
-.art-title{font-size:28px;font-weight:900;margin-bottom:16px;color:#0D2B5E;line-height:1.4;}
-.art-news{font-size:15px;line-height:1.9;color:#333;margin-bottom:20px;}
-.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
-.art-tag{display:inline-block;background:#e8eef5;color:#132d5e;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;}
-/* === フッター前ボタン === */
-.back-btn-container{background:#f2f5fa;padding:32px 24px;text-align:center;}
-.back-btn{display:inline-flex;align-items:center;gap:8px;background:#0D2B5E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;}
-.back-btn:hover{background:#1a3f7f;}
-.footer{background:#132d5e;color:#fff;text-align:center;padding:24px 20px;margin-top:40px;}
-.footer p{font-size:12px;opacity:0.8;}
 </style>
 </head>
 <body>
 <header class="header">
   <div class="header-inner">
     <div class="logo">ミャンマーニュース</div>
-    <div class="header-right">毎朝8時更新 | ミャンマーと日本をつなぐ</div>
+    <div class="header-right">毎朝8時更新　|　ミャンマーと日本をつなぐ</div>
   </div>
 </header>
 <nav class="nav-bar">
@@ -57,63 +78,115 @@ a{text-decoration:none;color:inherit;}
     <a href="archive.html" class="nav-btn nav-btn-archive">📚 バックナンバー一覧</a>
   </div>
 </nav>
-<section class="hero">
+<div class="hero">
   <div class="hero-inner">
-    <div class="hero-date">2026年7月15日（火）</div>
-    <div class="hero-title">Vol.18</div>
-    <div class="hero-subtitle">タイ訪問・地域紛争・建国記念日</div>
+    <div class="vol">Vol.020　|　2026年7月15日（水）</div>
+    <h1>ミャンマー最新ニュース 3選<br>日本人が知っておきたい背景</h1>
   </div>
-</section>
-<main class="main">
-  <!-- 記事1 -->
-  <article class="article">
-    <div class="art-date">2026年7月14日 DVB報道</div>
-    <div class="art-title">ミャンマー軍事評議会、8月中旬にタイを訪問予定 - 外交活動の動き活発化</div>
-    <div class="art-news">
-      ミャンマー軍事評議会のミン・アウン・フラインが8月中旬にタイを訪問する予定であることが、ASEAN関係筋の情報として明らかになった。同氏がタイを訪問するのは、2025年4月のバンコク・BIMSTEC首脳会議以来となる。訪問の背景には、7月12日のバンコクで開催されたASEAN外相会談があり、タイ外相からミャンマーに対して「Five-Point Consensus（五項目合意）の具体的実行」を求める働きかけがなされた。
-    </div>
-    <div class="art-tags">
-      <span class="art-tag">外交</span>
-      <span class="art-tag">ASEAN</span>
-      <span class="art-tag">タイ</span>
-    </div>
-  </article>
-
-  <!-- 記事2 -->
-  <article class="article">
-    <div class="art-date">2026年7月14日 DVB報道</div>
-    <div class="art-title">サガイン州の戦略的幹線道路、軍政プロパガンダの可能性 - 抵抗勢力が占領継続主張</div>
-    <div class="art-news">
-      ミャンマー軍事政権が「Kalewa-Monywa間の120マイル（約193km）の幹線道路を奪回した」と発表したことについて、PDF（人民防衛隊）とサガイン州の政治指導者は「プロパガンダ」と反論した。同道路は全長1,400km以上の「India-Myanmar-Thailand Trilateral Highway（インド・ミャンマー・タイ三国回廊）」の一部であり、インドの北東部マニプル州とタイのターク県を結ぶ戦略的に重要な経路。PDFが占領する地域は依然として道路全体の80%で、軍政側はわずか20%の支配に留まっているとされている。
-    </div>
-    <div class="art-tags">
-      <span class="art-tag">内戦</span>
-      <span class="art-tag">インフラ</span>
-      <span class="art-tag">地政学</span>
-    </div>
-  </article>
-
-  <!-- 記事3 -->
-  <article class="article">
-    <div class="art-date">2026年7月19日 ミャンマー国内</div>
-    <div class="art-title">7月19日はミャンマー独立烈士記念日 - アウン・サン将軍暗殺から73年</div>
-    <div class="art-news">
-      ミャンマーは7月19日を「独立烈士記念日（Martyrs' Day）」として国家的に記念する。同日は1947年にアウン・サン将軍（故アウン・サン・スー・チー氏の父）が内務大臣とともに暗殺された日であり、ミャンマー独立戦争の歴史的転換点とされている。本年2026年は暗殺から73年目にあたる。国内では通例、政府機関、学校、商業施設で式典や追悼行事が開催されるが、軍事評議会とPDFの対立が続く中、実施形式や参加者の構成をめぐり複雑な状況が生じている可能性がある。
-    </div>
-    <div class="art-tags">
-      <span class="art-tag">歴史</span>
-      <span class="art-tag">政治</span>
-      <span class="art-tag">ミャンマー</span>
-    </div>
-  </article>
-</main>
-
-<div class="back-btn-container">
-  <a href="archive.html" class="back-btn">📚 バックナンバー一覧へ戻る</a>
 </div>
-
+<div class="wrap">
+  <div class="editor-note">
+    <div class="en-label">編集にあたって</div>
+    <p>本日は「ミャンマー軍政がチン州南部に約1,000名の増援部隊を投入し、抵抗勢力との戦闘が激化している」ことと、「カレンニー州（カヤー州）で豪雨による食料・医薬品の深刻な不足が発生し、住民が片道4時間の徒歩で物資を調達している」こと、そして「MNDAアー（コーカン武装勢力）が住民台帳を利用した強制徴兵を実施し、拒否した家族の家屋を没収している」ことをお伝えします。軍政・抵抗勢力の双方で市民への負担が増大する現地の実態を、日本の建設業・人材業界に関わる方々にも知っていただきたいニュースです。</p>
+  </div>
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag tp">内戦・軍事</span>
+        <span class="tag tsrc">BNI / Kantarawaddy Times</span>
+        <span class="art-date">2026年7月14〜15日</span>
+      </div>
+      <div class="art-title">軍政、チン州南部へ約1,000名の増援部隊を投入<br>ミンダット・カンペットレット戦線で攻勢を強化</div>
+      <div class="art-src">出典：Burma News International（BNI）2026年7月14日</div>
+    </div>
+    <div class="art-body">
+      <div class="art-news">ミャンマー軍事政権は、チン州南部のミンダット・カンペットレット戦線での大規模な損害と戦況悪化を受け、約1,000名規模の増援部隊を同地域に投入しています。7月10日、マグウェー管区パウッ郡区の「第24国防産業工場（DDI24）」から約400名規模の部隊が5台のトラックに分乗して出発し、チャウッフトゥの第368砲兵大隊に向け前進中です。同列には、メイッティーラ拠点の第99軽歩兵師団（LID99）から600名超・軍用車両30台以上の別動隊も合流しており、7月13日にラウンシェーの「第25国防産業工場」に到着しています。7月12日のタピン村付近の衝突では、抵抗連合軍との激戦により軍兵士少なくとも10名が死亡したと地元情報筋は伝えています。軍事アナリストは「今回の増援によりミンダット郡全域での作戦拡大が可能になり、ミンダット市北東のバウッテー村方面からの新たな攻勢ルートが開かれる可能性がある」と分析しています。5月中旬から現在まで、軍政はチン人民連合/チン人民軍（CPU/CPA）および抵抗連合勢力との戦闘を6週間以上継続しており、抵抗勢力側は軍側に数百名規模の死傷者が出たと主張しています。</div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">チン州はなぜ重要な戦場なのか</div>
+          <p>チン州はミャンマー西部の山岳地帯で、インドのミゾラム州と国境を接しています。軍政の支配が及びにくい地形から、クーデター後にチン抵抗勢力（CPU/CPA）が拠点を築いてきました。今回の軍政による大規模増援は2021年以降で最大規模の攻勢のひとつとされており、チン州情勢が地域全体の戦局に影響を与えます。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">在日チン族・ミャンマー人への影響</div>
+          <p>日本には技能実習・特定技能として来日しているチン族出身のミャンマー人が複数います。チン州での戦闘激化は、故郷に残る家族への直接的な危険を意味します。建設業や介護業でミャンマー人を雇用している企業の担当者は、労働者がこうした情報に接したとき精神的に大きなダメージを受ける可能性があることを認識しておく必要があります。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">長期化する戦闘と人材送り出しへの影響</div>
+          <p>チン州・サガイン管区・マグウェー管区にまたがる今回の戦線拡大は、これらの地域からの人材送り出しにも支障をきたす可能性があります。パスポート取得や出入国管理の遅延、送り出し機関との連絡困難が発生するリスクを受け入れ企業は把握しておくべきです。</p>
+        </div>
+      </div>
+    </div>
+    <a class="art-link" href="https://www.bnionline.net/en/news/myanmar-junta-deploys-1000-reinforcements-southern-chin-state-after-battlefield-losses" target="_blank">→ BNI 記事を読む（英語）</a>
+  </div>
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag ts">人道・食料危機</span>
+        <span class="tag tsrc">Kantarawaddy Times / BNI</span>
+        <span class="art-date">2026年7月15日</span>
+      </div>
+      <div class="art-title">カレンニー州で豪雨による食料・医薬品の深刻な不足<br>住民が往復8時間の徒歩で物資を調達</div>
+      <div class="art-src">出典：Kantarawaddy Times / Burma News International（BNI）2026年7月15日</div>
+    </div>
+    <div class="art-body">
+      <div class="art-news">ミャンマー東部・カレンニー州（旧カヤー州）のフプルソー郡区西部では、モンスーンの豪雨と道路の激しい損傷により僻遠集落が主要補給路から孤立し、食料・医薬品の深刻な不足が生じています。現地の診療所では必需医薬品が枯渇しており、主食の米・食用油・塩・魚醤（ンガピー）が約1か月間にわたって手に入らない状態が続いていると住民は証言しています。「ここには診療所があるが、深刻な不足に直面している。医薬品を注文したが搬入できない。トラクターで運び込もうとしても不可能だ」と現地の女性は語っています。道路はトラックおよびトラクターの通行が完全に不可能な状態で、住民たちは生き延びるために片道4時間・往復8時間の徒歩を強いられ、米や油を人力で担いで集落に持ち帰っています。「道路の損傷でトラックもトラクターも通れない。バイクで行ける別ルートもあるが一泊が必要になる。そのため、ほとんどの店の在庫が尽き、人を雇って油や米を担いで運んでいる」と地元の男性は話しています。事態の悪化を受け、住民たちは自力で最も損傷の激しい道路区間の補修に乗り出しています。</div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">「紛争＋気候変動」の複合危機</div>
+          <p>カレンニー州は2021年クーデター以降、抵抗勢力と軍政の間で戦闘が続く激戦地のひとつです。軍事衝突によってインフラが破壊された状態でモンスーンが直撃するという「複合危機」が、一般市民の生存を脅かしています。国連WFPおよび国際NGOは支援を試みていますが、戦闘地域への搬入は著しく困難です。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">カレンニー出身の在日ミャンマー人が直面する現実</div>
+          <p>日本には少数ながらカレンニー出身の技能実習生・特定技能労働者が働いています。故郷の家族が食料・医薬品すら手に入らない状況にあるという情報は、労働意欲や精神的健康に直接影響します。雇用企業がこうした背景を理解し、適切なサポートを行うことが重要です。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">道路インフラ崩壊と今後の展望</div>
+          <p>ミャンマーでは戦闘による橋梁・幹線道路の破壊と、整備されない地方インフラへのモンスーンの集中的打撃が重なっています。2025年以降「アクセス不能地域」は年々拡大しており、人道支援団体はすでにミャンマー全土の人口の約3分の1が急性の食料不足リスクにさらされていると警告しています。</p>
+        </div>
+      </div>
+    </div>
+    <a class="art-link" href="https://www.bnionline.net/en/news/heavy-rains-trigger-acute-food-and-medicine-shortages-myanmars-karenni-state" target="_blank">→ BNI 記事を読む（英語）</a>
+  </div>
+  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag tk">人権・強制徴兵</span>
+        <span class="tag tsrc">Shan Herald Agency / BNI</span>
+        <span class="art-date">2026年7月14日</span>
+      </div>
+      <div class="art-title">コーカン武装勢力（MNDAA）、住民台帳を利用した強制徴兵を実施<br>拒否した家族の家屋を没収・村の行政官は暴行被害も</div>
+      <div class="art-src">出典：Shan Herald Agency for News / Burma News International（BNI）2026年7月14日</div>
+    </div>
+    <div class="art-body">
+      <div class="art-news">北シャン州を支配するコーカン民族武装組織・ミャンマー民族民主同盟軍（MNDAA）が、新たに整備した住民登録制度を強制徴兵に悪用しているとして、地元住民やメディアが告発しています。MNDAAはコーカン地区行政として身分証明書の発行と世帯登録を行うと称する「住民サービス」を開始。同組織に近いメディアによると62,630人に身分証が発行され、18,356世帯が登録されたとされていますが、住民たちは「登録は徴兵のための人口把握が目的だ」と訴えています。MNDAAは収集した世帯データに基づいて徴兵割り当てを体系的に強制しており、「男性2人がいる世帯は男性1名を、女性2人がいる世帯は女性1名を徴兵しなければならない」との方針が課されています。「徴兵を避けて逃げた家族の家屋はMNDAAに没収されている」と住民は証言しています。南のモンヤイ郡では5月以降、20か村以上に「1村あたり最低1名の徴兵」を命令。割り当てを満たせなかった村の行政官は懲戒処分、および一部は暴行を受けたと複数の情報源が報告しています。また、MNDAA発行の身分証は中国側の国境検問所を越えて就労するために必要とされており、身分証取得には中国ブローカーへの4,000〜6,000元（約55,000〜82,500円）の手数料が必要とされる二重の搾取構造も生じています。</div>
+      <div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point">
+          <div class="k-point-title">MNDAAとは何か——「解放勢力」から「支配勢力」へ</div>
+          <p>MNDAAは2023〜2024年の大規模攻勢で軍政から北シャン州の広大な領域を奪取した民族武装組織です。当初は「軍政打倒の同志」として抵抗運動内でも評価されていましたが、支配領域の拡大に伴い住民への厳格な管理・徴税・強制徴兵が問題視されるようになっています。今回の事例はその典型です。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">「身分証がないと中国で働けない」という構造的な罠</div>
+          <p>MNDAA発行の身分証は中国側の国境検問所を越えて就労するために必要とされており、住民は「発行を断れない」状況に置かれています。登録することで徴兵対象として把握され、拒否すれば出稼ぎができなくなる——どちらに転んでも住民が不利益を被る構造となっています。</p>
+        </div>
+        <div class="k-point">
+          <div class="k-point-title">日本への影響——シャン州出身労働者の送り出し環境の変化</div>
+          <p>北シャン州（コーカン地域を含む）は、これまでも日本への技能実習・特定技能労働者の送り出し地域の一部でした。MNDAAによる徴兵強制・旅行規制・国境管理の厳格化は、同地域からの合法的な出国・渡航を一層困難にする可能性があります。送り出し機関や受け入れ企業は、同地域出身者のビザ・旅券取得に従来よりも長い期間と複雑な手続きが必要となりうる点を念頭に置く必要があります。</p>
+        </div>
+      </div>
+    </div>
+    <a class="art-link" href="https://www.bnionline.net/en/news/kokang-armed-group-using-local-id-registry-forced-conscription-residents-say" target="_blank">→ BNI 記事を読む（英語）</a>
+  </div>
+</div>
+<div style="background:#f2f5fa;padding:32px 24px;text-align:center;">
+  <a href="archive.html" style="display:inline-flex;align-items:center;gap:8px;background:#0D2B5E;color:#fff;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;">
+    📚 バックナンバー一覧へ戻る
+  </a>
+</div>
 <footer class="footer">
-  <p>&copy; 2026 ミャンマーニュース | ミャンマーと日本をつなぐ情報誌</p>
+  <p>&copy; 2026　ミャンマーニュース　|　ミャンマーと日本をつなぐ情報誌</p>
 </footer>
 </body>
 </html>
