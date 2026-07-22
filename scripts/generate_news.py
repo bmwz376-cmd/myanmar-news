@@ -35,60 +35,65 @@ def get_date_info():
     return ds, dj
 
 def get_next_vol():
+    """archive.htmlから最大Vol番号を読み取り+1を返す（重複防止）"""
     try:
-        c = open('archive.html','r',encoding='utf-8').read()
-        nums = [int(x) for x in re.findall(r'card-vol\">Vol\.0*(\d+)<', c)]
-        return max(nums)+1 if nums else 13
+        c = open('archive.html', 'r', encoding='utf-8').read()
+        nums = [int(x) for x in re.findall(r"card-vol'>Vol\.0*(\d+)<", c)]
+        return max(nums) + 1 if nums else 14
     except:
-        return 13
+        return 14
 
 def load_used():
     try:
-        return [l.strip() for l in open('used-news.txt','r',encoding='utf-8').read().split('\n')
+        return [l.strip() for l in open('used-news.txt', 'r', encoding='utf-8').read().split('\n')
                 if l.strip() and not l.startswith('#')]
     except:
         return []
 
 def fetch_dvb():
     try:
-        r = requests.get(DVB_FEED, timeout=15, headers={'User-Agent':'Mozilla/5.0'})
+        r = requests.get(DVB_FEED, timeout=15, headers={'User-Agent': 'Mozilla/5.0'})
         root = ET.fromstring(r.content)
         items = []
         for item in root.find('channel').findall('item'):
             ce = item.find('{http://purl.org/rss/1.0/modules/content/}encoded')
-            items.append({'title':item.findtext('title',''),'url':item.findtext('link',''),
-                          'content':(ce.text if ce is not None else item.findtext('description','')) or '',
-                          'source':'DVB'})
+            items.append({
+                'title': item.findtext('title', ''),
+                'url': item.findtext('link', ''),
+                'content': (ce.text if ce is not None else item.findtext('description', '')) or '',
+                'source': 'DVB'
+            })
         return items
     except Exception as e:
         print(f"DVBエラー:{e}"); return []
 
 def fetch_bni():
     try:
-        r = requests.get(BNI_URL, timeout=15, headers={'User-Agent':'Mozilla/5.0'})
-        soup = BeautifulSoup(r.text,'lxml')
-        seen,items = set(),[]
+        r = requests.get(BNI_URL, timeout=15, headers={'User-Agent': 'Mozilla/5.0'})
+        soup = BeautifulSoup(r.text, 'lxml')
+        seen, items = set(), []
         for a in soup.find_all('a', href=re.compile(r'/en/news/')):
-            h = a.get('href','')
+            h = a.get('href', '')
             if h in seen: continue
             seen.add(h)
             t = a.get_text(strip=True)
             if len(t) > 20:
                 url = f"https://www.bnionline.net{h}" if h.startswith('/') else h
-                items.append({'title':t,'url':url,'content':'','source':'BNI Online'})
+                items.append({'title': t, 'url': url, 'content': '', 'source': 'BNI Online'})
         return items
     except Exception as e:
         print(f"BNIエラー:{e}"); return []
 
 def fetch_detail(url):
     try:
-        r = requests.get(url, timeout=15, headers={'User-Agent':'Mozilla/5.0'})
-        soup = BeautifulSoup(r.text,'lxml')
+        r = requests.get(url, timeout=15, headers={'User-Agent': 'Mozilla/5.0'})
+        soup = BeautifulSoup(r.text, 'lxml')
         return ' '.join(p.get_text(strip=True) for p in soup.find_all('p')[:12])[:2000]
     except:
         return ''
 
 def translate_to_ja(text):
+    """Google翻訳で英語→日本語（APIキー不要）"""
     if not text or not text.strip():
         return text
     try:
@@ -127,14 +132,14 @@ def apply_proper_nouns(text):
     return text
 
 def categorize(title, content):
-    text = (title+' '+content).lower()
-    if any(w in text for w in ['military','airstrike','coup','fighting','junta','war','attack','bomb','killed']):
-        return 'tp','内戦・軍事'
-    if any(w in text for w in ['economy','trade','investment','business','dam','infrastructure','border','price']):
-        return 'ts','経済・貿易'
-    if any(w in text for w in ['refugee','civilian','humanitarian','rohingya','displaced','human rights','missing']):
-        return 'ti','人道・難民'
-    return 'tc','文化・社会'
+    text = (title + ' ' + content).lower()
+    if any(w in text for w in ['military', 'airstrike', 'coup', 'fighting', 'junta', 'war', 'attack', 'bomb', 'killed']):
+        return 'tp', '内戦・軍事'
+    if any(w in text for w in ['economy', 'trade', 'investment', 'business', 'dam', 'infrastructure', 'border', 'price']):
+        return 'ts', '経済・貿易'
+    if any(w in text for w in ['refugee', 'civilian', 'humanitarian', 'rohingya', 'displaced', 'human rights', 'missing']):
+        return 'ti', '人道・難民'
+    return 'tc', '文化・社会'
 
 def is_used(title, used_list):
     tl = title.lower()
@@ -168,17 +173,18 @@ def build_article(a, dj):
     title_en = a['title']
     url = a['url']
     src = a['source']
-    content_en = a.get('content','')
+    content_en = a.get('content', '')
     tc, tl = categorize(title_en, content_en)
+
     print(f"  タイトル翻訳中: {title_en[:50]}...")
-    ja_title = translate_to_ja(title_en)
-    ja_title = apply_proper_nouns(ja_title)
-    body_en = content_en[:600] if content_en else title_en
-    body_en_clean = re.sub(r'<[^>]+>', '', body_en)
+    ja_title = apply_proper_nouns(translate_to_ja(title_en))
+
+    body_en_clean = re.sub(r'<[^>]+>', '', content_en[:600] if content_en else title_en)
     print(f"  本文翻訳中...")
-    ja_body = translate_to_ja(body_en_clean)
-    ja_body = apply_proper_nouns(ja_body)
+    ja_body = apply_proper_nouns(translate_to_ja(body_en_clean))
+
     p1, p2, p3 = build_kaisetsu(tl)
+
     return f"""
   <div class="article">
     <div class="art-head">
@@ -198,20 +204,68 @@ def build_article(a, dj):
     <a class="art-link" href="{url}" target="_blank">→ {src} 原記事を読む</a>
   </div>"""
 
-def update_archive(ds, dj, vs, vn, arts):
+def update_archive(ds, dj, vs, vn, arts, ja_titles):
+    """
+    archive.htmlを更新する。
+    重複防止: 同じ日付(ds)のカードが既にあれば追加しない。
+    最新号バナー: lb-label直後のテキストノードを書き換える。
+    """
     try:
-        c = open('archive.html','r',encoding='utf-8').read()
-        tags = ''.join(f"<span class='card-tag'>{categorize(a['title'],a.get('content',''))[1]}</span>" for a in arts[:3])
-        titles = ''.join(f"<li>{translate_to_ja(a['title'])[:28]}...</li>" for a in arts[:3])
-        card = f"\n    <!-- {vs} -->\n    <div class='card'><div class='card-top'><div class='card-vol'>{vs}</div><div class='card-date'>{dj}</div></div><div class='card-body'><div class='card-tags'>{tags}</div><ul class='card-titles'>{titles}</ul></div><div class='card-footer'><a href='news-{ds}.html' class='card-link'>▶ この号を読む</a></div></div>"
-        pos = c.find('<div class="grid">') + len('<div class="grid">')
-        c = c[:pos] + card + c[pos:]
-        c = re.sub(r'(<div class="lb-title">)[^<]*(</div>)', f'\\g<1>{vs} | {dj}\\g<2>', c)
-        c = re.sub(r'(<span class="count-badge">)\d+(</span>)', f'\\g<1>{vn}\\g<2>', c)
-        open('archive.html','w',encoding='utf-8').write(c)
-        print("archive.html更新完了")
+        c = open('archive.html', 'r', encoding='utf-8').read()
+
+        # ── 重複チェック: 既に同じhrefのカードがある場合はスキップ ──
+        href_target = f"news-{ds}.html"
+        if href_target in c:
+            print(f"archive: {href_target} は既に登録済み。スキップ。")
+        else:
+            tags = ''.join(
+                f"<span class='card-tag'>{categorize(a['title'], a.get('content',''))[1]}</span>"
+                for a in arts[:3]
+            )
+            titles_html = ''.join(
+                f"<li>{t[:14]}...</li>" for t in ja_titles[:3]
+            )
+            card = (
+                f"\n    <!-- {vs} -->\n"
+                f"    <div class='card'>"
+                f"<div class='card-top'>"
+                f"<div class='card-vol'>{vs}</div>"
+                f"<div class='card-date'>{dj}</div>"
+                f"</div>"
+                f"<div class='card-body'>"
+                f"<div class='card-tags'>{tags}</div>"
+                f"<ul class='card-titles'>{titles_html}</ul>"
+                f"</div>"
+                f"<div class='card-footer'>"
+                f"<a href='{href_target}' class='card-link'>▶ この号を読む</a>"
+                f"</div></div>"
+            )
+            pos = c.find('<div class="grid">') + len('<div class="grid">')
+            c = c[:pos] + card + c[pos:]
+            print(f"archive: {vs} カード追加完了")
+
+        # ── 最新号バナー更新 ──
+        # 構造: <div class="lb-label">最新号</div>\n      Vol.XXX | 日付\n      <div class="lb-sub">...
+        sub_text = ' ／ '.join(t[:10] for t in ja_titles[:3])
+        c = re.sub(
+            r'(<div class="lb-label">[^<]*</div>\s*)\n(\s*)[^\n<]+(\s*\n\s*<div class="lb-sub">)[^<]*(</div>)',
+            lambda m: f'{m.group(1)}\n{m.group(2)}{vs} | {dj}{m.group(3)}{sub_text}{m.group(4)}',
+            c
+        )
+
+        # ── count-badge更新 ──
+        card_count = len(re.findall(r"href='news-\d{4}-\d{2}-\d{2}\.html'", c))
+        c = re.sub(
+            r'(<span class="count-badge">)\d+号(</span>)',
+            f'\\g<1>{card_count}号\\g<2>',
+            c
+        )
+
+        open('archive.html', 'w', encoding='utf-8').write(c)
+        print(f"archive.html更新完了（カード数: {card_count}）")
     except Exception as e:
         print(f"archive更新エラー:{e}")
+        import traceback; traceback.print_exc()
 
 def main():
     print("=== ミャンマーニュース自動生成 ===")
@@ -219,9 +273,11 @@ def main():
     vn = get_next_vol()
     vs = f"Vol.{vn:03d}"
     print(f"{ds} / {dj} / {vs}")
+
     out = f"news-{ds}.html"
     if os.path.exists(out):
         print(f"{out} 既存。スキップ。"); return
+
     used = load_used()
     dvb = fetch_dvb()
     bni = fetch_bni()
@@ -242,11 +298,15 @@ def main():
                 selected.append(a)
     if not selected:
         print("ERROR: 記事なし"); return
+
     print("記事を日本語に翻訳中（しばらくお待ちください）...")
     arts_html = ''.join(build_article(a, dj) for a in selected[:3])
-    ja_titles = [translate_to_ja(a['title'])[:20] for a in selected[:3]]
-    summary_titles = '、'.join(ja_titles)
+
+    # まとめ用日本語タイトルを取得（archive用にも使う）
+    ja_titles = [apply_proper_nouns(translate_to_ja(a['title'])) for a in selected[:3]]
+    summary_titles = '、'.join(t[:20] for t in ja_titles)
     summary = f"本日は「{summary_titles}」の3本をお届けします。日本に暮らすミャンマー人と日本企業にとって重要な情報を解説します。"
+
     html = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -269,14 +329,17 @@ def main():
 <footer class="footer"><p>&copy; 2026　ミャンマーニュース　|　ミャンマーと日本をつなぐ情報誌</p></footer>
 </body>
 </html>"""
-    open(out,'w',encoding='utf-8').write(html)
+
+    open(out, 'w', encoding='utf-8').write(html)
     print(f"{out} 保存完了 ({len(html)} bytes)")
     shutil.copy(out, 'index.html')
     print("index.html更新完了")
-    update_archive(ds, dj, vs, vn, selected[:3])
-    cur = open('used-news.txt','r',encoding='utf-8').read()
+
+    update_archive(ds, dj, vs, vn, selected[:3], ja_titles)
+
+    cur = open('used-news.txt', 'r', encoding='utf-8').read()
     add = ''.join(f"\n{ds}|{a['title'][:60]}" for a in selected[:3])
-    open('used-news.txt','w',encoding='utf-8').write(cur+add)
+    open('used-news.txt', 'w', encoding='utf-8').write(cur + add)
     print("used-news.txt更新完了")
     print(f"=== 完了: {vs} ({dj}) ===")
 
