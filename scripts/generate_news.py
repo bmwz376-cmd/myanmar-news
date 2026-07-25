@@ -161,7 +161,7 @@ def build_kaisetsu(category_label, title_en="", content_en=""):
         p3 = "日本にも一定数のロヒンギャ難民が暮らしており、在留資格・医療・教育へのアクセスに困難を抱えています。ミャンマー人材を受け入れる際は、出身地域の背景を理解することが重要です。"
 
     # ASEAN・外交・制裁
-    elif any(w in t for w in ["asean", "manila", "diplomatic", "sanctions", "five-point", "5pc", "five point"]):
+    elif any(w in t for w in ["asean", "manila", "diplomatic", "five-point", "5pc", "five point", "foreign minister", "asean summit"]):
         p1 = "2021年のクーデター後、ASEANは「五項目合意（5PC）」を採択しましたが、軍政が合意を無視し続けたため、ASEAN首脳・外相会議への軍政代表の参加を停止しています。軍政は今回の会議を国際的孤立からの脱却の機会と位置づけていました。"
         p2 = "日本はASEANの主要パートナーとして独自の外交チャネルを維持し、対話路線を取っています。欧米の制裁とは一線を画す日本の外交姿勢が、ミャンマー情勢の解決に向けた独自の役割として注目されています。"
         p3 = "軍政のASEAN復帰が実現しない限り、日本企業のミャンマー事業再開や技術者の往来にも制約が続く可能性があります。在日ミャンマー人にとっても、外交的孤立は母国への送金・帰国環境に影響します。"
@@ -185,7 +185,7 @@ def build_kaisetsu(category_label, title_en="", content_en=""):
         p3 = "日本在住のミャンマー人や日本人が詐欺の標的にされるケースが報告されています。NL-DGのような正規の就労支援を通じて、ミャンマー人材が安全に日本で働ける環境整備が重要です。"
 
     # 経済・制裁・ビジネス
-    elif any(w in t for w in ["economy", "investment", "trade", "sanction", "business", "currency", "kyat", "inflation"]):
+    elif any(w in t for w in ["economy", "investment", "trade", "sanction", "sanctions", "business", "currency", "kyat", "inflation", "gdp", "import", "export"]):
         p1 = "クーデター後の経済制裁と政情不安により、ミャンマーの外国直接投資は大幅に減少しました。一方、タイ・インドとの国境貿易は一部継続しており、特定セクターでは復調の兆しも見られます。"
         p2 = "日本との経済関係では、ミャンマーへの直接投資が停滞する一方、エネルギー・インフラ分野での権益をめぐる検討が続いています。軍政への経済的影響力を持つ中国とインドの動向が鍵を握っています。"
         p3 = "在日ミャンマー人労働者による母国への送金はミャンマー経済を下支えする重要な要素です。NL-DGのような人材紹介会社を通じた合法的な就労機会の拡大が、個人・国家両面の経済安定に貢献しています。"
