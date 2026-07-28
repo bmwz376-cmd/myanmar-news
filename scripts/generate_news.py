@@ -208,6 +208,8 @@ def build_kaisetsu(category_label, title_en="", content_en=""):
         p2 = "日本はミャンマーとの文化・経済交流を長年にわたり深めてきました。現在もASEAN外交の中でミャンマー情勢の安定化に向けた対話を続け、独自の支援を継続しています。"
         p3 = "現在、日本には約6万人のミャンマー人が暮らし、建設・介護・製造業などで活躍しています。NL-DGが支援するミャンマー人材は、日本社会に貢献しながら母国の発展にも寄与する重要な存在です。"
 
+    return p1, p2, p3
+
 
 def build_article(a, dj):
     title_en = a['title']
