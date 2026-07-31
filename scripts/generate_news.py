@@ -150,68 +150,47 @@ def is_used(title, used_list):
             return True
     return False
 
-def build_kaisetsu(category_label, title_en="", content_en="", article_url=""):
-    """記事の英語タイトル・本文をClaudeに渡し、記事固有の6ポイント解説を生成する"""
-    import anthropic
-    import os
+def build_kaisetsu(category_label, title_en="", content_en=""):
+    t = (title_en + " " + content_en).lower()
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not api_key:
-        return [
-            (f"「{title_en[:40]}」の概要", f"本記事は{title_en}を報じています。詳細な解説にはAPIキーの設定が必要です。"),
-            ("ミャンマー情勢の現状", "詳細な解説にはANTHROPIC_API_KEYの設定が必要です。"),
-            ("国際社会の対応", "詳細な解説にはANTHROPIC_API_KEYの設定が必要です。"),
-            ("日本との関係", "詳細な解説にはANTHROPIC_API_KEYの設定が必要です。"),
-            ("建設業・人材紹介への影響", "NL-DGのような正規の人材紹介事業者との連携が重要です。"),
-            ("今後の注目ポイント", "詳細な解説にはANTHROPIC_API_KEYの設定が必要です。"),
-        ]
+    if any(w in t for w in ["rohingya", "stateless", "nationality", "citizenship"]):
+        p1 = "ロヒンギャはミャンマー西部ラカイン州に暮らすイスラム系少数民族です。1982年の国籍法によりミャンマー国籍を剥奪され、国内外の無国籍者集団となっています。2017年の軍による迫害で約75万人がバングラデシュへ逃れました。"
+        p2 = "国際社会はロヒンギャの帰還と市民権回復を求めていますが、軍政は依然として応じていません。日本を含む各国では難民認定・社会サービスへのアクセスに課題があり、無国籍者保護の法整備が求められています。"
+        p3 = "日本にも数千人のロヒンギャが暮らしており、難民認定・教育・就労へのアクセスに困難を抱えています。ミャンマー人材を受け入れる際は、出身地域の背景を理解することが重要です。"
+    elif any(w in t for w in ["asean", "manila", "diplomatic", "five-point", "5pc", "foreign minister", "asean summit"]):
+        p1 = "2021年のクーデター後、ASEANは五項目合意（5PC）を採択しましたが、軍政が合意を無視し続けたため、ASEAN首脳・外相会議への軍政代表の参加を停止しています。軍政は今回の会議を国際的孤立からの脱却の機会と位置づけていました。"
+        p2 = "日本はASEANの主要パートナーとして独自の外交チャネルを維持し、対話路線を取っています。欧米の制裁とは一線を画す日本の外交姿勢が、ミャンマー情勢の解決に向けた独自の役割として注目されています。"
+        p3 = "軍政のASEAN復帰が実現しない限り、日本企業のミャンマー事業再開や技術者の往来にも制約が続く可能性があります。在日ミャンマー人にとっても、外交的孤立は母国への送金・帰国環境に影響します。"
+    elif any(w in t for w in ["rakhine", "arakan", "thandwe", "arakanese"]):
+        p1 = "ラカイン州ではアラカン軍（AA）が2023年末から攻勢を強め、現在は州の大部分を支配しています。軍政はAAに追われた地域を取り戻すため空爆を用いており、民間人への被害が増え続けています。"
+        p2 = "ラカイン州は中国への海上回廊、インフラ（チャウピュー・ピューアウィチー・パイプライン）を通じた戦略的要衝であり、中国・インド双方が関与を深めています。"
+        p3 = "ラカイン州出身のミャンマー人は日本にも多く在住しており、故郷の状況は在日ミャンマー人労働者に深刻な精神的影響を与えています。受け入れ企業によるメンタルサポートの必要性が増しています。"
+    elif any(w in t for w in ["karen", "kayin", "kachin", "chin", "shan", "pdf", "people's defence", "nug", "bgf", "border guard"]):
+        p1 = "ミャンマーでは複数の少数民族武装組織（EAO）が各地で軍政と戦闘を続けています。2023年の1027作戦以降は民族武装組織の攻勢が強まり、軍政の支配地域は急速に縮小しています。"
+        p2 = "日本政府は対話を通じた解決を支持しつつ、人道支援も継続しています。ASEAN主導の枠組みを重視し、軍政への直接的な制裁には慎重な姿勢をとっています。"
+        p3 = "戦闘の激化により、日本在住のミャンマー人の多くが故郷の家族の安否を心配しています。建設・介護・製造業で活躍するミャンマー人労働者にとって、精神的サポートが求められています。"
+    elif any(w in t for w in ["thailand", "scam", "trafficking", "myawaddy", "border fraud", "dsi", "arrest warrant"]):
+        p1 = "ミャンマー・タイ国境地帯では、クーデター後に急増したサイバー詐欺施設が国際的に問題視されています。マウワディーをはじめとする国境周辺の組織はオンライン詐欺工場として国際的に報道されています。"
+        p2 = "タイ・日本・中国などがトラフィッキング撲滅に向け協力を進めてきましたが、軍政の関与が指摘されており根本的な解決には至っていません。FBI等国際捜査機関の重要性が高まっています。"
+        p3 = "日本在住のミャンマー人や日本人が詐欺の標的になるケースが報告されています。NL-DGのような正規の人材紹介経路を通じて、ミャンマー人材が安全に日本で働ける環境づくりが重要です。"
+    elif any(w in t for w in ["economy", "investment", "trade", "sanction", "business", "currency", "kyat"]):
+        p1 = "クーデター後の経済制裁と政情不安により、ミャンマーの外国直接投資は大幅に減少しました。一方、タイ・インドとの貿易取引は一部継続しており、特定セクターでは国内産業が細々と続いています。"
+        p2 = "日本とのミャンマー経済関係では、直接投資は停滞していますが、エネルギー・インフラ分野での権益保護が続いています。"
+        p3 = "在日ミャンマー人労働者による母国への送金はミャンマー経済の重要な外貨源です。NL-DGのような人材紹介会社を通じた正規の就労機会の拡大が、現地の経済安定にも寄与しています。"
+    elif any(w in t for w in ["idp", "refugee", "displaced", "humanitarian", "flood", "famine", "aid"]):
+        p1 = "クーデター後の武力衝突と自然災害が重なり、ミャンマーの国内避難民は推計300万人を超えています。特に雨季には洪水と空爆が重なる複合的被害が多発し、人道状況が急激に悪化しています。"
+        p2 = "国連や各国NGOは支援を続けていますが、軍政による移動制限のため支援が届かない地域が広がっています。日本政府も人道支援を拠出しています。"
+        p3 = "日本在住のミャンマー人コミュニティは故郷への支援・情報発信を通じて現地を支えています。ミャンマー人材を受け入れる企業にとって、精神的ケアへの配慮がこれまで以上に重要です。"
+    elif any(w in t for w in ["election", "vote", "political", "aung san suu kyi", "nld", "coup", "suu kyi", "kim aris"]):
+        p1 = "2021年2月のクーデター以降、ミャンマーでは軍政と市民不服従運動（CDM）が対立しています。軍政は選挙の実施を繰り返し約束してきましたが、正常化への道筋は依然不透明です。"
+        p2 = "日本政府は対話路線を維持しつつ、ASEANの五項目合意の実施を求めています。軍政への経済的圧力には慎重な姿勢をとっており、中国・インドの対ミャンマー外交とも連動しています。"
+        p3 = "日本在住のミャンマー人約6万人の多くが、故郷の家族の安否を心配しています。建設・介護・製造業で活躍するミャンマー人労働者にとって、母国の政治情勢は精神的に大きな負担となっています。"
+    else:
+        p1 = "ミャンマーは豊かな文化・天然資源を持つ社会でしたが、2021年のクーデター以降は政治的・経済的に厳しい状況が続いています。軍政と反軍組織との衝突が続き、社会全体に深刻な影響を与えています。"
+        p2 = "日本はミャンマーとの友好・経済関係を長年にわたり深めてきました。現在はASEAN外の中でミャンマーとの対話を続け、独自の支援も行っています。"
+        p3 = "現在、日本には約6万人のミャンマー人が暮らし、建設・介護・製造業などで活躍しています。NL-DGが支援するミャンマー人材は、日本社会に貢献しながら母国の発展にも繋がる重要な存在です。"
 
-    client = anthropic.Anthropic(api_key=api_key)
-    prompt = f"""以下はミャンマーに関する英語ニュース記事です。日本人読者（建設業でミャンマー人材を受け入れている企業・NL-DG社のような人材紹介事業者）向けに、この記事固有の解説を6ポイント生成してください。
-
-記事タイトル: {title_en}
-記事本文（抜粋）: {content_en[:1500]}
-
-出力形式（厳守）:
-POINT1_TITLE: [記事固有のタイトル（誰が・何を・どこで）]
-POINT1_TEXT: [150字以上の具体的な解説文]
-POINT2_TITLE: [記事固有のタイトル]
-POINT2_TEXT: [150字以上の具体的な解説文]
-POINT3_TITLE: [記事固有のタイトル]
-POINT3_TEXT: [150字以上の具体的な解説文]
-POINT4_TITLE: [記事固有のタイトル]
-POINT4_TEXT: [150字以上の具体的な解説文]
-POINT5_TITLE: [NL-DGや建設業・ミャンマー人材に関連するタイトル]
-POINT5_TEXT: [150字以上の具体的な解説文]
-POINT6_TITLE: 今後の注目ポイント
-POINT6_TEXT: [この記事の今後の焦点を具体的に記述]
-
-絶対禁止: 「背景と経緯」「国際社会と日本の対応」「日本への影響」などの汎用タイトル、「2021年2月の軍事クーデター以降〜」「ミャンマーでは複数の少数民族〜」などのテンプレート文を使わないこと。記事の具体的な人物名・組織名・地名・数字を必ず含めること。"""
-
-    try:
-        response = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        text = response.content[0].text
-        import re
-        titles = re.findall(r'POINT\d_TITLE: (.+)', text)
-        texts = re.findall(r'POINT\d_TEXT: (.+)', text)
-        if len(titles) >= 6 and len(texts) >= 6:
-            return [(titles[i].strip(), texts[i].strip()) for i in range(6)]
-        raise ValueError(f"パースエラー: titles={len(titles)}, texts={len(texts)}")
-    except Exception as e:
-        print(f"[WARNING] build_kaisetsu失敗: {e}")
-        return [
-            (f"「{title_en[:30]}」の概要", f"本記事は{title_en}を報じています。"),
-            ("ミャンマー情勢の現状", "解説の生成に失敗しました。翌朝のチェッカーが修正します。"),
-            ("国際社会の対応", "解説の生成に失敗しました。翌朝のチェッカーが修正します。"),
-            ("日本との関係", "解説の生成に失敗しました。翌朝のチェッカーが修正します。"),
-            ("建設業・人材紹介への影響", "NL-DGのような正規の人材紹介事業者との連携が重要です。"),
-            ("今後の注目ポイント", "翌朝8:15のチェッカーが詳細解説に更新します。"),
-        ]
-
+    return p1, p2, p3
 
 def build_article(a, dj):
     title_en = a['title']
@@ -227,24 +206,14 @@ def build_article(a, dj):
     print(f"  本文翻訳中...")
     ja_body = apply_proper_nouns(translate_to_ja(body_en_clean))
 
-        points = build_kaisetsu(tl, title_en, content_en, url)
+        p1, p2, p3 = build_kaisetsu(tl, title_en, content_en)
 
-    # 6ポイントのkaisetsu HTML生成
-    kaisetsu_html = '\n        <div class="kaisetsu">\n        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>\n'
-    for pt_title, pt_text in points:
-        kaisetsu_html += f'        <div class="k-point"><div class="k-point-title">{pt_title}</div><p>{pt_text}</p></div>\n'
-    kaisetsu_html += '      </div>'
-
-    return f"""
-  <div class="article">
-    <div class="art-head">
-      <div class="art-meta"><span class="tag {tc}">{tl}</span><span class="tag tsrc">{src}</span><span class="art-date">{dj}</span></div>
-      <div class="art-title">{ja_title}</div>
-      <div class="art-src">出典：{src}　{dj}</div>
-    </div>
-    <div class="art-body">
-      <div class="art-news">{ja_body}</div>
-      {kaisetsu_html}
+<div class="kaisetsu">
+        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
+        <div class="k-point"><div class="k-point-title">背景と経緯</div><p>{p1}</p></div>
+        <div class="k-point"><div class="k-point-title">国際社会と日本の対応</div><p>{p2}</p></div>
+        <div class="k-point"><div class="k-point-title">日本への影響</div><p>{p3}</p></div>
+      </div>
     </div>
     <a class="art-link" href="{url}" target="_blank">→ {src} 原記事を読む</a>
   </div>"""
