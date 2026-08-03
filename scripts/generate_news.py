@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os, re, datetime, requests, shutil, time
 from bs4 import BeautifulSoup
@@ -206,9 +206,21 @@ def build_article(a, dj):
     print(f"  本文翻訳中...")
     ja_body = apply_proper_nouns(translate_to_ja(body_en_clean))
 
-        p1, p2, p3 = build_kaisetsu(tl, title_en, content_en)
+    p1, p2, p3 = build_kaisetsu(tl, title_en, content_en)
 
-<div class="kaisetsu">
+    return f"""  <div class="article">
+    <div class="art-head">
+      <div class="art-meta">
+        <span class="tag {tc}">{tl}</span>
+        <span class="tag tsrc">DVB</span>
+        <span class="art-date">{dj}</span>
+      </div>
+      <div class="art-title">{ja_title}</div>
+      <div class="art-src">出典：{src}　{dj}</div>
+    </div>
+    <div class="art-body">
+      <div class="art-news">{ja_body}</div>
+      <div class="kaisetsu">
         <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>
         <div class="k-point"><div class="k-point-title">背景と経緯</div><p>{p1}</p></div>
         <div class="k-point"><div class="k-point-title">国際社会と日本の対応</div><p>{p2}</p></div>
@@ -259,7 +271,6 @@ def update_archive(ds, dj, vs, vn, arts, ja_titles):
             print(f"archive: {vs} カード追加完了")
 
         # ── 最新号バナー更新 ──
-        # 構造: <div class="lb-label">最新号</div>\n      Vol.XXX | 日付\n      <div class="lb-sub">...
         sub_text = ' ／ '.join(t[:10] for t in ja_titles[:3])
         c = re.sub(
             r'(<div class="lb-label">[^<]*</div>\s*)\n(\s*)[^\n<]+(\s*\n\s*<div class="lb-sub">)[^<]*(</div>)',
@@ -359,4 +370,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
