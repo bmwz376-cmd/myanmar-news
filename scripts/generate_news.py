@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ミャンマーニュース自動生成スクリプト v3.0
+ミャンマーニュース自動生成スクリプト v4.0
 品質基準: 各記事固有の事実を盛り込んだ完全日本語解説
 怠慢禁止: 汎用テンプレートの使い回し禁止
 """
@@ -15,65 +15,154 @@ TOKEN = os.environ.get('GH_TOKEN', '')
 
 CSS = """*{margin:0;padding:0;box-sizing:border-box;}body{font-family:'Noto Sans JP',sans-serif;background:#f2f5fa;color:#1a1a1a;line-height:1.8;}a{text-decoration:none;color:inherit;}.header{background:#0D2B5E;padding:14px 0;}.header-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}.logo{color:#fff;font-size:18px;font-weight:900;letter-spacing:1.5px;}.header-right{color:rgba(255,255,255,0.45);font-size:12px;}.hero{background:linear-gradient(160deg,#0D2B5E,#163d80);padding:52px 0 44px;}.hero-inner{max-width:860px;margin:0 auto;padding:0 24px;}.vol{font-size:11px;font-weight:700;color:#C9A84C;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;}.hero h1{color:#fff;font-size:27px;font-weight:900;line-height:1.5;margin-bottom:10px;}.wrap{max-width:860px;margin:0 auto;padding:44px 24px 64px;}.editor-note{background:#fff;border-left:4px solid #C9A84C;padding:22px 26px;border-radius:0 10px 10px 0;margin-bottom:44px;box-shadow:0 2px 10px rgba(0,0,0,0.05);}.en-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#C9A84C;text-transform:uppercase;margin-bottom:8px;}.editor-note p{font-size:14px;color:#444;line-height:1.95;}.article{background:#fff;border-radius:14px;box-shadow:0 3px 18px rgba(0,0,0,0.07);margin-bottom:36px;overflow:hidden;}.art-head{padding:30px 32px 0;}.art-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px;}.tag{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;}.tp{background:#1a3a6b;color:#fff;}.ts{background:#1b4332;color:#fff;}.ti{background:#5c3317;color:#fff;}.tc{background:#4a1942;color:#fff;}.tsrc{background:#eef2f8;color:#0D2B5E;border:1px solid #c5d4ea;}.art-date{font-size:12px;color:#bbb;margin-left:auto;}.art-title{font-size:22px;font-weight:900;line-height:1.45;color:#0D2B5E;margin-bottom:8px;}.art-src{font-size:12px;color:#bbb;padding-bottom:20px;border-bottom:1px solid #f0f0f0;}.art-body{padding:26px 32px 8px;}.art-news{font-size:15px;color:#333;line-height:1.95;margin-bottom:28px;word-break:break-word;overflow-wrap:break-word;}.kaisetsu{background:#f7f9ff;border:1px solid #d4e0f5;border-radius:10px;padding:22px 24px;margin-bottom:20px;}.k-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#1a3a6b;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:6px;}.k-label span{background:#1a3a6b;color:#fff;padding:2px 8px;border-radius:4px;font-size:10px;}.k-point{margin-bottom:18px;}.k-point:last-child{margin-bottom:0;}.k-point-title{font-size:14px;font-weight:700;color:#0D2B5E;margin-bottom:6px;display:flex;align-items:flex-start;gap:6px;}.k-point-title::before{content:'▶';color:#C9A84C;flex-shrink:0;}.k-point p{font-size:14px;color:#444;line-height:1.85;padding-left:14px;}.art-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#0D2B5E;padding:12px 0 26px 32px;}.art-link:hover{color:#C9A84C;}.footer{background:#0a1f42;padding:28px 24px;text-align:center;}.footer p{font-size:12px;color:rgba(255,255,255,0.4);}@media(max-width:600px){.hero h1{font-size:21px;}.art-title{font-size:18px;}.art-head,.art-body,.art-link{padding-left:20px;padding-right:20px;}}.nav-bar{background:#132d5e;border-bottom:3px solid #C9A84C;position:sticky;top:0;z-index:999;}.nav-inner{max-width:900px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:8px;height:46px;}.nav-btn{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;white-space:nowrap;}.nav-btn-latest{background:#C9A84C;color:#0D2B5E;}.nav-btn-archive{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);}.nav-btn.active-page{opacity:0.55;pointer-events:none;cursor:default;}"""
 
+
 # =====================================================================
-# 翻訳関数（品質検証付き）
+# v4.0 変更点（fix/translation）
+#  - 無料Google翻訳(deep-translator)はActionsのIPで429レート制限になり、
+#    失敗時に英語原文/固有名詞置換だけの疑似翻訳を出力していた → 廃止
+#  - LLM(Gemini API)で タイトル・本文・記事固有の解説3ポイントを一括生成
+#  - 生成後に品質検証（英語混入・文字数）→ リトライ → 失敗なら出力せず異常終了
+#    （index.html / archive.html は前号のまま維持され、Actionsは赤表示になる）
+#  - DVBのミャンマー無関係記事除外、重複記事除外
 # =====================================================================
+import sys, json
+
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY', '').strip()
+GEMINI_MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash').strip()
+
+class GenerationError(Exception):
+    pass
+
+# タイトルに残ってよい英字（固有名詞・略語）
+ALLOWED_LATIN = {
+    'ACLED', 'LPG', 'LNG', 'ASEAN', 'NUG', 'NUCC', 'PDF', 'AA', 'KIA', 'KIO', 'KNU', 'KNLA',
+    'KNPP', 'CNF', 'TNLA', 'MNDAA', 'SAC', 'SCEF', 'NLD', 'USDP', 'UN', 'UNHCR', 'UNICEF',
+    'ICRC', 'ICJ', 'ICC', 'WFP', 'WHO', 'IMF', 'EU', 'US', 'USA', 'UK', 'G7', 'DVB', 'BBC',
+    'NHK', 'JICA', 'SNS', 'AI', 'IT', 'GDP', 'CDM', 'BGF', 'NGO', 'NPO', 'HRW', 'OCHA',
+    'NL-DG', 'Facebook', 'TikTok', 'X', 'BIM', 'CEO', 'COVID', 'IS', 'FAO', 'ILO', 'IOM',
+    'BRI', 'CMEC', 'MOGE', 'MEC', 'MEHL', 'NDSC', 'ULA', 'MNHRC', 'ODA', 'ADB',
+}
+
+MYANMAR_KEYWORDS = [
+    'myanmar', 'burma', 'burmese', 'naypyidaw', 'naypyitaw', 'yangon', 'rangoon', 'mandalay',
+    'rakhine', 'arakan', 'sagaing', 'magway', 'bago', 'ayeyarwady', 'irrawaddy', 'tanintharyi',
+    'kachin', 'shan', 'karen', 'kayin', 'karenni', 'kayah', 'chin state', 'mon state',
+    'rohingya', 'junta', 'tatmadaw', 'min aung hlaing', 'suu kyi', 'nug', 'pdf', 'arakan army',
+    'sittwe', 'lashio', 'myawaddy', 'muse', 'tachileik', 'myitkyina', 'nld',
+]
 
 def is_japanese(text):
-    """テキストが日本語を十分に含むか確認（品質チェック）"""
     if not text:
         return False
-    ja_chars = sum(1 for c in text if '\u3040' <= c <= '\u9fff')
-    return ja_chars > len(text) * 0.2
+    ja = sum(1 for c in text if '\u3040' <= c <= '\u30ff' or '\u4e00' <= c <= '\u9fff')
+    return ja > len(text) * 0.4
 
-def translate_robust(text, retries=3):
-    """翻訳失敗・英語返却を検知して再試行する堅牢な翻訳関数"""
-    if not text or not text.strip():
-        return text
-    text = text.strip()[:3000]
+def english_leftovers(text):
+    """許可リスト外の英単語（3文字以上の英字列）を返す"""
+    words = re.findall(r'[A-Za-z][A-Za-z\-]{2,}', text or '')
+    return [w for w in words if w not in ALLOWED_LATIN and w.upper() not in ALLOWED_LATIN]
 
-    for attempt in range(retries):
+def is_myanmar_related(a):
+    t = (a.get('title', '') + ' ' + a.get('content', '')[:1500]).lower()
+    return sum(t.count(k) for k in MYANMAR_KEYWORDS) >= 2 or any(k in a.get('title', '').lower() for k in MYANMAR_KEYWORDS)
+
+def normalize_title(t):
+    return set(w for w in re.findall(r'[a-z0-9]+', t.lower()) if len(w) > 3)
+
+def similar(t1, t2):
+    a, b = normalize_title(t1), normalize_title(t2)
+    if not a or not b:
+        return False
+    return len(a & b) / min(len(a), len(b)) >= 0.6
+
+PROMPT = """あなたは在日ミャンマー人材を扱う日本企業（建設業向け人材紹介・BIM研修のNL-DG）向けに、
+ミャンマーニュースを日本語で解説する編集者です。以下の英語記事を読み、JSONのみで出力してください。
+
+要件:
+- title_ja: 自然な日本語の見出し（40字以内）。英単語は使わず、固有名詞はカタカナ表記。略語（ASEAN, NUG, ACLED, LPG 等）のみ英字可。
+- body_ja: 記事本文の要約を自然な日本語で 250〜400字。記事にある具体的事実（人名・地名・数字・日付）を必ず含める。
+- points: 3要素の配列。各要素は {"title": 見出し(30字以内・記事固有), "text": 本文(150〜250字)}
+  1つ目「背景と経緯」: この出来事に至る経緯・背景（クーデター以降の流れ等）をこの記事に即して。
+  2つ目「国際社会と日本の対応」: 国連・ASEAN・米中・日本政府などの対応をこの記事に即して。
+  3つ目「日本への影響」: 日本企業・在日ミャンマー人・建設業の外国人材受け入れへの具体的影響。
+- 汎用的な定型文は禁止。各ポイントにこの記事固有の事実を最低1つ含めること。
+- 記事にない事実を捏造しない。推測は「〜とみられる」等と明示。
+- 全文日本語。
+
+出力形式: {"title_ja": "...", "body_ja": "...", "points": [{"title": "...", "text": "..."}, ...]}
+
+記事タイトル: {TITLE}
+記事URL: {URL}
+記事本文:
+{CONTENT}
+"""
+
+def call_gemini(prompt):
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+    body = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.4, "responseMimeType": "application/json"},
+    }
+    r = requests.post(url, params={"key": GEMINI_API_KEY}, json=body, timeout=120)
+    if r.status_code != 200:
+        raise GenerationError(f"Gemini HTTP {r.status_code}: {r.text[:300]}")
+    data = r.json()
+    try:
+        txt = data['candidates'][0]['content']['parts'][0]['text']
+    except Exception:
+        raise GenerationError(f"Gemini応答形式エラー: {str(data)[:300]}")
+    txt = re.sub(r'^```(?:json)?|```$', '', txt.strip()).strip()
+    return json.loads(txt)
+
+def validate(res):
+    errs = []
+    t = (res.get('title_ja') or '').strip()
+    b = (res.get('body_ja') or '').strip()
+    pts = res.get('points') or []
+    if not is_japanese(t):
+        errs.append('タイトルが日本語でない')
+    left = english_leftovers(t)
+    if left:
+        errs.append(f'タイトルに英語混入: {left}')
+    if not is_japanese(b) or len(b) < 150:
+        errs.append(f'本文が日本語でない/短い({len(b)}字)')
+    if len(english_leftovers(b)) > 5:
+        errs.append(f'本文に英語混入: {english_leftovers(b)[:5]}')
+    if len(pts) != 3:
+        errs.append(f'解説ポイント数が{len(pts)}')
+    for i, p in enumerate(pts[:3]):
+        pt, px = (p.get('title') or '').strip(), (p.get('text') or '').strip()
+        if not pt or not is_japanese(pt):
+            errs.append(f'解説{i+1}見出し不正')
+        if len(px) < 100 or not is_japanese(px):
+            errs.append(f'解説{i+1}本文不足({len(px)}字)')
+        if len(english_leftovers(px)) > 5:
+            errs.append(f'解説{i+1}に英語混入')
+    return errs
+
+def generate_article_ja(a, retries=4):
+    """記事の日本語タイトル・本文・解説を生成。品質NGならリトライ、最終的に例外。"""
+    prompt = (PROMPT.replace('{TITLE}', a['title']).replace('{URL}', a['url'])
+              .replace('{CONTENT}', (a.get('content') or a['title'])[:6000]))
+    last = ''
+    for attempt in range(1, retries + 1):
         try:
-            from deep_translator import GoogleTranslator
-            result = GoogleTranslator(source='en', target='ja').translate(text)
-            time.sleep(0.8)
-            if result and is_japanese(result):
-                return result
-            else:
-                print(f"  翻訳NG（日本語不足, 試行{attempt+1}/{retries}）: {str(result)[:40]}")
-                time.sleep(2)
+            res = call_gemini(prompt)
+            errs = validate(res)
+            if not errs:
+                return res
+            last = '; '.join(errs)
+            print(f"  品質NG 試行{attempt}/{retries}: {last}")
+            prompt += f"\n\n前回の出力は次の理由で不合格でした。修正して再出力してください: {last}"
         except Exception as e:
-            print(f"  翻訳例外 試行{attempt+1}: {e}")
-            time.sleep(2)
+            last = str(e)
+            print(f"  生成エラー 試行{attempt}/{retries}: {last[:200]}")
+        time.sleep(5 * attempt)
+    raise GenerationError(f"記事生成失敗: {a['title'][:60]} / {last[:200]}")
 
-    # 全試行失敗 → 固有名詞変換のみ実施
-    print("  全翻訳試行失敗。固有名詞変換のみ実施。")
-    return apply_proper_nouns(text)
-
-def apply_proper_nouns(text):
-    """英語固有名詞を日本語に変換"""
-    replacements = [
-        ('Aung San Suu Kyi', 'アウンサン・スーチー氏'),
-        ('Min Aung Hlaing', 'ミン・アウン・フライン'),
-        ('Kyaw Moe Tun', 'チョー・モー・トゥン'),
-        ('Arakan Army', 'アラカン軍'),
-        ('National Unity Government', '国民統一政府（NUG）'),
-        ('Kachin Independence Organisation', 'カチン独立機構（KIO）'),
-        ('Karen National Union', 'カレン民族同盟（KNU）'),
-        ('Karenni National Progressive Party', 'カレンニー民族進歩党（KNPP）'),
-        ('Chin National Front', 'チン民族戦線（CNF）'),
-        ('Fortify Rights', 'フォーティファイ・ライツ'),
-        ('Rakhine', 'ラカイン'),
-        ('Sagaing', 'サガイン'),
-        ('Ayeyarwady', 'エーヤワディー'),
-        ('Mandalay', 'マンダレー'),
-        ('Naypyidaw', 'ネピドー'),
-        ('Yangon', 'ヤンゴン'),
-        ('Myanmar', 'ミャンマー'),
-    ]
-    for en, ja in replacements:
-        text = text.replace(en, ja)
-    return text
+import html as _html
+def esc(s):
+    return _html.escape(s or '', quote=False)
 
 # =====================================================================
 # 記事取得関数
@@ -154,147 +243,6 @@ def is_used(title, used_list):
     return False
 
 # =====================================================================
-# 解説生成（記事固有の内容を使用）
-# =====================================================================
-
-def build_kaisetsu_from_content(title_en, content_en, url):
-    """
-    記事の英語原文から記事固有の解説3ポイントを生成する。
-    汎用テンプレートは使わない。各ポイントは記事の具体的な情報を含む。
-
-    手順:
-    1. 原文から「誰が・何を・どこで・いつ・なぜ」の情報を抽出
-    2. その情報を使って3ポイントの解説を日本語で構成
-    3. 翻訳ではなく構造化した情報から日本語テキストを作成
-    """
-    full_text = (title_en + " " + content_en).strip()
-
-    # 人物名の抽出（大文字始まり2語以上の固有名詞）
-    person_names = re.findall(r'\b([A-Z][a-z]+ (?:[A-Z][a-z]+ )?[A-Z][a-z]+)\b', full_text)
-    persons = list(dict.fromkeys(person_names))[:4]  # 重複除去・最大4名
-
-    # 数字・統計の抽出
-    numbers = re.findall(r'\b(\d[\d,\.]*(?:\s*(?:people|civilians|homes|million|thousand|percent|%|km|days|years|villages|killed|dead|displaced)))', full_text, re.IGNORECASE)
-
-    # 地名抽出
-    myanmar_places = ['Rakhine', 'Sagaing', 'Ayeyarwady', 'Kachin', 'Shan', 'Karen', 'Kayin',
-                       'Mandalay', 'Naypyidaw', 'Yangon', 'Bago', 'Magway', 'Chin', 'Mon', 'Tanintharyi']
-    places_found = [p for p in myanmar_places if p.lower() in full_text.lower()]
-
-    # 組織名抽出
-    orgs = []
-    org_keywords = {
-        'SCEF': '民主抵抗連合SCEF',
-        'NUG': '国民統一政府（NUG）',
-        'Arakan Army': 'アラカン軍（AA）',
-        'ICRC': '赤十字国際委員会（ICRC）',
-        'ASEAN': 'ASEAN',
-        'Fortify Rights': 'フォーティファイ・ライツ',
-        'KNU': 'カレン民族同盟（KNU）',
-        'KIO': 'カチン独立機構（KIO）',
-        'UNHCR': '国連難民高等弁務官事務所（UNHCR）',
-        'United Nations': '国連',
-        'UN Security Council': '国連安保理',
-    }
-    for key, val in org_keywords.items():
-        if key.lower() in full_text.lower():
-            orgs.append(val)
-
-    # 英語テキストを最大2000字に制限して翻訳
-    content_for_translation = full_text[:2000]
-
-    # ポイント1：記事の核心（何が起きたか・誰が関与しているか）の解説
-    # タイトルと最初の段落から構成
-    first_para = content_en.split('. ')[0:3]
-    first_para_text = '. '.join(first_para)[:800]
-    p1_en = f"Background: {title_en}. {first_para_text}"
-    p1_ja_raw = translate_robust(p1_en)
-
-    # ポイント2：国際社会・ASEAN・日本の対応に関する部分を抽出
-    intl_sentences = [s.strip() for s in content_en.split('.')
-                      if any(w in s.lower() for w in ['japan', 'asean', 'united nations', 'un ', 'international',
-                                                        'sanctions', 'response', 'statement', 'urged', 'demanded',
-                                                        'called for', 'condemned', 'support'])]
-    if intl_sentences:
-        p2_source = '. '.join(intl_sentences[:3])[:600]
-        p2_en = f"International response: {p2_source}"
-    else:
-        p2_en = f"International context for: {title_en}. ASEAN and Japan's position on this development."
-    p2_ja_raw = translate_robust(p2_en)
-
-    # ポイント3：日本・在日ミャンマー人への影響
-    # NL-DGの文脈（建設業向けミャンマー人材）を必ず含める
-    impact_sentences = [s.strip() for s in content_en.split('.')
-                        if any(w in s.lower() for w in ['workers', 'civilians', 'people', 'residents',
-                                                          'community', 'families', 'economy', 'business'])]
-    if impact_sentences:
-        p3_source = '. '.join(impact_sentences[:2])[:400]
-        p3_en = f"Impact on people and workers: {p3_source}. Implications for Myanmar workers in Japan and construction industry."
-    else:
-        p3_en = f"Impact of this development on Myanmar residents in Japan and construction workforce managed by companies like NL-DG."
-    p3_ja_raw = translate_robust(p3_en)
-
-    # 翻訳結果が不十分な場合のフォールバック処理
-    def clean_point(text, fallback_hint):
-        if not text or not is_japanese(text):
-            return f"{apply_proper_nouns(fallback_hint[:200])}。日本在住のミャンマー人約6万人にとっても、この動向は精神的・社会的に大きな影響を持ちます。NL-DGのようなミャンマー人材受け入れ事業者は状況を注視する必要があります。"
-        # "Background:", "International response:", "Impact"等の接頭辞を除去
-        text = re.sub(r'^(背景|国際的な対応|影響|Background|International|Impact)[：:]\s*', '', text)
-        # 100文字未満の場合は補足を追加
-        if len(text) < 100:
-            text += f"この問題はミャンマーの政治・人道状況に深く関わるものであり、日本在住のミャンマー人にとっても注目すべき動向です。"
-        return text
-
-    p1 = clean_point(p1_ja_raw, title_en + " " + first_para_text)
-    p2 = clean_point(p2_ja_raw, "ASEAN・日本・国際社会がこの問題に対して継続的な関与を求めている。")
-    p3 = clean_point(p3_ja_raw, "日本在住のミャンマー人と建設業界への影響が懸念される。")
-
-    # ポイントタイトルは記事の核心を反映した固有のものにする
-    # キーワードに基づいて動的に決定
-    tl = full_text.lower()
-    if any(w in tl for w in ['suu kyi', 'aung san']):
-        pt1 = "アウンサン・スーチー氏をめぐる最新動向と軍政の意図"
-        pt2 = "ASEAN・国連の対応と日本政府の立場"
-        pt3 = "在日ミャンマー人への影響とNL-DGの支援現場"
-    elif any(w in tl for w in ['scef', 'nug', 'resistance', 'r2p']):
-        pt1 = "SCEFと国際的正統性をめぐる最新の動き"
-        pt2 = "国連・米国・欧州と日本の対応の差異"
-        pt3 = "ミャンマー情勢の変化が日本のミャンマー人材事業に与える影響"
-    elif any(w in tl for w in ['airstrike', 'attack', 'bombing', 'killed', 'civilian']):
-        pt1 = f"今回の攻撃・戦闘の具体的な状況と被害規模"
-        pt2 = "人道支援機関・日本政府の緊急対応と課題"
-        pt3 = "出身地域への攻撃が在日ミャンマー人労働者に与える精神的影響"
-    elif any(w in tl for w in ['china', 'russia', 'weapons', 'arms', 'military aid']):
-        pt1 = "中国・ロシアのミャンマー軍政への具体的な軍事支援の内容"
-        pt2 = "国連安保理での拒否権行使と日本の外交的立場"
-        pt3 = "軍政の長期化が日本のミャンマー人材調達に与えるリスク"
-    elif any(w in tl for w in ['rohingya', 'stateless', 'refugee']):
-        pt1 = "ロヒンギャ問題の最新状況と国際社会の認識"
-        pt2 = "UNHCR・ASEAN・日本政府の難民対応"
-        pt3 = "日本在住のミャンマー人・ロヒンギャへの支援の課題"
-    elif any(w in tl for w in ['flood', 'dam', 'disaster', 'typhoon', 'earthquake']):
-        pt1 = "自然災害と武力衝突が重なる複合的人道危機の実態"
-        pt2 = "国際緊急支援と軍政による移動制限の矛盾"
-        pt3 = "被災地出身の在日ミャンマー人への精神的サポートの必要性"
-    elif any(w in tl for w in ['election', 'vote', 'political', 'coup']):
-        pt1 = "今回の政治的動向が示すミャンマー軍政の戦略"
-        pt2 = "民主主義回復に向けた国際社会の圧力と日本の対話路線"
-        pt3 = "政治状況の変化が日本在住のミャンマー人コミュニティに与える影響"
-    elif any(w in tl for w in ['economy', 'trade', 'investment', 'sanction']):
-        pt1 = "経済制裁・貿易動向がミャンマー経済に与える具体的影響"
-        pt2 = "日本企業のミャンマー事業継続と撤退判断の現状"
-        pt3 = "在日ミャンマー人労働者の送金環境と生活への影響"
-    else:
-        # 人物名・地名・組織名から動的にタイトルを生成
-        who = persons[0] if persons else "関係者"
-        where = places_found[0] if places_found else "ミャンマー"
-        pt1 = f"{apply_proper_nouns(where)}で起きたこの出来事の背景と経緯"
-        pt2 = f"国際社会・ASEAN・日本政府の{apply_proper_nouns(where)}への対応"
-        pt3 = f"この動向が在日ミャンマー人・日本のミャンマー人材事業に与える影響"
-
-    return pt1, p1, pt2, p2, pt3, p3
-
-
 # =====================================================================
 # HTML記事ブロック生成
 # =====================================================================
@@ -303,49 +251,37 @@ def build_article_html(a, dj):
     title_en = a['title']
     url = a['url']
     src = a['source']
-    content_en = a.get('content', '')
+    tc, tl = categorize(title_en, a.get('content', ''))
 
-    tc, tl = categorize(title_en, content_en)
+    print(f"  日本語記事・解説を生成中: {title_en[:50]}")
+    res = generate_article_ja(a)
+    ja_title = res['title_ja'].strip()
+    ja_body = res['body_ja'].strip()
+    pts = res['points'][:3]
 
-    print(f"  タイトル翻訳: {title_en[:50]}")
-    ja_title = translate_robust(title_en)
-    if not is_japanese(ja_title):
-        print(f"  タイトル翻訳失敗。固有名詞変換のみ実施。")
-        ja_title = apply_proper_nouns(title_en)
-
-    print(f"  本文翻訳...")
-    body_source = re.sub(r'\s+', ' ', content_en[:800]).strip() if content_en else title_en
-    ja_body = translate_robust(body_source)
-    if not is_japanese(ja_body):
-        ja_body = apply_proper_nouns(body_source)
-    # 本文が短すぎる場合は補足
-    if len(ja_body) < 80:
-        ja_body = ja_title + "。詳細については原記事をご参照ください。"
-
-    print(f"  解説生成（記事固有の内容）...")
-    pt1, p1, pt2, p2, pt3, p3 = build_kaisetsu_from_content(title_en, content_en, url)
-
+    kp = ''.join(
+        f'        <div class="k-point"><div class="k-point-title">{esc(p["title"])}</div><p>{esc(p["text"])}</p></div>\n'
+        for p in pts
+    )
     return (
         f'  <div class="article">\n'
         f'    <div class="art-head">\n'
         f'      <div class="art-meta">\n'
         f'        <span class="tag {tc}">{tl}</span>\n'
-        f'        <span class="tag tsrc">DVB</span>\n'
+        f'        <span class="tag tsrc">{esc(src)}</span>\n'
         f'        <span class="art-date">{dj}</span>\n'
         f'      </div>\n'
-        f'      <div class="art-title">{ja_title}</div>\n'
-        f'      <div class="art-src">出典：{src}　{dj}</div>\n'
+        f'      <div class="art-title">{esc(ja_title)}</div>\n'
+        f'      <div class="art-src">出典：{esc(src)}　{dj}</div>\n'
         f'    </div>\n'
         f'    <div class="art-body">\n'
-        f'      <div class="art-news">{ja_body}</div>\n'
+        f'      <div class="art-news">{esc(ja_body)}</div>\n'
         f'      <div class="kaisetsu">\n'
         f'        <div class="k-label"><span>解説</span>日本人が知っておきたい背景</div>\n'
-        f'        <div class="k-point"><div class="k-point-title">{pt1}</div><p>{p1}</p></div>\n'
-        f'        <div class="k-point"><div class="k-point-title">{pt2}</div><p>{p2}</p></div>\n'
-        f'        <div class="k-point"><div class="k-point-title">{pt3}</div><p>{p3}</p></div>\n'
+        f'{kp}'
         f'      </div>\n'
         f'    </div>\n'
-        f'    <a class="art-link" href="{url}" target="_blank">→ {src} 原記事を読む</a>\n'
+        f'    <a class="art-link" href="{url}" target="_blank">→ {esc(src)} 原記事を読む</a>\n'
         f'  </div>'
     ), ja_title
 
@@ -395,7 +331,7 @@ def update_archive(ds, dj, vs, arts, ja_titles):
 # =====================================================================
 
 def main():
-    print("=== ミャンマーニュース自動生成 v3.0 ===")
+    print("=== ミャンマーニュース自動生成 v4.0 ===")
     print("品質基準: 記事固有の詳細解説 / 汎用テンプレート禁止")
     ds, dj = get_date_info()
     vn = get_next_vol()
@@ -407,52 +343,57 @@ def main():
         print(f"{out} 既存。終了。")
         return
 
-    used = load_used()
-    all_arts = fetch_dvb_feed()
+    if not GEMINI_API_KEY:
+        print("ERROR: Secret GEMINI_API_KEY が未設定です。英語のまま公開しないため中止します（前号を維持）。")
+        sys.exit(1)
 
-    # 未使用記事を選定
+    used = load_used()
+    used_titles = [u.split('|', 1)[-1] for u in used]
+    all_arts = fetch_dvb_feed()
+    if not all_arts:
+        print("ERROR: DVBフィード取得失敗。前号を維持して終了。")
+        sys.exit(1)
+
+    # 未使用・ミャンマー関連・重複なしの記事を選定（使用済み記事での補完はしない）
     selected = []
     for a in all_arts:
         if len(selected) >= 3:
             break
         if len(a['title']) < 15:
             continue
-        if is_used(a['title'], used):
+        if is_used(a['title'], used) or any(similar(a['title'], u) for u in used_titles):
+            print(f"  除外(使用済み): {a['title'][:60]}")
             continue
-        # 詳細本文が不足している場合は記事URLにアクセスして取得
+        if any(similar(a['title'], s['title']) for s in selected):
+            print(f"  除外(重複): {a['title'][:60]}")
+            continue
         if len(a.get('content', '')) < 200:
             print(f"  詳細取得: {a['url'][:60]}")
             a['content'] = fetch_article_detail(a['url'])
             time.sleep(1)
+        if not is_myanmar_related(a):
+            print(f"  除外(ミャンマー無関係): {a['title'][:60]}")
+            continue
         selected.append(a)
         print(f"選定[{len(selected)}]: {a['title'][:60]}")
 
-    # フォールバック: 使用済みも含めて補完
     if len(selected) < 3:
-        for a in all_arts:
-            if len(selected) >= 3:
-                break
-            if a not in selected:
-                if len(a.get('content', '')) < 200:
-                    a['content'] = fetch_article_detail(a['url'])
-                    time.sleep(1)
-                selected.append(a)
-                print(f"選定(FB)[{len(selected)}]: {a['title'][:60]}")
+        print(f"ERROR: 新規記事が{len(selected)}本しかありません。前号を維持して終了。")
+        sys.exit(1)
 
-    if not selected:
-        print("ERROR: 記事取得失敗。終了。")
-        return
-
-    # 各記事のHTMLブロックを生成
+    # 各記事のHTMLブロックを生成（1本でも失敗したら何も書き込まずに異常終了）
     print("\n--- 記事HTML生成中 ---")
     articles_html_parts = []
     ja_titles = []
-    for i, a in enumerate(selected[:3]):
-        print(f"\n[記事{i+1}/{min(3, len(selected))}] {a['title'][:50]}")
-        art_html, ja_title = build_article_html(a, dj)
-        articles_html_parts.append(art_html)
-        ja_titles.append(ja_title)
-
+    try:
+        for i, a in enumerate(selected[:3]):
+            print(f"\n[記事{i+1}/3] {a['title'][:50]}")
+            art_html, ja_title = build_article_html(a, dj)
+            articles_html_parts.append(art_html)
+            ja_titles.append(ja_title)
+    except GenerationError as e:
+        print(f"ERROR: {e}\n英語・テンプレートのまま公開しないため中止します（前号を維持）。")
+        sys.exit(1)
     arts_html = '\n'.join(articles_html_parts)
     summary_titles = '」「'.join(t[:20] for t in ja_titles)
     summary = f"本日は「{summary_titles}」の3本をお届けします。日本に暮らすミャンマー人と日本企業にとって重要な情報を解説します。"
