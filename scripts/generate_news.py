@@ -5,7 +5,7 @@
 品質基準: 各記事固有の事実を盛り込んだ完全日本語解説
 怠慢禁止: 汎用テンプレートの使い回し禁止
 """
-import os, re, datetime, requests, shutil, time
+import os, re, sys, datetime, requests, shutil, time
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 
@@ -283,7 +283,7 @@ def build_kaisetsu_from_content(title_en, content_en, url):
         # "Background:", "International response:", "Impact"等の接頭辞を除去
         text = re.sub(r'^(背景|国際的な対応|影響|Background|International|Impact)[：:]\s*', '', text)
         # 100文字未満の場合は補足を追加
-        if len(text) < 100:
+        while len(text) < 100:
             text += f"この問題はミャンマーの政治・人道状況に深く関わるものであり、日本在住のミャンマー人にとっても注目すべき動向です。"
         return text
 
@@ -549,14 +549,33 @@ def main():
     visible = re.sub(r'&[a-zA-Z#0-9]+;', ' ', visible)
     bad = [m.group() for m in EN_RUN.finditer(visible)]
     if bad:
-        raise SystemExit(f"ERROR: 英文が残っているため公開を中止します: {bad[:5]}")
+        raise SystemExit(f"ERROR: 英文が残っているため公開を中止します（前日版を維持）: {bad[:5]}")
+    # 公開規定（myn_rules.md）の公開前チェック：不合格なら一切書き込まず前日版を維持
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from check_japanese import check_html
+    ng = check_html(html, out)
+    if ng:
+        raise SystemExit(f"ERROR: 公開前チェック不合格のため公開しません（前日版を維持）: {ng}")
 
+    # 前日版を退避（不合格時に復元するため）
+    prev = {p: open(p, encoding='utf-8').read() for p in ('index.html', 'archive.html') if os.path.exists(p)}
     open(out, 'w', encoding='utf-8').write(html)
     print(f"\n{out} 保存完了 ({len(html)} bytes)")
     shutil.copy(out, 'index.html')
     print("index.html更新完了")
 
     update_archive(ds, dj, vs, selected[:3], ja_titles)
+    ng_all = []
+    for p in (out, 'index.html', 'archive.html'):
+        ng = check_html(open(p, encoding='utf-8').read(), p)
+        if ng:
+            ng_all.append((p, ng))
+    if ng_all:
+        os.remove(out)
+        for p, c in prev.items():
+            open(p, 'w', encoding='utf-8').write(c)
+        raise SystemExit(f"ERROR: 公開後ファイルが公開前チェック不合格。前日版に戻しました: {ng_all}")
+    print("公開前チェック: 合格")
 
     # used-news.txt更新
     cur = open('used-news.txt', 'r', encoding='utf-8').read()
