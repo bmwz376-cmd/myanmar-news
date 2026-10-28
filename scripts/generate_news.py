@@ -26,29 +26,71 @@ def is_japanese(text):
     ja_chars = sum(1 for c in text if '\u3040' <= c <= '\u9fff')
     return ja_chars > len(text) * 0.2
 
-def translate_robust(text, retries=3):
-    """翻訳失敗・英語返却を検知して再試行する堅牢な翻訳関数"""
+class TranslationError(Exception):
+    """翻訳失敗。英語のまま公開しないために送出する"""
+    pass
+
+EN_RUN = re.compile(r"[A-Za-z][A-Za-z'\u2019\-]*(?:[ \t,.:;]+[A-Za-z][A-Za-z'\u2019\-]*){2,}")
+
+def has_english_run(text):
+    """英単語3語以上の連続が残っていれば True"""
+    t = re.sub(r'https?://\S+', ' ', text or '')
+    return bool(EN_RUN.search(t))
+
+def _translate_once(text):
+    from deep_translator import GoogleTranslator
+    # 長文は文単位で4500字以下に分割（上限超過による失敗・部分翻訳を防ぐ）
+    chunks, cur = [], ''
+    for sent in re.split(r'(?<=[.!?])\s+', text):
+        if len(cur) + len(sent) > 4500 and cur:
+            chunks.append(cur); cur = ''
+        cur += (' ' if cur else '') + sent
+    if cur:
+        chunks.append(cur)
+    out = []
+    for c in chunks:
+        r = GoogleTranslator(source='en', target='ja').translate(c)
+        out.append(r or '')
+        time.sleep(0.8)
+    return ''.join(out)
+
+def translate_robust(text, retries=5):
+    """翻訳し、日本語になっていなければ再試行。最終的に失敗したら TranslationError（英語のまま返さない）"""
     if not text or not text.strip():
         return text
-    text = text.strip()[:3000]
-
+    text = re.sub(r'&nbsp;|\xa0', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()[:6000]
+    last = ''
     for attempt in range(retries):
         try:
-            from deep_translator import GoogleTranslator
-            result = GoogleTranslator(source='en', target='ja').translate(text)
-            time.sleep(0.8)
+            result = _translate_once(text)
+            last = result
             if result and is_japanese(result):
                 return result
-            else:
-                print(f"  翻訳NG（日本語不足, 試行{attempt+1}/{retries}）: {str(result)[:40]}")
-                time.sleep(2)
+            print(f"  翻訳NG（日本語不足, 試行{attempt+1}/{retries}）: {str(result)[:40]}")
         except Exception as e:
             print(f"  翻訳例外 試行{attempt+1}: {e}")
-            time.sleep(2)
+        time.sleep(3 * (attempt + 1))
+    raise TranslationError(f"翻訳失敗: {text[:60]} -> {str(last)[:60]}")
 
-    # 全試行失敗 → 固有名詞変換のみ実施
-    print("  全翻訳試行失敗。固有名詞変換のみ実施。")
-    return apply_proper_nouns(text)
+def fix_residual_english(text):
+    """翻訳結果に残った英語の連続（人名・団体名など）を個別に再翻訳して置き換える"""
+    if not text:
+        return text
+    for _ in range(2):
+        runs = list(dict.fromkeys(m.group() for m in EN_RUN.finditer(apply_proper_nouns(text))))
+        if not runs:
+            break
+        text = apply_proper_nouns(text)
+        for run in runs:
+            try:
+                ja = _translate_once(run)
+            except Exception as e:
+                print(f"  残存英語の再翻訳失敗: {run[:40]} ({e})")
+                continue
+            if ja and not EN_RUN.search(ja):
+                text = text.replace(run, ja)
+    return text
 
 def apply_proper_nouns(text):
     """英語固有名詞を日本語に変換"""
@@ -237,7 +279,7 @@ def build_kaisetsu_from_content(title_en, content_en, url):
     # 翻訳結果が不十分な場合のフォールバック処理
     def clean_point(text, fallback_hint):
         if not text or not is_japanese(text):
-            return f"{apply_proper_nouns(fallback_hint[:200])}。日本在住のミャンマー人約6万人にとっても、この動向は精神的・社会的に大きな影響を持ちます。NL-DGのようなミャンマー人材受け入れ事業者は状況を注視する必要があります。"
+            return f"{fallback_hint[:200].rstrip('。') if is_japanese(fallback_hint) else 'この出来事はミャンマー情勢を理解するうえで重要な動きです'}。日本在住のミャンマー人約6万人にとっても、この動向は精神的・社会的に大きな影響を持ちます。NL-DGのようなミャンマー人材受け入れ事業者は状況を注視する必要があります。"
         # "Background:", "International response:", "Impact"等の接頭辞を除去
         text = re.sub(r'^(背景|国際的な対応|影響|Background|International|Impact)[：:]\s*', '', text)
         # 100文字未満の場合は補足を追加
@@ -245,7 +287,10 @@ def build_kaisetsu_from_content(title_en, content_en, url):
             text += f"この問題はミャンマーの政治・人道状況に深く関わるものであり、日本在住のミャンマー人にとっても注目すべき動向です。"
         return text
 
-    p1 = clean_point(p1_ja_raw, title_en + " " + first_para_text)
+    p1_ja_raw = fix_residual_english(p1_ja_raw)
+    p2_ja_raw = fix_residual_english(p2_ja_raw)
+    p3_ja_raw = fix_residual_english(p3_ja_raw)
+    p1 = clean_point(p1_ja_raw, "")
     p2 = clean_point(p2_ja_raw, "ASEAN・日本・国際社会がこの問題に対して継続的な関与を求めている。")
     p3 = clean_point(p3_ja_raw, "日本在住のミャンマー人と建設業界への影響が懸念される。")
 
@@ -308,16 +353,11 @@ def build_article_html(a, dj):
     tc, tl = categorize(title_en, content_en)
 
     print(f"  タイトル翻訳: {title_en[:50]}")
-    ja_title = translate_robust(title_en)
-    if not is_japanese(ja_title):
-        print(f"  タイトル翻訳失敗。固有名詞変換のみ実施。")
-        ja_title = apply_proper_nouns(title_en)
+    ja_title = fix_residual_english(apply_proper_nouns(translate_robust(title_en)))
 
     print(f"  本文翻訳...")
     body_source = re.sub(r'\s+', ' ', content_en[:800]).strip() if content_en else title_en
-    ja_body = translate_robust(body_source)
-    if not is_japanese(ja_body):
-        ja_body = apply_proper_nouns(body_source)
+    ja_body = fix_residual_english(apply_proper_nouns(translate_robust(body_source)))
     # 本文が短すぎる場合は補足
     if len(ja_body) < 80:
         ja_body = ja_title + "。詳細については原記事をご参照ください。"
@@ -447,11 +487,30 @@ def main():
     print("\n--- 記事HTML生成中 ---")
     articles_html_parts = []
     ja_titles = []
-    for i, a in enumerate(selected[:3]):
-        print(f"\n[記事{i+1}/{min(3, len(selected))}] {a['title'][:50]}")
-        art_html, ja_title = build_article_html(a, dj)
+    done_arts = []
+    candidates = selected + [x for x in all_arts if x not in selected and len(x['title']) >= 15]
+    for a in candidates:
+        if len(done_arts) >= 3:
+            break
+        print(f"\n[記事候補] {a['title'][:50]}")
+        try:
+            if len(a.get('content', '')) < 200:
+                a['content'] = fetch_article_detail(a['url'])
+            art_html, ja_title = build_article_html(a, dj)
+        except TranslationError as e:
+            print(f"  翻訳失敗のためこの記事をスキップ: {e}")
+            continue
+        vis = re.sub(r'<[^>]+>', '\n', art_html)
+        vis = re.sub(r'&[a-zA-Z#0-9]+;', ' ', vis)
+        if has_english_run(vis):
+            print(f"  英文残存のためこの記事をスキップ: {EN_RUN.search(vis).group()[:60]}")
+            continue
         articles_html_parts.append(art_html)
         ja_titles.append(ja_title)
+        done_arts.append(a)
+    if len(done_arts) < 3:
+        raise SystemExit(f"ERROR: 日本語化できた記事が{len(done_arts)}本のみ。英語記事は公開しないため中止します。")
+    selected = done_arts
 
     arts_html = '\n'.join(articles_html_parts)
     summary_titles = '」「'.join(t[:20] for t in ja_titles)
@@ -484,6 +543,14 @@ def main():
 </body>
 </html>"""
 
+    # 公開前チェック：画面テキストに英文が残っていたら公開せず失敗終了
+    visible = re.sub(r'<(script|style)[\s\S]*?</\1>', ' ', html)
+    visible = re.sub(r'<[^>]+>', '\n', visible)
+    visible = re.sub(r'&[a-zA-Z#0-9]+;', ' ', visible)
+    bad = [m.group() for m in EN_RUN.finditer(visible)]
+    if bad:
+        raise SystemExit(f"ERROR: 英文が残っているため公開を中止します: {bad[:5]}")
+
     open(out, 'w', encoding='utf-8').write(html)
     print(f"\n{out} 保存完了 ({len(html)} bytes)")
     shutil.copy(out, 'index.html')
@@ -499,4 +566,8 @@ def main():
     print(f"\n=== 完了: {vs} ({dj}) ===")
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except TranslationError as e:
+        # 英語のまま公開しない：ファイルを書かずに異常終了 → Actions が失敗し commit/push されない
+        raise SystemExit(f"ERROR: {e}")
