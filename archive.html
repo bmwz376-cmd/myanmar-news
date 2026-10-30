@@ -58,6 +58,16 @@ a{text-decoration:none;color:inherit;}
   .grid{grid-template-columns:1fr;}
   .latest-banner{flex-direction:column;}
 }
+.month-bar{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 28px;}
+.month-btn{border:1px solid #d0dcee;background:#fff;color:#0D2B5E;font-family:inherit;font-size:13px;font-weight:700;padding:8px 16px;border-radius:24px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px;}
+.month-btn small{font-size:11px;font-weight:700;color:#4a5b75;}
+.month-btn:hover{border-color:#C9A84C;color:#C9A84C;}
+.month-btn.active{background:#0D2B5E;border-color:#0D2B5E;color:#fff;}
+.month-btn.active small{color:#C9A84C;}
+.month-title{font-size:20px;font-weight:900;color:#0D2B5E;margin:0 0 18px;display:flex;align-items:baseline;gap:10px;}
+.month-title span{font-size:12px;font-weight:700;color:#C9A84C;}
+@media(max-width:600px){.month-bar{display:grid;grid-template-columns:1fr 1fr;}.month-btn{font-size:12px;padding:8px 10px;justify-content:center;}}
+#month-bar~.grid .card-tags span{display:inline-block;margin:0 4px 4px 0;}
 </style>
 </head>
 <body>
@@ -77,22 +87,24 @@ a{text-decoration:none;color:inherit;}
   <div class="hero-inner">
     <div class="hero-label">BACK NUMBER</div>
     <h1>バックナンバー一覧</h1>
-    <div class="hero-sub">Vol.01（2026年7月7日）から最新号まで、全号を掲載しています。</div>
+    <div class="hero-sub">月を選ぶと、その月に発行した号を表示します。</div>
   </div>
 </div>
 <div class="wrap">
   <div class="latest-banner">
     <div>
       <div class="lb-label">最新号</div>
-      Vol.023 | 2026年8月3日（月）
-      <div class="lb-sub">チョー・モー・トゥン大使・国連支援要請 ／ アウンサン・スーチー氏・赤十字面会 ／ 軍政の対外対応</div>
+      <div class="lb-title" id="lb-title">Vol.110 | 2026年10月30日（金）</div>
+      <div class="lb-sub" id="lb-sub">最新号の記事一覧は下のカードをご覧ください</div>
     </div>
     <a href="index.html" class="lb-btn">今日の記事を読む →</a>
   </div>
   <div class="section-head">
-    <h2>全バックナンバー</h2>
+    <h2>月別バックナンバー</h2>
     <span class="count-badge">103号</span>
   </div>
+  <div class="month-bar" id="month-bar"></div>
+  <div class="month-title" id="month-title"></div>
   <div class="grid">
     <!-- Vol.110 -->
     <div class='card'><div class='card-top'><div class='card-vol'>Vol.110</div><div class='card-date'>2026年10月30日（金）</div></div><div class='card-body'><div class='card-tags'><span class='tag tp'>国際・外交</span><span class='tag ti'>人権・経済</span><span class='tag ts'>移民・労働</span><span class='tag tc'>政治・少数民族</span></div><ul class='card-titles'><li>ASEAN特使、スーチー氏との面会を再び拒否される　軍政は「ASEAN復帰」を狙...</li><li>国連特別報告者「人権状況は壊滅的」　詐欺拠点など違法経済が戦争の資金に</li><li>マレーシア、ミャンマー人3,500人の送還を続行へ　裁判所が差し止めを認めず</li><li>チンの抵抗勢力、新しい「チン民族評議会」で一つの州政府へ　新憲章を共同で作成</li><li>タイ軍がミャンマー側へ警告射撃　砲弾が国境を越え、メーソートで女性が負傷</li><li>カチン独立軍、バモーの軍司令部への攻撃を再開　軍は反撃</li></ul></div><div class='card-footer'><a href='news-2026-10-30.html' class='card-link'>▶ この号を読む</a></div></div>
@@ -513,5 +525,26 @@ a{text-decoration:none;color:inherit;}
 <footer class="footer">
   <p>&copy; 2026 ミャンマーニュース | ミャンマーと日本をつなぐ情報誌</p>
 </footer>
+<script>
+(function(){
+ var grid=document.querySelector('.grid');var cards=[].slice.call(grid.querySelectorAll('.card'));
+ var bar=document.getElementById('month-bar');var title=document.getElementById('month-title');var badge=document.querySelector('.count-badge');
+ var groups={};var order=[];
+ cards.forEach(function(c){var d=c.querySelector('.card-date');var m=d&&d.textContent.match(/(\d{4})年(\d{1,2})月/);var k=m?m[1]+'-'+('0'+m[2]).slice(-2):'other';c.dataset.month=k;if(!groups[k]){groups[k]=[];order.push(k);}groups[k].push(c);});
+ order.sort().reverse();
+ function label(k){var p=k.split('-');return p[0]+'年'+(+p[1])+'月';}
+ function show(k){cards.forEach(function(c){c.style.display=(k==='all'||c.dataset.month===k)?'':'none';});
+  [].forEach.call(bar.children,function(b){b.classList.toggle('active',b.dataset.k===k);});
+  var n=k==='all'?cards.length:groups[k].length;title.innerHTML=(k==='all'?'すべての号':label(k)+'のバックナンバー')+'<span>'+n+'号</span>';
+  if(badge)badge.textContent=cards.length+'号';if(history.replaceState)history.replaceState(null,'','#'+k);}
+ function btn(k,t,n){var b=document.createElement('button');b.className='month-btn';b.dataset.k=k;b.innerHTML=t+'<small>'+n+'号</small>';b.onclick=function(){show(k);};bar.appendChild(b);}
+ order.forEach(function(k){if(k!=='other')btn(k,label(k),groups[k].length);});btn('all','すべて',cards.length);
+ var first=cards[0];if(first){var v=first.querySelector('.card-vol'),d=first.querySelector('.card-date'),lis=first.querySelectorAll('.card-titles li');
+  document.getElementById('lb-title').textContent=(v?v.textContent:'')+' | '+(d?d.textContent:'');
+  document.getElementById('lb-sub').textContent=[].map.call(lis,function(l){return l.textContent;}).slice(0,3).join(' ／ ');}
+ [].forEach.call(document.querySelectorAll('.card-tags'),function(t){var seen={};[].slice.call(t.children).forEach(function(s){var k=s.textContent.trim();if(seen[k])s.remove();else seen[k]=1;});});
+ var h=location.hash.replace('#','');show(groups[h]||h==='all'?h:order[0]);
+})();
+</script>
 </body>
 </html>
